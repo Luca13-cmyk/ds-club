@@ -1,0 +1,6 @@
+ds club:
+    banco de dados:
+         tb_persons
+         tb_users
+         
+         

@@ -28,10 +28,7 @@ if (window.screen.width > 1200)
 // ################ Events
 
 
-window.addEventListener("load", function(){
-   this.document.getElementById("preloader").style.display = "none";
 
- }, false);
 
 $close_button.on("click", function(e){
  e.preventDefault();

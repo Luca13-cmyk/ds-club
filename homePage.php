@@ -5,7 +5,7 @@ use \Hcode\Model\User;
 
 $app->get('/', function() {
     
-    countQntIpPer();
+    
     
     
     $page = new Page();
@@ -16,7 +16,7 @@ $app->get('/', function() {
 });
 $app->get('/login', function() {
     
-    countQntIpPer();
+    
     
     $page = new Page([
         "header"=>false,

@@ -6,6 +6,17 @@
     background-size: cover;
     background-repeat: no-repeat;
 } */
+
+
+
+
+body,html
+{
+    background: #000 !important;
+}
+
+
+
 #carouselExampleFade
 {
     margin: 0 auto;
@@ -106,9 +117,11 @@ div[data-title-topic-card]
 
 
 
+
 html.dark body
 {
     color: #fff;
+    background: #000;
 
 }
 html.dark body *.nc-icon
@@ -148,6 +161,7 @@ html.dark body .main-panel
 
 {
     background: #222;
+    transition: none !important;
 }
 html.dark body .main-panel .card *
 
@@ -156,6 +170,45 @@ html.dark body .main-panel .card *
     background: rgb(41, 41, 41) !important;
     color: #fff;
 }
+html.dark body ul#pagination_per
+{
+    background: #000;
+}
+html.dark body button span 
+{
+    color: #fff !important;
+    background-color: #fff !important;
+}
+html.dark body .navbar.bg-white
+{
+    background: #222 !important;
+    
+}
+html.dark body .navbar .navbar-nav *
+{
+    color: #fff !important;
+    background: #222 !important;
+    
+
+}
+html.dark body .navbar-brand
+{
+    color: #fff !important;
+}
+
+html.dark body .nav-arrows a
+{
+    background-color: #222 !important;
+    
+}
+html.dark body  #preloader
+{
+    background: #666;
+}
+html.dark body  .wrapper{
+    background: #666;
+}
+
 
 
 /* ################## Pagination #################### */
@@ -165,6 +218,71 @@ html.dark body .main-panel .card *
     margin: auto;
     margin-top: 40px;
     overflow: hidden;
+    padding: 20px;
+    
+}
+
+
+ul#pagination_per
+
+{
+	position: relative;
+	background: #fff;
+	display: flex;
+	padding: 10px 20px;
+	border-radius: 50px;
+	box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+ul#pagination_per li
+{
+	list-style: none;
+	line-height: 50px;
+	margin: 0 5px;
+}
+
+ul#pagination_per li.pageNumber
+{
+	width: 50px;
+    height: 50px;
+	line-height: 50px;
+	text-align: center;
+
+}
+
+ul#pagination_per li a
+{
+	display: block;
+	text-decoration: none;
+	color: #777;
+	font-weight: 600;
+    border-radius: 50%;
+    font-family: Arial, Verdana, sans-serif;
+}
+ul#pagination_per li.pageNumber:hover a,
+ul#pagination_per li.pageNumber.current a
+
+{
+	background: #333;
+	color: #fff;
+}
+ul#pagination_per li:first-child
+{
+	margin-right: 30px; 
+	font-weight: 700;
+	font-size: 20px;
+}
+ul#pagination_per li:last-child
+{
+	margin-left: 30px; 
+	font-weight: 700;
+	font-size: 20px;
+}
+
+/* Carousel */
+
+#carousel_slider_bootstrap
+{
+    display: none;
 }
 
 
@@ -199,10 +317,48 @@ html.dark body .main-panel .card *
 }
 @media (max-width: 711px)
 {
+    .wrapper_per
+    {
+        display: none;
+    }
 
+    #carousel_slider_bootstrap
+    {
+    display: block;
+    }
     .col-sm-6 {
         -ms-flex: 0 0 80%;
         flex: 0 0 80%;
         max-width: 80%;
     }
+    .pagination_content_per
+    {
+        margin-left: -15px;
+    }
+    .pagination_content_per  #pagination_per
+    {
+        background: none;
+        box-shadow: none;
+        
+    }
+    ul#pagination_per li:first-child
+    {
+       display: none;
+    }
+    ul#pagination_per li:last-child
+    {
+        display: none;
+    }
+    ul#pagination_per li.pageNumber
+    {
+        /* margin-right: 40px; */
+        padding-right: 20px;
+        width: 80px;
+    }
+    ul#pagination_per li.pageNumber:hover a, ul#pagination_per li.pageNumber.current a 
+    {
+        background: none;
+        color: #ef8157;
+    }
+
 }

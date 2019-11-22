@@ -23,7 +23,15 @@ use \Hcode\DB\Sql;
 			return "active";
 		}
 		
-	}
+    }
+    function sliderCUBO()
+    {
+        if ($_SERVER["REQUEST_URI"] === "/home")
+        {
+            return true;
+        }
+        return false;
+    }
 
 	function querySearch(Object $model, $domain)
 	{

@@ -39,16 +39,13 @@
 <script src="/res/site/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/res/site/assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<!-- JS LONELY -->
 <script src="/res/site/assets/lonely/lonelyTool.js"></script>
 <script src="/res/site/assets/lonely/lonely.js"></script>
-<script>
+<!-- SlideCub -->
+<script type="text/javascript" src="/res/site/sliderCUBO/js/jquery.slicebox.min.js"></script>
+<script src="/res/site/sliderCUBO/js/sliderCUB.min.js"></script>
 
-$(window).on("load", function(){
-  $("#preloader").hide();
- });
-
-</script>
 </body>
 
 </html>

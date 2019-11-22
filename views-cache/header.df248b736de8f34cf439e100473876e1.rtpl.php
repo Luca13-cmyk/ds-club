@@ -26,6 +26,15 @@ ds-club
   <link rel="stylesheet" href="/res/site/assets/lonely/main.css">
   <!-- CSS loader -->
   <link rel="stylesheet" href="/res/site/assets/loader2.0/loader.css">
+  <!-- SLIDER CUB -->
+  <?php if( $_SERVER['REQUEST_URI'] === '/home' ){ ?>
+
+  <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/demo.min.css" />
+  <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/slicebox.min.css" />
+  <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/custom.min.css" />
+  <script type="text/javascript" src="/res/site/sliderCUBO/js/modernizr.custom.46884.js"></script>
+  <?php } ?>
+
 </head>
 
 <body class="">

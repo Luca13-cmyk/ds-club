@@ -5,35 +5,98 @@
       <div class="content">
         
           <div class="row">
-              <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="/res/site/assets/img/LEHQ.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption d-none d-md-block">
+              <div id="carousel_slider_bootstrap" class="bd-example">
+                  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                      
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="/res/site/assets/img/banner2019DC1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption  d-md-block">
                           <h5>First slide label</h5>
                           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img src="/res/site/assets/img/banner2019DC1.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
-                          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                      <div class="carousel-item">
+                        <img src="/res/site/assets/img/LEHQ.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption  d-md-block">
+                          <h5>Second slide label</h5>
+                          <p>Aprenda a ler com .cbr</p>
+                        </div>
                       </div>
+                      
                     </div>
-                    <div class="carousel-item">
-                      <img src="/res/site/assets/img/LEHQ.jpg" class="d-block w-100" alt="...">
-                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
                 </div>
+                <!-- Second slider -->
+                <div class="wrapper_per">
+
+                  <ul id="sb-slider" class="sb-slider">
+                    <li>
+                      <a href="#" target="_blank"><img  src="/res/site/assets/img/banner2019DC1.jpg" alt="image1"/></a>
+                      <div class="sb-description">
+                        <h3></h3>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="#" target="_blank"><img  src="/res/site/assets/img/LEHQ.jpg" alt="image2"/></a>
+                      <div class="sb-description">
+                        <h3>Aprenda a ler com .cbr</h3>
+                      </div>
+                    </li>
+                    <!-- <li>
+                      <a href="http://www.flickr.com/photos/strupler/2968114825" target="_blank"><img src="/res/site/sliderCUBO/images/3.jpg" alt="image1"/></a>
+                      <div class="sb-description">
+                        <h3>Brave Astronaut</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="http://www.flickr.com/photos/strupler/2968122059" target="_blank"><img src="/res/site/sliderCUBO/images/4.jpg" alt="image1"/></a>
+                      <div class="sb-description">
+                        <h3>Affectionate Decision Maker</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="http://www.flickr.com/photos/strupler/2969119944" target="_blank"><img src="/res/site/sliderCUBO/images/5.jpg" alt="image1"/></a>
+                      <div class="sb-description">
+                        <h3>Faithful Investor</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="http://www.flickr.com/photos/strupler/2968126177" target="_blank"><img src="/res/site/sliderCUBO/images/6.jpg" alt="image1"/></a>
+                      <div class="sb-description">
+                        <h3>Groundbreaking Artist</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="http://www.flickr.com/photos/strupler/2968945158" target="_blank"><img src="/res/site/sliderCUBO/images/7.jpg" alt="image1"/></a>
+                      <div class="sb-description">
+                        <h3>Selfless Philantropist</h3>
+                      </div>
+                    </li> -->
+                  </ul>
+          
+                  <!-- <div id="shadow" class="shadow" style="display: none!important;"></div> -->
+          
+                  <div id="nav-arrows" class="nav-arrows">
+                    <a data-next_slide_cub href="#">Next</a>
+                    <a data-prev_slide_cub href="#">Previous</a>
+                  </div>
+                </div>
+            
+                  
+
           </div>
           
         
@@ -74,8 +137,9 @@
                       <img src="https://i.postimg.cc/qqm4XMxs/ljs7.gif" width="208" height="340" title="Naomi (2019)">
                     
                     <span class=""><i style="font-size: 45px;" class="nc-icon nc-spaceship"></i></span>
-                    <div class="card-footer">
+                    <div style="overflow: hidden;" class="card-footer">
                       <small class="text-muted">13/03/2007</small>
+                      <small style="float: right;margin-top: 2px;" class="text-muted">Lex Luthor (2019)</small>
                       
                     </div>
                   </div>
@@ -92,82 +156,16 @@
         </div>
         <div class="row">
             <div class="pagination_content_per">
-                <nav aria-label="...">
-                    <ul id="pagination_per" class="pagination pagination-sm">
-                      
-                      <!-- <li class="page-item "><a class="page-link" href="#">1</a></li> -->
-                      
+                
+                    <ul id="pagination_per" class="pagination">
+                      <!-- <li><a href="#" class="prev"> Prev</a></li> -->
+                      <!-- <li class="pageNumber"><a class="" href="#">1</a></li> -->
+                      <!-- <li><a href="#" class="next">Next</a></li> -->
     
                     </ul>
-                  </nav>
+                  
             </div>
         </div>
+       
       </div>
-      <!-- <div class="row">
-          
-             <div class="">
-                <nav aria-label="...">
-                    <ul id="pagination_per" class="pagination pagination-sm">
-                      
-                      <li class="page-item "><a class="page-link" href="#">1</a></li>
-                      
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item current"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      
-                      
-                    </ul>
-                  </nav>
-             </div>
-          
-      </div> -->
-
-  
-  <!-- Modal Code Error -->
-  <div class="modal fade" id="codigos_erros" tabindex="-1" role="dialog" aria-labelledby="codigos_erros" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Codigos de erros</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <b>1 -></b> <i>Erro na requisicao do ajax. Ou dados incompletos recebidos. Codigo Atual: <small id="show_error_code_ajax"></small></i>
-          <hr>
-          <b>2 -></b> <i>Dados nao foram bem trabalhados, provavelmente, dados incompletos ou erro de sintaxe. Error: <small id="show_error_code_trycatch_ajax"></small></i>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+      

@@ -10,7 +10,7 @@ class Mailer
 {
     const USERNAME = "hydena788@gmail.com";
     const PASSWORD = "#Ln13131301!???";
-    const NAME_FROM = "Hcode Store";
+    const NAME_FROM = "ds-club";
     const HOST = "smtp.gmail.com";
     const PORT = 587;
 

@@ -42,6 +42,7 @@ $app->get('/register', function() {
 
     $page->setTpl("register-page", [
         "errorRegister"=>User::getErrorRegister(),
+        "successRegister"=>User::getSuccess(),
         'registerValues'=>(isset($_SESSION['registerValues'])) ? $_SESSION['registerValues'] : ['name'=>'', 'email'=>'', 'phone'=>'']
     ]);
 });
@@ -68,6 +69,7 @@ $app->get('/register/confirm', function() {
 
     if ($_GET["code"])
     {
+        $code = $_GET["code"];
 
         $code = base64_decode($code);
     
@@ -85,17 +87,6 @@ $app->get('/register/confirm', function() {
         exit;
     }
     
-    
-
-    // $page = new Page([
-    //     "header"=>false,
-    //     "footer"=>false
-    // ]);
-
-    // $page->setTpl("register-page", [
-    //     "errorRegister"=>User::getErrorRegister(),
-    //     'registerValues'=>(isset($_SESSION['registerValues'])) ? $_SESSION['registerValues'] : ['name'=>'', 'email'=>'', 'phone'=>'']
-    // ]);
 });
 
 $app->post("/register", function(){
@@ -153,6 +144,8 @@ $app->post("/register", function(){
         'despassword'=>$_POST['password'],
         'nrphone'=>$_POST['phone']
     ]);
+
+    $user->setSuccess("Email enviado para $_POST['email'], por favor, confirme o cadastro.");
 
     header('Location: /register');
     exit;

@@ -4,13 +4,15 @@
           <div class="col-md-4">
             <div class="card card-user">
               <form action="/profile/cap" enctype="multipart/form-data" method="post">
+                <a id="submit_cap_toggle" href="#">
 
-              <div class="image">
-                <img src="{$user.desphotocap}" alt="...">
-                
-              </div>
-              <input type="file" id="cap" name="cap" role="button">Trocar capa</input>
-              <input type="submit" value="trocar">
+                  <div class="image">
+                    <img src="{$user.desphotocap}" alt="...">
+                    
+                  </div>
+                </a>
+              <input style="display:none" type="file" id="cap" name="cap" role="button">Trocar capa</input>
+              <input style="display:none" id="sendcap" type="submit" value="trocar">
             </form>
               <div class="card-body">
                   <form action="/profile/avatar" enctype="multipart/form-data" method="post">

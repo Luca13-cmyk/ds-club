@@ -75,11 +75,11 @@ $app->get('/register/confirm', function() {
     
         $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 
-    
+        $data = json_decode($data, true);
 
         $user = new User();
     
-        $user->setData(json_decode($data, true));
+        $user->setData($data);
     
         $user->save();
     
@@ -148,7 +148,7 @@ $app->post("/register", function(){
     ));
     $mailer->send();
 
-    
+    $user = new User();
 
     $user->setSuccess("Email enviado para". $_POST['email'] . ", por favor, confirme o cadastro.");
 

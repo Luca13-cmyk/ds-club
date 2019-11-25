@@ -7,10 +7,10 @@
 
               <div class="image">
                 <img src="{$user.desphotocap}" alt="...">
-                <button type="file" id="cap" name="cap" role="button">Editar capa</button>
-                <input type="submit" value="trocar">
-
+                
               </div>
+              <input type="file" id="cap" name="cap" role="button">Trocar capa</input>
+              <input type="submit" value="trocar">
             </form>
               <div class="card-body">
                   <form action="/profile/avatar" enctype="multipart/form-data" method="post">
@@ -20,12 +20,12 @@
                         <h5 class="title">{$user.desperson}</h5>
                       </a>
                  
-                    <button type="file" id="avatar" name="avatar" role="button">Editar capa</button>
+                    <input type="file" id="avatar" name="avatar" role="button">Trocar avatar</input>
                       <p class="description">
                           {$user.desemail}
                       </p>
+                      <input type="submit" value="trocar">
                     </div>
-                    <input type="submit" value="trocar">
                   </form>
               
                 <p class="description text-center">

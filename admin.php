@@ -12,7 +12,9 @@ $app->get('/admin', function() {
 	User::verifyLogin();
 
     $page = new PageAdmin();
-	$page->setTpl("index");
+	$page->setTpl("index", [
+        "error"=>User::getError()
+    ]);
 
 });
 $app->get('/admin/login', function() {
@@ -24,9 +26,16 @@ $app->get('/admin/login', function() {
 	
 });
 $app->post('/admin/login', function() {
-	User::login($_POST["login"], $_POST["password"]);
-	header("Location: /admin");
-	exit;
+	
+	try {
+
+        User::login($_POST["login"], $_POST["password"]);
+
+   } catch (Exception $e) {
+       User::setError($e->getMessage());
+       header("Location: /admin/login");
+       exit;
+   }
 	
 });
 $app->get('/admin/logout', function() {

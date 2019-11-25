@@ -7,7 +7,7 @@
                 <a id="submit_cap_toggle" href="#">
 
                   <div class="image">
-                    <img src="{$user.desphotocap}" alt="...">
+                    <img src="{$user.desphotocap}" alt="cap">
                     
                   </div>
                 </a>
@@ -17,53 +17,38 @@
               <div class="card-body">
                   <form action="/profile/avatar" enctype="multipart/form-data" method="post">
                     <div class="author">
-                      <a href="#">
-                        <img class="avatar border-gray" src="{$user.desphotoavatar}" alt="...">
+                      <a id="submit_avatar_toggle" href="#">
+                        <img class="avatar border-gray" src="{$user.desphotoavatar}" alt="avatar">
                         <h5 class="title">{$user.desperson}</h5>
                       </a>
                  
-                    <input style="display:none" type="file" id="avatar" name="avatar" role="button">Trocar avatar</input>
-                    <input style="display:none" type="submit" value="trocar">
+                    <input style="display:none" type="file" id="avatar" name="avatar" role="button">
+                    <input style="display:none" type="submit" id="sendavatar" value="trocar">
                     </form>
                         <p class="description">
                             {$user.desemail}
                         </p>
                     </div>
-                <p class="description text-center">
-                  "I like the way you work it
-                  <br> No diggity
-                  <br> I wanna bag it up"
-                </p>
+                
               </div>
               <div class="card-footer">
                 <hr>
                 <div class="button-container">
                   <div class="row">
                     <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                      <h5>12
+                      <h5>Registrou-se em
                         <br>
-                        <small>Files</small>
+                        <small>{function="formatDate($user.getdtregister)"}</small>
                       </h5>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-                      <h5>2GB
-                        <br>
-                        <small>Used</small>
-                      </h5>
-                    </div>
-                    <div class="col-lg-3 mr-auto">
-                      <h5>24,6$
-                        <br>
-                        <small>Spent</small>
-                      </h5>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
             </div>
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Team Members</h4>
+                <h4 class="card-title">Dados</h4>
               </div>
               <div class="card-body">
                 <ul class="list-unstyled team-members">
@@ -71,22 +56,22 @@
                     <div class="row">
                       <div class="col-md-2 col-2">
                         <div class="avatar">
-                          <img src="/res/admin/assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                          <img src="{$user.desphotoavatar}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                         </div>
                       </div>
                       <div class="col-md-7 col-7">
-                        DJ Khaled
+                        Senha
                         <br />
                         <span class="text-muted">
-                          <small>Offline</small>
+                          <small>Alterar a senha</small>
                         </span>
                       </div>
                       <div class="col-md-3 col-3 text-right">
-                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
+                        <a href=""><btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-key"></i></btn></a>
                       </div>
                     </div>
                   </li>
-                  <li>
+                  <!-- <li>
                     <div class="row">
                       <div class="col-md-2 col-2">
                         <div class="avatar">
@@ -104,8 +89,8 @@
                         <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
                       </div>
                     </div>
-                  </li>
-                  <li>
+                  </li> -->
+                  <!-- <li>
                     <div class="row">
                       <div class="col-md-2 col-2">
                         <div class="avatar">
@@ -123,7 +108,7 @@
                         <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
                       </div>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -131,77 +116,34 @@
           <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Edit Profile</h5>
+                <h5 class="card-title">Editar dados do perfil</h5>
               </div>
               <div class="card-body">
                 <form>
                   <div class="row">
+                    
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
-                        <label>Company (disabled)</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
-                      </div>
-                    </div>
-                    <div class="col-md-3 px-1">
-                      <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <label>E-mail/Username</label>
+                        <input type="text" class="form-control" placeholder="Username/E-mail" value="{$user.desemail}">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Chet">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" placeholder="Company" value="{$user.desperson}">
                       </div>
                     </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Faker">
-                      </div>
-                    </div>
+                    
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Melbourne, Australia">
-                      </div>
-                    </div>
-                  </div>
+                  
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Melbourne">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-1">
-                      <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="Australia">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>About Me</label>
-                        <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                        <label>Telefone</label>
+                        <input type="text" class="form-control" placeholder="Telefone" value="{$user.nrphone}">
                       </div>
                     </div>
                   </div>

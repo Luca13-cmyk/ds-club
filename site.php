@@ -5,7 +5,8 @@ use \Hcode\PageSite;
 $app->get('/home', function() {
     
     
-    
+    User::verifyLogin(false, false);
+
     $page = new PageSite();
     $page->setTpl("dashboard");
    
@@ -15,7 +16,7 @@ $app->get('/home', function() {
 
 $app->get('/topics', function() {
     
-   
+   User::verifyLogin(false, false);
     
     $page = new PageSite();
     $page->setTpl("topics");

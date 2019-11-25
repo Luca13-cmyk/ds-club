@@ -326,39 +326,49 @@ class User extends Model {
 
 	public static function registerValidConfirm()
 	{
-		if ($_GET["data"])
-    	{
+		try {
+			
+			saveData();
 
-			try {
+		} catch (\Exception $th) {
+			User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
+			header("Location: /register");
+			exit;
+		}
+
+		function saveData()
+		{
+			if ($_GET["data"])
+			{
+				try {
+					
+					$data = $_GET["data"];
+			
+					$data = base64_decode($data);
 				
-				$data = $_GET["data"];
-		
-				$data = base64_decode($data);
+					$datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 			
-				$datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
-		
-				$datarecovery  = json_decode($datarecovery, true);
+					$datarecovery  = json_decode($datarecovery, true);
+					
+			
+					$user = new User();
 				
-		
-				$user = new User();
-			
-				$user->setData($datarecovery);
-			
-				$user->save();
-			
-				header('Location: /login');
-				exit;
-
-
-
-			} catch (\Exception $th) {
+					$user->setData($datarecovery);
 				
-				User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
-				header("Location: /register");
-				exit;
+					$user->save();
+				
+					header('Location: /login');
+					exit;
+
+				} catch (\Exception $th) {
+					
+					User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
+					header("Location: /register");
+					exit;
+				}
+
 			}
-
-    	}
+		}
 	}
 
 

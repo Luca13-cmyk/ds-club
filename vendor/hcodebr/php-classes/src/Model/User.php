@@ -352,7 +352,10 @@ class User extends Model {
 
 
 			} catch (\Exception $th) {
+				
 				User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
+				header("Location: /register");
+				exit;
 			}
 
     	}

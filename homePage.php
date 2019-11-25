@@ -67,22 +67,23 @@ $app->post("/login", function(){
 });
 $app->get('/register/confirm', function() {
 
-    if ($_GET["code"])
+    if ($_GET["data"])
     {
-        $code = $_GET["code"];
+        $data = $_GET["data"];
 
-        $code = base64_decode($code);
+        $data = base64_decode($data);
     
-        $emailrecovery = openssl_decrypt($code, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+        $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+
+    
 
         $user = new User();
-        
-        $user->setdeslogin($emailrecovery);
-        var_dump($user->getValues());
-        exit;
+    
+        $user->setData($data);
+    
         $user->save();
     
-        User::login($emailrecovery, $user->getdespassword());
+        User::login($user->getdeslogin(), $user->getdespassword());
     
         header('Location: /home');
         exit;
@@ -126,25 +127,26 @@ $app->post("/register", function(){
 
     }
 
-    $code = openssl_encrypt($_POST['email'], 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
-
-	$code = base64_encode($code);
-    
-    $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
-        "name"=>$_POST['name'],
-        "link"=>"https://lds-club-com.umbler.net/register/confirm?code=$code"
-    ));
-    $mailer->send();
-
-    $user = new User();
-    
-    $user->setData([
+    $data = [
         'inadmin'=>0,
+        'deslogin'=>$_POST['email'],
         'desperson'=>$_POST['name'],
         'desemail'=>$_POST['email'],
         'despassword'=>$_POST['password'],
         'nrphone'=>$_POST['phone']
-    ]);
+    ];
+
+    $data = openssl_encrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+
+	$data = base64_encode($data);
+    
+    $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
+        "name"=>$_POST['name'],
+        "link"=>"https://lds-club-com.umbler.net/register/confirm?data=$data"
+    ));
+    $mailer->send();
+
+    
 
     $user->setSuccess("Email enviado para". $_POST['email'] . ", por favor, confirme o cadastro.");
 

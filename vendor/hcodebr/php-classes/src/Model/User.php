@@ -326,15 +326,7 @@ class User extends Model {
 
 	public static function registerValidConfirm()
 	{
-		try {
-			
-			saveData();
-
-		} catch (\Exception $th) {
-			User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
-			header("Location: /register");
-			exit;
-		}
+		
 
 		function saveData()
 		{
@@ -368,6 +360,16 @@ class User extends Model {
 				}
 
 			}
+		}
+
+		try {
+			
+			saveData();
+
+		} catch (\Exception $th) {
+			User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
+			header("Location: /register");
+			exit;
 		}
 	}
 

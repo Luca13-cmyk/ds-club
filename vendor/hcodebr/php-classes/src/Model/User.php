@@ -276,7 +276,7 @@ class User extends Model {
 		
 		$mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
 			"name"=>$_POST['name'],
-			"link"=>User::domain."/register/confirm?data=$data"
+			"link"=>User::DOMAIN."/register/confirm?data=$data"
 		));
 		$mailer->send();
 	

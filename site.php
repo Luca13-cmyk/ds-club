@@ -22,7 +22,8 @@ $app->get('/profile', function() {
     
     User::verifyLogin(false, false);
 
-    $user = new User();
+    $user = User::getFromSession();
+   
 
     $user->setPhotoCap($_FILES["cap"]);
 
@@ -34,8 +35,9 @@ $app->get('/profile', function() {
     
     User::verifyLogin(false, false);
 
-    $user = new User();
+    $user = User::getFromSession();
     
+
     $user->setPhotoAvatar($_FILES["avatar"]);
 
     header("Location: /profile");

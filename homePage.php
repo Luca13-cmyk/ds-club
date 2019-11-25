@@ -145,7 +145,7 @@ $app->post("/register", function(){
         'nrphone'=>$_POST['phone']
     ]);
 
-    $user->setSuccess("Email enviado para $_POST['email'], por favor, confirme o cadastro.");
+    $user->setSuccess("Email enviado para". $_POST['email'] . ", por favor, confirme o cadastro.");
 
     header('Location: /register');
     exit;

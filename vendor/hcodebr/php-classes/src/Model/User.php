@@ -330,7 +330,7 @@ class User extends Model {
 
 		function saveData()
 		{
-			if ($_GET["data"])
+			if ($_GET["data"] && $_GET["data"] != '')
 			{
 				try {
 					
@@ -359,6 +359,11 @@ class User extends Model {
 					exit;
 				}
 
+			} else 
+			{
+				User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
+				header("Location: /register");
+				exit;
 			}
 		}
 

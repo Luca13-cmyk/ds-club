@@ -12,9 +12,7 @@ $app->get('/admin', function() {
 	User::verifyLogin();
 
     $page = new PageAdmin();
-	$page->setTpl("index", [
-        "error"=>User::getError()
-    ]);
+	$page->setTpl("index");
 
 });
 $app->get('/admin/login', function() {
@@ -22,7 +20,9 @@ $app->get('/admin/login', function() {
 		"header"=>false,
 		"footer"=>false
 	]);
-	$page->setTpl("login");
+	$page->setTpl("login",[
+        "error"=>User::getError()
+    ]);
 	
 });
 $app->post('/admin/login', function() {

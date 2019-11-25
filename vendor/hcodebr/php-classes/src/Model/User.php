@@ -259,6 +259,45 @@ class User extends Model {
 
 	public static function registerValid()
 	{
+
+		$_SESSION['registerValues'] = $_POST;
+
+		if (!isset($_POST['name']) || $_POST['name'] == '') 
+		{
+
+			User::setErrorRegister("Preencha o seu nome.");
+			header("Location: /register");
+			exit;
+
+		}
+
+		if (!isset($_POST['email']) || $_POST['email'] == '') 
+		{
+
+			User::setErrorRegister("Preencha o seu e-mail.");
+			header("Location: /register");
+			exit;
+
+		}
+
+		if (!isset($_POST['password']) || $_POST['password'] == '') 
+		{
+
+			User::setErrorRegister("Preencha a senha.");
+			header("Location: /register");
+			exit;
+
+		}
+
+		if (User::checkLoginExist($_POST['email']) === true) 
+		{
+
+			User::setErrorRegister("Este endereço de e-mail já está sendo usado por outro usuário.");
+			header("Location: /register");
+			exit;
+
+		}
+
 		$data = [
 			'inadmin'=>0,
 			'deslogin'=>$_POST['email'],
@@ -289,23 +328,33 @@ class User extends Model {
 	{
 		if ($_GET["data"])
     	{
-        $data = $_GET["data"];
 
-        $data = base64_decode($data);
-    
-        $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+			try {
+				
+				$data = $_GET["data"];
+		
+				$data = base64_decode($data);
+			
+				$datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+		
+				$datarecovery  = json_decode($datarecovery, true);
+				
+		
+				$user = new User();
+			
+				$user->setData($datarecovery);
+			
+				$user->save();
+			
+				header('Location: /login');
+				exit;
 
-        $datarecovery  = json_decode($datarecovery, true);
-        
 
-        $user = new User();
-    
-        $user->setData($datarecovery);
-    
-        $user->save();
-    
-        header('Location: /login');
-        exit;
+
+			} catch (\Exception $th) {
+				User::setErrorRegister("Nao foi possivel fazer o cadastro. Tente novamente");
+			}
+
     	}
 	}
 

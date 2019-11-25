@@ -378,6 +378,99 @@ class User extends Model {
 		}
 	}
 
+	public function checkPhotoAvatar()
+	{
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "site" . DIRECTORY_SEPARATOR . 
+			"profile" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . $this->getiduser() . ".jpg"
+		)) {
+			$url = "/res/site/profile/avatar/" . $this->getidproduct() . ".jpg";
+		} else {
+			$url = "/res/site/profile/avatar/default-avatar.png";
+		}
+
+		return  $this->setdesphotoavatar($url);
+	}
+	public function checkPhotoCap()
+	{
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "site" . DIRECTORY_SEPARATOR . 
+			"profile" . DIRECTORY_SEPARATOR . "cap" . DIRECTORY_SEPARATOR . $this->getiduser() . ".jpg"
+		)) {
+			$url = "/res/site/profile/cap/" . $this->getidproduct() . ".jpg";
+		} else {
+			$url = "/res/site/profile/cap/default-cap.jpg";
+		}
+
+		return  $this->setdesphotocap($url);
+	}
+
+	public function getValues()
+	{
+		$this->checkPhotoAvatar();
+		$this->checkPhotoCap();
+		$values = parent::getValues();
+
+
+		return $values;
+	}
+
+	
+	public function setPhotoAvatar($file)
+	{ 
+		
+		$extension = explode('.', $file['name']);
+		$extension = end($extension);
+		switch ($extension) {
+		case "jpg":
+		case "jpeg":
+		$image = imagecreatefromjpeg($file["tmp_name"]);
+		break;
+		case "gif":
+		$image = imagecreatefromgif($file["tmp_name"]);
+		break;
+		case "png":
+		$image = imagecreatefrompng($file["tmp_name"]);
+		break;
+		}
+		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
+		"res" . DIRECTORY_SEPARATOR . 
+		"site" . DIRECTORY_SEPARATOR . 
+		"profile" . DIRECTORY_SEPARATOR . 
+		"avatar" . DIRECTORY_SEPARATOR . 
+		$this->getiduser() . ".jpg";
+		imagejpeg($image, $dist);
+		imagedestroy($image);
+		$this->checkPhotoAvatar();
+		
+	}
+	public function setPhotoCap($file)
+	{ 
+		
+		$extension = explode('.', $file['name']);
+		$extension = end($extension);
+		switch ($extension) {
+		case "jpg":
+		case "jpeg":
+		$image = imagecreatefromjpeg($file["tmp_name"]);
+		break;
+		case "gif":
+		$image = imagecreatefromgif($file["tmp_name"]);
+		break;
+		case "png":
+		$image = imagecreatefrompng($file["tmp_name"]);
+		break;
+		}
+		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
+		"res" . DIRECTORY_SEPARATOR . 
+		"site" . DIRECTORY_SEPARATOR . 
+		"profile" . DIRECTORY_SEPARATOR . 
+		"cap" . DIRECTORY_SEPARATOR . 
+		$this->getiduser() . ".jpg";
+		imagejpeg($image, $dist);
+		imagedestroy($image);
+		$this->checkPhotoCap();
+		
+	}
+
 
 	public static function getForgot($email, $inadmin = true)
 	{

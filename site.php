@@ -3,6 +3,46 @@
 use \Hcode\PageSite;
 use \Hcode\Model\User;
 
+$app->get('/profile', function() {
+    
+    User::verifyLogin(false, false);
+
+    $user = User::getFromSession();
+
+    $page = new PageSite();
+
+    $page->setTpl("profile", [
+        "user"=>$user->getValues(),
+        "profileMsg"=>User::getSuccess(),
+        "profileError"=>User::getError()
+    ]);
+    
+ });
+ $app->post('/profile/cap', function() {
+    
+    User::verifyLogin(false, false);
+
+    $user = new User();
+
+    $user->setPhoto($_FILES["cap"]);
+    
+    header("Location: /profile");
+    exit;
+    
+ });
+ $app->post('/profile/avatar', function() {
+    
+    User::verifyLogin(false, false);
+
+    $user = new User();
+    $user->setPhoto($_FILES["avatar"]);
+
+    header("Location: /profile");
+    exit;
+    
+ });
+
+
 $app->get('/home', function() {
     
     

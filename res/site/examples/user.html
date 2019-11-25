@@ -183,12 +183,13 @@ The above copyright notice and this permission notice shall be included in all c
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
-                <img src="../assets/img/damir-bosnjak.jpg" alt="...">
+                <img src="/profile/imgs/{$user.iduser}cap.jpg" alt="...">
               </div>
               <div class="card-body">
                 <div class="author">
+                  <form role="form" action="/profile/{$user.iduser}" method="post"></form>
                   <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
+                    <img class="avatar border-gray" src="/profile/imgs/{$user.iduser}avatar.jpg" alt="...">
                     <h5 class="title">Chet Faker</h5>
                   </a>
                   <p class="description">

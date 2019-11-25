@@ -6,6 +6,8 @@ use \Hcode\Model\User;
 $app->get('/profile', function() {
     
     User::verifyLogin(false, false);
+    echo "teste";
+    exit;
 
     $user = User::getFromSession();
 

@@ -383,7 +383,7 @@ class User extends Model {
 		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile_user" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
 				 $this->getiduser() . ".jpg"
 		)) {
-			$url = "/profile_user/avatar/" . $this->getidproduct() . ".jpg";
+			$url = "/profile_user/avatar/" . $this->getiduser() . ".jpg";
 		} else {
 			$url = "/profile_user/avatar/default-avatar.png";
 		}
@@ -392,10 +392,10 @@ class User extends Model {
 	}
 	public function checkPhotoCap()
 	{
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile_user" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile_user" . DIRECTORY_SEPARATOR . "cap" . DIRECTORY_SEPARATOR . 
 			 $this->getiduser() . ".jpg"
 		)) {
-			$url = "/profile_user/cap/" . $this->getidproduct() . ".jpg";
+			$url = "/profile_user/cap/" . $this->getiduser() . ".jpg";
 		} else {
 			$url = "/profile_user/cap/default-cap.jpg";
 		}

@@ -76,6 +76,8 @@ $app->get('/register/confirm', function() {
         $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 
         $data = json_decode($data, true);
+        var_dump($data);
+        exit;
 
         $user = new User();
     

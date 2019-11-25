@@ -36,6 +36,8 @@ $app->post('/admin/login', function() {
        header("Location: /admin/login");
        exit;
    }
+   header("Location: /admin");
+   exit;
 	
 });
 $app->get('/admin/logout', function() {

@@ -1,6 +1,7 @@
 <?php
 
 use \Hcode\PageSite;
+use \Hcode\Model\User;
 
 $app->get('/home', function() {
     

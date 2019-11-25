@@ -47,10 +47,10 @@ ds-club
       <div class="logo">
         <a href="/profile" class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="/res/site/assets/img/faces/luca.jpg">
+            <img src='{function="getAvatar()"}'>
           </div>
         </a>
-        <a data-showProfile href="/profile" class='simple-text logo-normal {function="getCurrentHost("/admin/profile")"}'>
+        <a data-showProfile href="/profile" class='simple-text logo-normal {function="getCurrentHost("/profile")"}'>
           {function="getUserName()"}
           
         </a>
@@ -82,7 +82,7 @@ ds-club
               <p>Sobre o DS Club</p>
             </a>
           </li>
-          <li class='{function="getCurrentHost("/contato")"}'>
+          <li class='{function="getCurrentHost("/contact")"}'>
             <a href="/contact">
               <i class="nc-icon nc-tile-56"></i>
               <p>Contato</p>

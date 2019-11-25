@@ -6,9 +6,9 @@ use \Hcode\Model\User;
 $app->get('/profile', function() {
     
     User::verifyLogin(false, false);
-    
 
     $user = User::getFromSession();
+
 
     $page = new PageSite();
 
@@ -24,9 +24,12 @@ $app->get('/profile', function() {
     User::verifyLogin(false, false);
 
     $user = User::getFromSession();
-   
 
+    
+    
     $user->setPhotoCap($_FILES["cap"]);
+    
+    $_SESSION[User::SESSION] = $user->getValues();
 
     header("Location: /profile");
     exit;
@@ -40,6 +43,8 @@ $app->get('/profile', function() {
     
 
     $user->setPhotoAvatar($_FILES["avatar"]);
+
+    $_SESSION[User::SESSION] = $user->getValues();
 
     header("Location: /profile");
     exit;

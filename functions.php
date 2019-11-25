@@ -83,7 +83,13 @@ use \Hcode\DB\Sql;
 	
 		return $user->getdesperson();
 	
-	}
+    }
+    function getAvatar()
+    {
+        $user = User::getFromSession();
+	
+		return $user->getdesphotoavatar();
+    }
 	function dateRegister()
 	{
 

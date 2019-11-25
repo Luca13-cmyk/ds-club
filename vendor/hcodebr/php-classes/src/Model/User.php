@@ -380,24 +380,24 @@ class User extends Model {
 
 	public function checkPhotoAvatar()
 	{
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile_user" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
 				 $this->getiduser() . ".jpg"
 		)) {
-			$url = "/profile/avatar/" . $this->getidproduct() . ".jpg";
+			$url = "/profile_user/avatar/" . $this->getidproduct() . ".jpg";
 		} else {
-			$url = "/profile/avatar/default-avatar.png";
+			$url = "/profile_user/avatar/default-avatar.png";
 		}
 
 		return  $this->setdesphotoavatar($url);
 	}
 	public function checkPhotoCap()
 	{
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile_user" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
 			 $this->getiduser() . ".jpg"
 		)) {
-			$url = "/profile/cap/" . $this->getidproduct() . ".jpg";
+			$url = "/profile_user/cap/" . $this->getidproduct() . ".jpg";
 		} else {
-			$url = "/profile/cap/default-cap.jpg";
+			$url = "/profile_user/cap/default-cap.jpg";
 		}
 
 		return  $this->setdesphotocap($url);
@@ -432,7 +432,7 @@ class User extends Model {
 		break;
 		}
 		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
-		"profile" . DIRECTORY_SEPARATOR . 
+		"profile_user" . DIRECTORY_SEPARATOR . 
 		"avatar" . DIRECTORY_SEPARATOR . 
 		$this->getiduser() . ".jpg";
 		imagejpeg($image, $dist);
@@ -458,7 +458,7 @@ class User extends Model {
 		break;
 		}
 		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
-		"profile" . DIRECTORY_SEPARATOR . 
+		"profile_user" . DIRECTORY_SEPARATOR . 
 		"cap" . DIRECTORY_SEPARATOR . 
 		$this->getiduser() . ".jpg";
 		imagejpeg($image, $dist);
@@ -774,38 +774,38 @@ class User extends Model {
 		if (!isset($current_password) || $current_password === '')
 		{
 			User::setError("Digite a senha atual");
-			header("Location: /profile/change-password");
+			header("Location: /profile_user/change-password");
 			exit;
 		}
 		if (!isset($new_password) || $new_password === '')
 		{
 			User::setError("Digite a nova senha");
-			header("Location: /profile/change-password");
+			header("Location: /profile_user/change-password");
 			exit;
 		}
 		if (!isset($new_password_confirm) || $new_password_confirm === '')
 		{
 			User::setError("Confirme a nova senha");
-			header("Location: /profile/change-password");
+			header("Location: /profile_user/change-password");
 			exit;
 		}
 
 		if ($current_password === $new_password)
 		{
 			User::setError("Sua nova senha deve ser diferente da atual.");
-			header("Location: /profile/change-password");
+			header("Location: /profile_user/change-password");
 			exit;
 		}
 		if ($new_password !== $new_password_confirm)
 		{
 			User::setError("Confirmacao de senha invalida.");
-			header("Location: /profile/change-password");
+			header("Location: /profile_user/change-password");
 			exit;
 		}
 		if (!password_verify($current_password, $this->getdespassword()))
 		{
 			User::setError("Senha digitada atual nao condiz com a atual do usuario");
-			header("Location: /profile/change-password");
+			header("Location: /profile_user/change-password");
 			exit;
 		}
 	}

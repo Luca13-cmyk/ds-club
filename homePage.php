@@ -154,6 +154,9 @@ $app->post("/register", function(){
         'nrphone'=>$_POST['phone']
     ]);
 
+    header('Location: /register');
+    exit;
+
 	
 });
 

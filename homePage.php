@@ -79,7 +79,7 @@ $app->get('/register/confirm', function() {
 
         $user = new User();
     
-        $user->setData($data);
+        $user->setData(json_decode($data, true));
     
         $user->save();
     
@@ -135,6 +135,8 @@ $app->post("/register", function(){
         'despassword'=>$_POST['password'],
         'nrphone'=>$_POST['phone']
     ];
+
+    $data = json_encode($data);
 
     $data = openssl_encrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 

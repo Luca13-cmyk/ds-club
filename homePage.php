@@ -2,6 +2,7 @@
 
 use \Hcode\Page;
 use \Hcode\Model\User;
+use \Hcode\Mailer;
 
 $app->get('/', function() {
     
@@ -63,6 +64,39 @@ $app->post("/login", function(){
     
 
 });
+$app->get('/register/confirm', function() {
+    
+    if ($_GET["code"])
+    {
+
+        $code = base64_decode($code);
+    
+        $emailrecovery = openssl_decrypt($code, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+
+        $user = new User();
+
+        $user->setdeslogin($emailrecovery);
+         
+        $user->save();
+    
+        User::login($emailrecovery, $user->getdespassword());
+    
+        header('Location: /home');
+        exit;
+    }
+    
+    
+
+    // $page = new Page([
+    //     "header"=>false,
+    //     "footer"=>false
+    // ]);
+
+    // $page->setTpl("register-page", [
+    //     "errorRegister"=>User::getErrorRegister(),
+    //     'registerValues'=>(isset($_SESSION['registerValues'])) ? $_SESSION['registerValues'] : ['name'=>'', 'email'=>'', 'phone'=>'']
+    // ]);
+});
 
 $app->post("/register", function(){
 
@@ -98,25 +132,29 @@ $app->post("/register", function(){
 		header("Location: /login");
 		exit;
 
-	}
+    }
 
-	$user = new User();
+    $code = openssl_encrypt($_POST['email'], 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 
-	$user->setData([
-		'inadmin'=>0,
-		'deslogin'=>$_POST['email'],
-		'desperson'=>$_POST['name'],
-		'desemail'=>$_POST['email'],
-		'despassword'=>$_POST['password'],
-		'nrphone'=>$_POST['phone']
-	]);
+	$code = base64_encode($code);
+    
+    $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirmar", array(
+        "name"=>$data["desperson"],
+        "link"=>"https://lds-club-com.umbler.net/register/confirm?code=$code"
+    ));
+    $mailer->send();
 
-	$user->save();
+    $user = new User();
+    
+    $user->setData([
+        'inadmin'=>0,
+        'desperson'=>$_POST['name'],
+        'desemail'=>$_POST['email'],
+        'despassword'=>$_POST['password'],
+        'nrphone'=>$_POST['phone']
+    ]);
 
-	User::login($_POST['email'], $_POST['password']);
-
-	header('Location: /home');
-	exit;
+	
 });
 
 

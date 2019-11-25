@@ -76,7 +76,8 @@ $app->get('/register/confirm', function() {
         $emailrecovery = openssl_decrypt($code, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 
         $user = new User();
-
+        var_dump($emailrecovery);
+        exit;
         $user->setdeslogin($emailrecovery);
          
         $user->save();

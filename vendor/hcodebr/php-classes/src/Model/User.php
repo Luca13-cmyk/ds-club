@@ -380,24 +380,24 @@ class User extends Model {
 
 	public function checkPhotoAvatar()
 	{
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "site" . DIRECTORY_SEPARATOR . 
-			"profile" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . $this->getiduser() . ".jpg"
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
+				 $this->getiduser() . ".jpg"
 		)) {
-			$url = "/res/site/profile/avatar/" . $this->getidproduct() . ".jpg";
+			$url = "/profile/avatar/" . $this->getidproduct() . ".jpg";
 		} else {
-			$url = "/res/site/profile/avatar/default-avatar.png";
+			$url = "/profile/avatar/default-avatar.png";
 		}
 
 		return  $this->setdesphotoavatar($url);
 	}
 	public function checkPhotoCap()
 	{
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "site" . DIRECTORY_SEPARATOR . 
-			"profile" . DIRECTORY_SEPARATOR . "cap" . DIRECTORY_SEPARATOR . $this->getiduser() . ".jpg"
+		if (file_exists($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "profile" . DIRECTORY_SEPARATOR . "avatar" . DIRECTORY_SEPARATOR . 
+			 $this->getiduser() . ".jpg"
 		)) {
-			$url = "/res/site/profile/cap/" . $this->getidproduct() . ".jpg";
+			$url = "/profile/cap/" . $this->getidproduct() . ".jpg";
 		} else {
-			$url = "/res/site/profile/cap/default-cap.jpg";
+			$url = "/profile/cap/default-cap.jpg";
 		}
 
 		return  $this->setdesphotocap($url);
@@ -432,8 +432,6 @@ class User extends Model {
 		break;
 		}
 		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
-		"res" . DIRECTORY_SEPARATOR . 
-		"site" . DIRECTORY_SEPARATOR . 
 		"profile" . DIRECTORY_SEPARATOR . 
 		"avatar" . DIRECTORY_SEPARATOR . 
 		$this->getiduser() . ".jpg";
@@ -460,8 +458,6 @@ class User extends Model {
 		break;
 		}
 		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
-		"res" . DIRECTORY_SEPARATOR . 
-		"site" . DIRECTORY_SEPARATOR . 
 		"profile" . DIRECTORY_SEPARATOR . 
 		"cap" . DIRECTORY_SEPARATOR . 
 		$this->getiduser() . ".jpg";

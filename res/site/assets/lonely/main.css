@@ -286,6 +286,22 @@ ul#pagination_per li:last-child
 }
 
 
+/* ######################## SLIDER ############################## */
+
+
+.nav-arrows a
+{
+    background-color: #00c7ff !important;
+}
+
+#sb-slider
+{
+    box-shadow: 0 22px 15px rgba(0,0,0,.2) !important; 
+}
+
+
+
+
 /* ######################### MEDIA QUERY ########################## */
 
 @media screen and (max-width: 946px)

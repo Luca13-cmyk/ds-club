@@ -14,6 +14,7 @@ class User extends Model {
 	const ERROR = "UserError";
 	const ERROR_REGISTER = "UserErrorRegister";
 	const SUCCESS = "UserSucesss";
+	const DOMAIN = "https://lds-club-com.umbler.net";
 
 	public static function getFromSession()
 	{
@@ -255,6 +256,59 @@ class User extends Model {
 			":iduser"=>$this->getiduser()
 		));
 	}
+
+	public static function registerValid()
+	{
+		$data = [
+			'inadmin'=>0,
+			'deslogin'=>$_POST['email'],
+			'desperson'=>$_POST['name'],
+			'desemail'=>$_POST['email'],
+			'despassword'=>$_POST['password'],
+			'nrphone'=>$_POST['phone']
+		];
+	
+		$data = json_encode($data);
+	
+		$data = openssl_encrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+	
+		$data = base64_encode($data);
+		
+		$mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
+			"name"=>$_POST['name'],
+			"link"=>User::domain."/register/confirm?data=$data"
+		));
+		$mailer->send();
+	
+		$user = new User();
+	
+		$user->setSuccess("Email enviado, por favor, confirme o cadastro.");
+	}
+
+	public static function registerValidConfirm()
+	{
+		if ($_GET["data"])
+    	{
+        $data = $_GET["data"];
+
+        $data = base64_decode($data);
+    
+        $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+
+        $datarecovery  = json_decode($datarecovery, true);
+        
+
+        $user = new User();
+    
+        $user->setData($datarecovery);
+    
+        $user->save();
+    
+        header('Location: /login');
+        exit;
+    	}
+	}
+
 
 	public static function getForgot($email, $inadmin = true)
 	{

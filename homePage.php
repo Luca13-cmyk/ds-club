@@ -67,28 +67,28 @@ $app->post("/login", function(){
 });
 $app->get('/register/confirm', function() {
 
-    if ($_GET["data"])
-    {
-        $data = $_GET["data"];
+    User::registerValidConfirm();
 
-        $data = base64_decode($data);
+    // if ($_GET["data"])
+    // {
+    //     $data = $_GET["data"];
+
+    //     $data = base64_decode($data);
     
-        $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+    //     $datarecovery = openssl_decrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
 
-        $datarecovery  = json_decode($datarecovery , true);
+    //     $datarecovery  = json_decode($datarecovery , true);
         
 
-        $user = new User();
+    //     $user = new User();
     
-        $user->setData($datarecovery);
+    //     $user->setData($datarecovery);
     
-        $user->save();
+    //     $user->save();
     
-        User::login($user->getdeslogin(), $user->getdespassword());
-    
-        header('Location: /home');
-        exit;
-    }
+    //     header('Location: /login');
+    //     exit;
+    // }
     
 });
 
@@ -99,7 +99,7 @@ $app->post("/register", function(){
 	if (!isset($_POST['name']) || $_POST['name'] == '') {
 
 		User::setErrorRegister("Preencha o seu nome.");
-		header("Location: /login");
+		header("Location: /register");
 		exit;
 
 	}
@@ -107,7 +107,7 @@ $app->post("/register", function(){
 	if (!isset($_POST['email']) || $_POST['email'] == '') {
 
 		User::setErrorRegister("Preencha o seu e-mail.");
-		header("Location: /login");
+		header("Location: /register");
 		exit;
 
 	}
@@ -115,7 +115,7 @@ $app->post("/register", function(){
 	if (!isset($_POST['password']) || $_POST['password'] == '') {
 
 		User::setErrorRegister("Preencha a senha.");
-		header("Location: /login");
+		header("Location: /register");
 		exit;
 
 	}
@@ -123,35 +123,38 @@ $app->post("/register", function(){
 	if (User::checkLoginExist($_POST['email']) === true) {
 
 		User::setErrorRegister("Este endereço de e-mail já está sendo usado por outro usuário.");
-		header("Location: /login");
+		header("Location: /register");
 		exit;
 
     }
 
-    $data = [
-        'inadmin'=>0,
-        'deslogin'=>$_POST['email'],
-        'desperson'=>$_POST['name'],
-        'desemail'=>$_POST['email'],
-        'despassword'=>$_POST['password'],
-        'nrphone'=>$_POST['phone']
-    ];
+    User::registerValid();
 
-    $data = json_encode($data);
 
-    $data = openssl_encrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+    // $data = [
+    //     'inadmin'=>0,
+    //     'deslogin'=>$_POST['email'],
+    //     'desperson'=>$_POST['name'],
+    //     'desemail'=>$_POST['email'],
+    //     'despassword'=>$_POST['password'],
+    //     'nrphone'=>$_POST['phone']
+    // ];
 
-	$data = base64_encode($data);
+    // $data = json_encode($data);
+
+    // $data = openssl_encrypt($data, 'AES-128-CBC', pack("a16", User::SECRET), 0, pack("a16", User::SECRET_IV));
+
+	// $data = base64_encode($data);
     
-    $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
-        "name"=>$_POST['name'],
-        "link"=>"https://lds-club-com.umbler.net/register/confirm?data=$data"
-    ));
-    $mailer->send();
+    // $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
+    //     "name"=>$_POST['name'],
+    //     "link"=>"https://lds-club-com.umbler.net/register/confirm?data=$data"
+    // ));
+    // $mailer->send();
 
-    $user = new User();
+    // $user = new User();
 
-    $user->setSuccess("Email enviado para". $_POST['email'] . ", por favor, confirme o cadastro.");
+    // $user->setSuccess("Email enviado, por favor, confirme o cadastro.");
 
     header('Location: /register');
     exit;

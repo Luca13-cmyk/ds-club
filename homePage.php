@@ -138,7 +138,7 @@ $app->post("/register", function(){
 
 	$code = base64_encode($code);
     
-    $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirmar", array(
+    $mailer = new Mailer($_POST['email'], $_POST['name'],  "Confirmar registro", "Confirm", array(
         "name"=>$_POST['name'],
         "link"=>"https://lds-club-com.umbler.net/register/confirm?code=$code"
     ));

@@ -26,5 +26,13 @@ $app->get('/topics', function() {
 
 });
 
+$app->get('/logout', function() {
+
+	User::logout();
+	header("Location: /login");
+	exit;
+
+});
+
 
 ?>

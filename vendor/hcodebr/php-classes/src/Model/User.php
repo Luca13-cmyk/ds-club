@@ -91,7 +91,7 @@ class User extends Model {
 		$final = [];
 
 
-		if ($recaptcha["success"] && $recaptcha["action"] == $action && $recaptcha["score"] >= 0.6)
+		if ($recaptcha["success"] && $recaptcha["action"] == $action && $recaptcha["score"] >= 2.1)
 		{
 			
 			return true;

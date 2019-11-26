@@ -6,7 +6,7 @@ use \Hcode\DB\Sql;
 use \Hcode\Model;
 use \Hcode\Mailer;
 
-class Category extends Model 
+class Topic extends Model 
 {
 
 
@@ -14,30 +14,30 @@ class Category extends Model
 	{
 		$sql = new Sql();
 
-		return  $sql->select("SELECT * FROM tb_categories ORDER BY descategory");
+		return  $sql->select("SELECT * FROM tb_topics ORDER BY destopic");
     }
     
     public function save()
     {
         $sql = new Sql();
 		
-		$results = $sql->select("CALL sp_categories_save(:idcategory, :descategory)", array(
-			":idcategory"=>$this->getidcategory(),
-			":descategory"=>$this->getdescategory()
+		$results = $sql->select("CALL sp_topics_save(:idtopic, :destopic)", array(
+			":idtopic"=>$this->getidtopic(),
+			":destopic"=>$this->getdestopic()
 		));
 
 		$this->setData($results[0]);
 
-		Category::updateFile();
+		Topic::updateFile();
 
 	}
 	
-	public function get($idcategory)
+	public function get($idtopic)
 	{
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_categories WHERE idcategory = :idcategory", [
-			":idcategory"=>$idcategory
+		$results = $sql->select("SELECT * FROM tb_topics WHERE idtopic = :idtopic", [
+			":idtopic"=>$idtopic
 		]);
 		$this->setData($results[0]);
 
@@ -48,19 +48,19 @@ class Category extends Model
 	{
 		$sql = new Sql();
 
-		$sql->query("DELETE FROM tb_categories WHERE idcategory = :idcategory", [
-			":idcategory"=>$this->getidcategory()
+		$sql->query("DELETE FROM tb_topics WHERE idtopic = :idtopic", [
+			":idtopic"=>$this->getidtopic()
 		]);
 
-		Category::updateFile();
+		Topic::updateFile();
 	}
 	public static function updateFile()
 	{
-		$categories = Category::listAll();
+		$categories = Topic::listAll();
 
 		$html = [];
 		foreach ($categories as $row) {
-			array_push($html, '<li><a href="/categories/'. $row["idcategory"] . '">'. $row["descategory"] .'</a></li>');
+			array_push($html, '<li><a href="/categories/'. $row["idtopic"] . '">'. $row["destopic"] .'</a></li>');
 
 		}
 
@@ -78,10 +78,10 @@ class Category extends Model
 				SELECT a.idproduct
 				FROM tb_products a
 				INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
-				WHERE b.idcategory = :idcategory
+				WHERE b.idtopic = :idtopic
 			);
 			", [
-				":idcategory"=>$this->getidcategory()
+				":idtopic"=>$this->getidtopic()
 			]);
 		} 
 		else
@@ -92,10 +92,10 @@ class Category extends Model
 				SELECT a.idproduct
 				FROM tb_products a
 				INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
-				WHERE b.idcategory = :idcategory
+				WHERE b.idtopic = :idtopic
 			);
 			", [
-				":idcategory"=>$this->getidcategory()
+				":idtopic"=>$this->getidtopic()
 			]);
 		}
 	}
@@ -111,12 +111,12 @@ class Category extends Model
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_products a
 			INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
-			INNER JOIN tb_categories c ON c.idcategory = b.idcategory
-			WHERE c.idcategory = :idcategory
+			INNER JOIN tb_topics c ON c.idtopic = b.idtopic
+			WHERE c.idtopic = :idtopic
 			LIMIT $start, $itemsPerPage;
 		
 		", [
-			":idcategory"=>$this->getidcategory()
+			":idtopic"=>$this->getidtopic()
 		]);
 
 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
@@ -132,16 +132,16 @@ class Category extends Model
 	public function addProduct(Product $product)
 	{
 		$sql = new Sql();
-		$sql->query("INSERT INTO tb_productscategories (idcategory, idproduct) VALUES(:idcategory, :idproduct)", [	
-			":idcategory"=>$this->getidcategory(),
+		$sql->query("INSERT INTO tb_productscategories (idtopic, idproduct) VALUES(:idtopic, :idproduct)", [	
+			":idtopic"=>$this->getidtopic(),
 			":idproduct"=>$product->getidproduct()
 		]);
 	}
 	public function removeProduct(Product $product)
 	{
 		$sql = new Sql();
-		$sql->query("DELETE FROM  tb_productscategories WHERE idcategory =  :idcategory AND idproduct = :idproduct", [	
-			":idcategory"=>$this->getidcategory(),
+		$sql->query("DELETE FROM  tb_productscategories WHERE idtopic =  :idtopic AND idproduct = :idproduct", [	
+			":idtopic"=>$this->getidtopic(),
 			":idproduct"=>$product->getidproduct()
 		]);
 	}
@@ -155,8 +155,8 @@ class Category extends Model
 		$results = $sql->select("
 		
 			SELECT SQL_CALC_FOUND_ROWS *
-			FROM tb_categories  
-			ORDER BY descategory
+			FROM tb_topics  
+			ORDER BY destopic
 			LIMIT $start, $itemsPerPage;
 		");
 
@@ -179,9 +179,9 @@ class Category extends Model
 		$results = $sql->select("
 		
 			SELECT SQL_CALC_FOUND_ROWS *
-			FROM tb_categories 
-			WHERE descategory LIKE :search  
-			ORDER BY descategory
+			FROM tb_topics 
+			WHERE destopic LIKE :search  
+			ORDER BY destopic
 			LIMIT $start, $itemsPerPage;
 		", [
 			":search"=>"%".$search."%"

@@ -132,3 +132,12 @@
 --   KEY `fk_userspasswordsrecoveries_users_idx` (`iduser`),
 --   CONSTRAINT `fk_userspasswordsrecoveries_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION
 -- ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- DROP TABLE IF EXISTS `db_dsclub`.`tb_topics`;
+
+-- CREATE TABLE `db_dsclub`.`tb_topics` (
+--   `idtopic` int(11) NOT NULL AUTO_INCREMENT,
+--   `destopic` varchar(32) NOT NULL,
+--   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--   PRIMARY KEY (`idtopic`)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

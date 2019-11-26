@@ -159,7 +159,7 @@ class Topic extends Model
 		
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_topics  
-			ORDER BY dtregister
+			ORDER BY idtopic DESC
 			LIMIT $start, $itemsPerPage;
 		");
 

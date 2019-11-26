@@ -67,7 +67,7 @@
                         </span>
                       </div>
                       <div class="col-md-3 col-3 text-right">
-                        <a href=""><btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-key"></i></btn></a>
+                        <a data-toggle="modal" data-target="#change_password"><btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-key"></i></btn></a>
                       </div>
                     </div>
                   </li>
@@ -158,4 +158,56 @@
           </div>
         </div>
       </div>
+
+      <!-- Modals  -->
+
+      <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="change_password" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Alterar a senha</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form action="/profile/change-password" method="post">
+                      <div class="row">
+                    
+                          <div class="col-md-5 pr-1">
+                            <div class="form-group">
+                              <label>Senha Atual</label>
+                              <input type="password" name="current_pass"  id="current_pass" class="form-control" placeholder=".....">
+                            </div>
+                          </div>
+                        </div> 
+      
+                        <div class="row">
+                        
+                          <div class="col-md-5 pr-1">
+                            <div class="form-group">
+                              <label>Nova Senha</label>
+                              <input type="password" name="new_pass"  id="new_pass" class="form-control" placeholder="....">
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="row">
+                  
+                          <div class="col-md-5 pr-1">
+                            <div class="form-group">
+                              <label>Confirme a Nova Senha</label>
+                              <input type="password" name="new_pass_confirm"  id="new_pass_confirm" class="form-control" placeholder="....">
+                            </div>
+                          </div>
+                        </div> 
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
       

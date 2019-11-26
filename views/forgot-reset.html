@@ -1,0 +1,27 @@
+
+<div style="margin-top: 150px;" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/forgot/reset" method="POST">
+                    <div class="form-group">
+                        <input type="hidden" name="code" value="{$code}">
+                        <h2>Olá {$name}, digite uma nova senha:</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Nova senha</label>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp" placeholder="Entre com a nova senha..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+    
+    var navbar =  document.querySelector(".navbar");
+    
+    navbar.classList.remove("navbar-transparent");
+    
+    
+    </script>

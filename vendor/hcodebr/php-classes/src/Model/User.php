@@ -511,15 +511,15 @@ class User extends Model {
 
 				if ($inadmin === true)
 				{
-					$link = "https://lonelydes-com.umbler.net/admin/forgot/reset?code=$code";
+					$link = User::DOMAIN."/admin/forgot/reset?code=$code";
 
 				} else 
 				{
-					$link = "https://lonelydes-com.umbler.net/forgot/reset?code=$code";
+					$link = User::DOMAIN."/forgot/reset?code=$code";
 
 				}
 
-				$mailer = new Mailer($data["desemail"], $data["desperson"],  "Redefinir senha da Hcode Store", "forgot", array(
+				$mailer = new Mailer($data["desemail"], $data["desperson"],  "Redefinir senha do ds-club", "forgot", array(
 					"name"=>$data["desperson"],
 					"link"=>$link
 				));

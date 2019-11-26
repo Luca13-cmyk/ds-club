@@ -238,6 +238,12 @@ html.dark body  .breadcrumb .autocomplete-items-per div
 {
     top: 20px;
 }
+#submit_cap_toggle:hover .card-user .image
+
+{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(30%);
+}
 
 #editcap
 {
@@ -245,8 +251,21 @@ html.dark body  .breadcrumb .autocomplete-items-per div
     top: -50px;
     left: 10px;
     z-index: 10000;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.2s ease;
+    background: transparent;
+    border:transparent;
+    color: rgb(81, 203, 206);
 }
+#editcap .nc-palette
+{
+    font-size: 22px;
+
+}
+.card-user .image
+{
+    transition: 0.2s ease;
+}
+
 
 
 

@@ -103,7 +103,7 @@ div[data-title-topic-card]
 }
 
 
-#content_topics
+div[data-content_topics]
 {
     justify-content: center;
     margin-top: 40px;

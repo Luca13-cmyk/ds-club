@@ -2,7 +2,7 @@
 
 
 
-
+var $offset_area_per = $('.offset-area-per');
 if (window.screen.width > 1200)
 {
   
@@ -16,7 +16,7 @@ $(function(){
 
 // ########### Variaveis
 
-$offset_area_per = $('.offset-area-per');
+
 $close_button = $(".offset-close");
 $data_settings_per = $("a[data-settings_per]");
 $md = $("md-backdrop");

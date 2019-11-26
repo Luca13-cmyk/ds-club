@@ -3,12 +3,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Categorias
+    Lista de Topicos
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="/admin/categories">Categorias</a></li>
-    <li class="active"><a href="/admin/categories/create">Cadastrar</a></li>
+    <li><a href="/admin/topics">Topicos</a></li>
+    <li class="active"><a href="/admin/topics/create">Cadastrar</a></li>
   </ol>
 </section>
 
@@ -19,15 +19,15 @@
   	<div class="col-md-12">
   		<div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Novo Categoria</h3>
+          <h3 class="box-title">Novo Topico</h3>
         </div>
-        <!-- /.box-header -->
+        <!-- /.box-header  -->
         <!-- form start -->
-        <form role="form" action="/admin/categories/create" method="post">
+        <form role="form" action="/admin/topics/create" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="descategory">Nome da categoria</label>
-              <input type="text" class="form-control" id="descategory" name="descategory" placeholder="Digite o nome da categoria">
+              <label for="destopic">Nome do topico</label>
+              <input type="text" class="form-control" id="destopic" name="destopic" placeholder="Digite o nome do topico" required>
             </div>
             <div class="form-group">
                 <div class="box">
@@ -46,9 +46,9 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body pad">
-                      <form>
-                        <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                      </form>
+                      
+                        <textarea class="textarea" placeholder="Inicie o cabecalho..." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                      
                     </div>
                   </div>
                 </div>

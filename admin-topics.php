@@ -40,7 +40,8 @@ $app->post("/admin/topics/create", function()
 	User::verifyLogin();
 
 	$topic = new Topic();
-
+	var_dump($_POST);
+	exit;
 	$topic->setData($_POST);
 
 	$topic->save();

@@ -212,7 +212,9 @@ html.dark body  .wrapper{
 html.dark body  .breadcrumb,
 html.dark body  .breadcrumb .form-control,
 html.dark body  .breadcrumb .form-control:focus,
-html.dark body  .breadcrumb .input-group-prepend
+html.dark body  .breadcrumb .input-group-prepend,
+html.dark body  .breadcrumb #Filtroautocomplete-list-per
+
 
 {
     background: #222 !important;

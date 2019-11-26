@@ -34,9 +34,9 @@
     
 
   }
-  .aviso-per b
+  .aviso-per #show_error
   {
-    color: #970a0a;
+    color: #e00808ef;
     position: absolute;
     right: 10px;
 
@@ -112,8 +112,8 @@
         
     
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/" rel="tooltip" title="Alguns caminhos estao disponiveis se voce ainda nao se logou." data-placement="bottom">
-            Lonely
+          <a class="navbar-brand" href="/" rel="tooltip" title="Um universo de quadrinhos." data-placement="bottom">
+            DS-CLUB
           </a>
           <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-bar top-bar"></span>
@@ -170,7 +170,7 @@
                 <div id="aviso_content" class="input-group no-border input-lg ">
                   {if="$error != ''"}
                   <div class="aviso-per">
-                      <i class="now-ui-icons travel_info"></i> <b>{$error}</b>
+                      <i class="now-ui-icons travel_info"></i> <i id="show_error">{$error}</i>
                   </div>
                   {/if}
                     
@@ -209,7 +209,7 @@
             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
           </script>, Ds-club |
            Por
-          <a href="https://www.creative-tim.com" target="_blank">Luca Negrette</a>.
+          <a href="#" target="_blank">Luca Negrette</a>.
         </div>
       </div>
     </footer>

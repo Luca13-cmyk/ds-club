@@ -176,7 +176,7 @@ $("li[data-search_pagination_prev]").on("click", function(){
 
 
   $name_topic.each(function(index){
-    $nomes.push($(this).attr("data-name_topic"));
+    nomes.push($(this).attr("data-name_topic"));
   });
 
   l.autocomplete(inp, nomes);

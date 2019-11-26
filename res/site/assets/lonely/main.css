@@ -214,7 +214,7 @@ html.dark body  .breadcrumb .form-control,
 html.dark body  .breadcrumb .form-control:focus,
 html.dark body  .breadcrumb .input-group-prepend,
 html.dark body  .breadcrumb #Filtroautocomplete-list-per,
-html.dark body  .breadcrumb .form-control:focus .input-group-prepend
+html.dark body  .breadcrumb .input-group-focus #icon_filter_per
 
 {
     background: #000 !important;

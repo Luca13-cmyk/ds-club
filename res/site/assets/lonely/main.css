@@ -271,9 +271,9 @@ html.dark body  .breadcrumb .autocomplete-items-per div
 
 
 
-#submit_avatar_toggle:hover .avatar::before
+#submit_avatar_toggle:hover #editavatar
 {
-    top: 40px;
+    right: 20px;
 }
 #submit_avatar_toggle:hover  .avatar
 
@@ -283,16 +283,17 @@ html.dark body  .breadcrumb .autocomplete-items-per div
 }
 
 
-.card-user .avatar
+.card-user .author
 {
-    transition: 0.2s ease;
+    position: relative !important;
+    overflow:  hidden !important;
 }
-.card-user .avatar::before
+.card-user #editavatar
 {
-    content: '\ea40';
+    
     position: absolute;
-    top: -20px;
-    left: 10px;
+    top: 20px;
+    right: 150px;
     z-index: 10000;
     transition: 0.2s ease;
     background: transparent;

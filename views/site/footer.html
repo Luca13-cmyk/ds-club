@@ -43,8 +43,17 @@
 <script src="/res/site/assets/lonely/lonelyTool.js"></script>
 <script src="/res/site/assets/lonely/lonely.js"></script>
 <!-- SlideCub -->
+{if="$_SERVER['REQUEST_URI'] === '/home'"}
 <script type="text/javascript" src="/res/site/sliderCUBO/js/jquery.slicebox.min.js"></script>
 <script src="/res/site/sliderCUBO/js/sliderCUB.min.js"></script>
+{/if}
+<!-- CarouselTopics -->
+{if="$_SERVER['REQUEST_URI'] === '/topics'"}
+
+<script src="/res/site/CarouselTopics/js/owl.carousel.min.js"></script>
+<script src="/res/site/CarouselTopics/js/js.js"></script>
+
+{/if}
 <script>
 
 window.addEventListener("load", function(){

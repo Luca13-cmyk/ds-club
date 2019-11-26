@@ -30,15 +30,13 @@ $app->get("/admin/topics/create", function()
 
 	User::verifyLogin();
 
-	$values = User::getFromSession();
+	$user = User::getFromSession();
 
-	var_dump($values);
-	exit;
-
-	
 
 	$page = new PageAdmin();
-	$page->setTpl("topics-create");
+	$page->setTpl("topics-create", [
+		"user"=>$user
+	]);
 
 });
 $app->post("/admin/topics/create", function()

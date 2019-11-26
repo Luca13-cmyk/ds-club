@@ -222,6 +222,9 @@ class User extends Model {
 			":iduser"=>$iduser
 		));
 
+		var_dump($results);
+		exit;
+
 		$data = $results[0];
 		$data['desperson'] = utf8_encode($data['desperson']);
 

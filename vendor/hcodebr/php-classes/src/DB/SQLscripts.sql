@@ -91,6 +91,37 @@
     
 -- END$$
 
+
+
+-- CREATE  PROCEDURE `sp_topics_save`(
+-- pidtopic INT,
+-- pdestopic VARCHAR(64),
+-- pdesheader VARCHAR(7000),
+-- pdescap VARCHAR(255)
+-- )
+-- BEGIN
+	
+-- 	IF pidtopic > 0 THEN
+		
+-- 		UPDATE tb_topics
+--         SET 
+--             destopic = pdestopic,
+--             desheader = pdesheader,
+--             descap = pdescap
+--         WHERE idtopic = pidtopic;
+        
+--     ELSE
+		
+-- 		INSERT INTO tb_topics (destopic, desheader, descap) VALUES(pdestopic, pdesheader, pdescap);
+        
+--         SET pidtopic = LAST_INSERT_ID();
+        
+--     END IF;
+    
+--     SELECT * FROM tb_topics WHERE idtopic = pidtopic;
+    
+-- END$$
+
 -- DROP TABLE IF EXISTS `db_dsclub`.`tb_persons`;
 
 -- CREATE TABLE `db_dsclub`.`tb_persons` (

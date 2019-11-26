@@ -26,20 +26,45 @@ use \Hcode\DB\Sql;
 		}
 		
     }
-    function filterTags($hostpar)
+    function filterTagsHeader($hostpar)
     {
         $URIPER = explode("?", $_SERVER['REQUEST_URI']);
         $dirs = explode("/", $URIPER[0]);
         $host = "/".$dirs[1];
-		if ($host === $hostpar)
-		{
-            echo '
-            <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/demo.min.css" />
-            <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/slicebox.min.css" />
-            <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/custom.min.css" />
-            <script type="text/javascript" src="/res/site/sliderCUBO/js/modernizr.custom.46884.js"></script>
-            
-            ';
+
+        switch ($hostpar) 
+        {
+            case '/home':
+                if ($host === $hostpar)
+                {
+                    echo '
+                    <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/demo.min.css" />
+                    <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/slicebox.min.css" />
+                    <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/custom.min.css" />
+                    <script type="text/javascript" src="/res/site/sliderCUBO/js/modernizr.custom.46884.js"></script>
+                    ';
+                }
+            break;
+        }
+        
+    }
+    function filterTagsFooter($hostpar)
+    {
+        $URIPER = explode("?", $_SERVER['REQUEST_URI']);
+        $dirs = explode("/", $URIPER[0]);
+        $host = "/".$dirs[1];
+        
+        switch ($hostpar) 
+        {
+            case '/home':
+                if ($host === $hostpar)
+                {
+                    echo '
+                    <script type="text/javascript" src="/res/site/sliderCUBO/js/jquery.slicebox.min.js"></script>
+                    <script src="/res/site/sliderCUBO/js/sliderCUB.min.js"></script>
+                    ';
+                }
+            break;
         }
         
     }

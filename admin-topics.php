@@ -35,7 +35,7 @@ $app->get("/admin/topics/create", function()
 
 	$page = new PageAdmin();
 	$page->setTpl("topics-create", [
-		"user"=>$user
+		"user"=>$user->getValues()
 	]);
 
 });

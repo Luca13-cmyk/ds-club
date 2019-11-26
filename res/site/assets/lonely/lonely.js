@@ -3,7 +3,11 @@
 
 
 
-
+if (window.screen.width > 1200)
+{
+  
+  $offset_area_per.perfectScrollbar(); // perfect scroll
+}
 
 
 $(function(){
@@ -18,11 +22,7 @@ $data_settings_per = $("a[data-settings_per]");
 $md = $("md-backdrop");
 
 // ############ Plugins
-if (window.screen.width > 1200)
-{
-  
-  $offset_area_per.perfectScrollbar(); // perfect scroll
-}
+
 
 
 // ################ Events

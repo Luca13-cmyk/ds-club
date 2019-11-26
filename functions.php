@@ -20,6 +20,8 @@ use \Hcode\DB\Sql;
         $URIPER = explode("?", $_SERVER['REQUEST_URI']);
         $dirs = explode("/", $URIPER[0]);
         $host = $dirs[0];
+        print_r($dirs);
+        exit;
 		if ($host === $hostpar)
 		{
 			return "active";

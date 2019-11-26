@@ -714,7 +714,7 @@ class User extends Model {
 
 	}
 
-	public static function getPage($page = 1, $itemsPerPage = 10)
+	public static function getPage($page = 1, $itemsPerPage = 30)
 	{
 		
 		$start = ($page - 1) * $itemsPerPage;
@@ -739,7 +739,7 @@ class User extends Model {
 		];
 
 	}
-	public static function getPageSearch($search, $page = 1, $itemsPerPage = 10) // LIKE = como ou mais ou menos igual
+	public static function getPageSearch($search, $page = 1, $itemsPerPage = 30) // LIKE = como ou mais ou menos igual
 																				 //  = exatamente igual ao especificado 
 	{
 		

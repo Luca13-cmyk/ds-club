@@ -63,10 +63,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <span class="label label-success"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
+              <li class="header"></li>
               <li>
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
@@ -78,18 +78,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        
+                        <small><i class="fa fa-clock-o"></i></small>
                       </h4>
                       <!-- The message -->
-                      <p>Why not buy a new awesome theme?</p>
+                      <p></p>
                     </a>
                   </li>
                   <!-- end message -->
                 </ul>
                 <!-- /.menu -->
               </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
+              <li class="footer"><a href="#"></a></li>
             </ul>
           </li>
           <!-- /.messages-menu -->
@@ -99,22 +99,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header"></li>
               <li>
                 <!-- Inner Menu: contains the notifications -->
                 <ul class="menu">
                   <li><!-- start notification -->
                     <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <i class="fa fa-users text-aqua"></i> 
                     </a>
                   </li>
                   <!-- end notification -->
                 </ul>
               </li>
-              <li class="footer"><a href="#">View all</a></li>
+              <li class="footer"><a href="#"></a></li>
             </ul>
           </li>
           <!-- Tasks Menu -->
@@ -122,10 +122,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+              <span class="label label-danger"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
+              <li class="header"></li>
               <li>
                 <!-- Inner menu: contains the tasks -->
                 <ul class="menu">
@@ -133,14 +133,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#">
                       <!-- Task title and progress text -->
                       <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
+                        
+                        <small class="pull-right"></small>
                       </h3>
                       <!-- The progress bar -->
                       <div class="progress xs">
                         <!-- Change the css width attribute to simulate progress -->
                         <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
+                          <span class="sr-only"></span>
                         </div>
                       </div>
                     </a>
@@ -149,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </ul>
               </li>
               <li class="footer">
-                <a href="#">View all tasks</a>
+                <a href="#"></a>
               </li>
             </ul>
           </li>
@@ -168,13 +168,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <img src='{function="getAvatar()"}' class="img-circle" alt="User Image">
 
                 <p>
-                    {function="getUserName()"} - Web Developer
+                    {function="getUserName()"} - Administrador
                   <small>Member since  {function="dateRegister()"}</small>
                 </p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
                   </div>
@@ -184,13 +184,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-xs-4 text-center">
                     <a href="#">Friends</a>
                   </div>
-                </div>
+                </div> -->
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/admin/perfil" class="btn btn-default btn-flat">Perfil</a>
+                  <a href="/admin/profile" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
                   <a href="/admin/logout" class="btn btn-default btn-flat">Sair</a>
@@ -240,10 +240,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="sidebar-menu">
         <li class="header">Links</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuarios
+        <li class='{function="getCurrentHost("/admin/users")"}'><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuarios
         </span></a></li>
-        <li><a href="/admin/topics"><i class="fa fa-table"></i> <span>Topicos</span></a></li>
-        <li><a href="/admin/hqs"><i class="fa fa-link"></i> <span>HQS</span></a></li>
+        <li class='{function="getCurrentHost("/admin/topics")"}'><a href="/admin/topics"><i class="fa fa-table"></i> <span>Topicos</span></a></li>
+        <li class='{function="getCurrentHost("/admin/hqs")"}'><a href="/admin/hqs"><i class="fa fa-link"></i> <span>HQS</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

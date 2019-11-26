@@ -170,10 +170,15 @@ $("li[data-search_pagination_prev]").on("click", function(){
     // **** Filtro
   var l = Lonely;
   var inp = document.getElementById("Filtro");
-  var nomes = ["Sockess", "Shell Script", "JS CSS TOOL", "AutoApkSettingIcon",
-   "Fluxion", "Airgeddon", "Hoper", "PhoneInfoga", "PhoneSploit", "Sherlock"
 
-];
+  nomes = [];
+  $name_topic = $("a[data-name_topic");
+
+
+  $name_topic.each(function(index){
+    $nomes.push($(this).attr("data-name_topic"));
+  });
+
   l.autocomplete(inp, nomes);
   // **** End filtro Barra Dicas
 

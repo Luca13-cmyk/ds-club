@@ -24,47 +24,6 @@ $app->get('/admin/users/:iduser/password', function($iduser) {
 	
 });
 
-// $app->post('/admin/users/:iduser/password', function($iduser) {
-
-// 	User::verifyLogin();
-
-// 	if (!isset($_POST["despassword"]) || $_POST["despassword"] === "")
-// 	{
-// 		User::setError("Preencha a nova senha");
-// 		header("Location: /admin/users/:iduser/password");
-// 		exit;
-// 	}
-// 	if (!isset($_POST["despassword-confirm"]) || $_POST["despassword-confirm"] === "")
-// 	{
-// 		User::setError("Preencha a confirmacao da nova senha");
-// 		header("Location: /admin/users/:iduser/password");
-// 		exit;
-// 	}
-// 	if ($_POST["despassword"] !== $_POST["despassword-confirm"])
-// 	{
-// 		User::setError("Confirme corretamente as senhas.");
-// 		header("Location: /admin/users/:iduser/password");
-// 		exit;
-// 	}
-
-// 	$user = new User();
-    
-
-//     $user->get((int)$iduser);
-
-
-// 	$user->setPassword(User::getPasswordHash($_POST["despassword"]));
-
-// 	User::setSuccess("Alteracao concluida com exito.");
-
-
-// 	header("Location: /admin/users/:iduser/password");
-// 	exit;
-
-
-
-// });
-
 $app->post("/admin/users/:iduser/password", function($iduser){
 
 	User::verifyLogin();

@@ -19,7 +19,7 @@ use \Hcode\DB\Sql;
 	{
         $URIPER = explode("?", $_SERVER['REQUEST_URI']);
         $dirs = explode("/", $URIPER[0]);
-        $host = $dirs[1];
+        $host = "/".$dirs[1];
 		if ($host === $hostpar)
 		{
 			return "active";
@@ -30,7 +30,7 @@ use \Hcode\DB\Sql;
     {
         $URIPER = explode("?", $_SERVER['REQUEST_URI']);
         $dirs = explode("/", $URIPER[0]);
-        $host = $dirs[1];
+        $host = "/".$dirs[1];
 		if ($host === $hostpar)
 		{
             echo '

@@ -63,14 +63,16 @@ $app->get('/home', function() {
 
     $values = querySearch($topic, "/home?");
     
-
+    $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
 
     $page = new PageSite();
 
     $page->setTpl("dashboard", [
         "topics"=>$values["pagination"],
 		"search"=>$values["search"],
-		"pages"=>$values["pages"]
+        "pages"=>$values["pages"],
+        "dir"=>$dir
+        
     ]);
    
 

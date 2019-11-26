@@ -62,7 +62,7 @@ $app->get('/home', function() {
     $topic = new Topic();
 
     $values = querySearch($topic, "/home?");
-    
+    strstr($_SERVER['REQUEST_URI'], "?")
 
 
 

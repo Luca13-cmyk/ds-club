@@ -26,12 +26,8 @@ ds-club
   <!-- CSS loader -->
   <link rel="stylesheet" href="/res/site/assets/loader2.0/loader.css">
   <!-- SLIDER CUB -->
-  {if="$_SERVER['REQUEST_URI'] === '/home'"}
-  <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/demo.min.css" />
-  <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/slicebox.min.css" />
-  <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/custom.min.css" />
-  <script type="text/javascript" src="/res/site/sliderCUBO/js/modernizr.custom.46884.js"></script>
-  {/if}
+  {function="filterTags('/home')"}
+  
   <!-- Carousel Topics -->
   {if="$_SERVER['REQUEST_URI'] === '/topics'"}
   <link rel="stylesheet" href="/res/site/CarouselTopics/css/owl.carousel.min.css">

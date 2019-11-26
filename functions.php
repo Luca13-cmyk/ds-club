@@ -17,12 +17,31 @@ use \Hcode\DB\Sql;
 	}
     function getCurrentHost($hostpar)
 	{
-		$host = $_SERVER["REQUEST_URI"];
+        $URIPER = explode("?", $_SERVER['REQUEST_URI']);
+        $dirs = explode("/", $URIPER[0]);
+        $host = $dirs[0];
 		if ($host === $hostpar)
 		{
 			return "active";
 		}
 		
+    }
+    function filterTags($hostpar)
+    {
+        $URIPER = explode("?", $_SERVER['REQUEST_URI']);
+        $dirs = explode("/", $URIPER[0]);
+        $host = $dirs[0];
+		if ($host === $hostpar)
+		{
+            echo '
+            <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/demo.min.css" />
+            <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/slicebox.min.css" />
+            <link rel="stylesheet" type="text/css" href="/res/site/sliderCUBO/css/custom.min.css" />
+            <script type="text/javascript" src="/res/site/sliderCUBO/js/modernizr.custom.46884.js"></script>
+            
+            ';
+        }
+        
     }
     function sliderCUBO()
     {

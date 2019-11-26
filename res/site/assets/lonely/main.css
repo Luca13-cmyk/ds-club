@@ -230,6 +230,26 @@ html.dark body  .breadcrumb .autocomplete-items-per div
     background: transparent !important;
 }
 
+
+/* ################## PROFILE */
+
+
+#submit_cap_toggle:hover #editcap
+{
+    top: 20px;
+}
+
+#editcap
+{
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    z-index: 10000;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+
 /* ################## Pagination #################### */
 
 .pagination_content_per

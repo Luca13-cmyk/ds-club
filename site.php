@@ -2,6 +2,7 @@
 
 use \Hcode\PageSite;
 use \Hcode\Model\User;
+use \Hcode\Model\Topic;
 
 $app->get('/profile', function() {
     
@@ -57,8 +58,21 @@ $app->get('/home', function() {
     
     User::verifyLogin(false, false);
 
+
+    $topic = new Topic();
+
+    $values = querySearch($topic, "/home?");
+    
+
+
+
     $page = new PageSite();
-    $page->setTpl("dashboard");
+
+    $page->setTpl("dashboard", [
+        "topics"=>$values["pagination"],
+		"search"=>$values["search"],
+		"pages"=>$values["pages"]
+    ]);
    
 
 
@@ -68,6 +82,8 @@ $app->get('/topics', function() {
     
    User::verifyLogin(false, false);
     
+    
+
     $page = new PageSite();
     $page->setTpl("topics");
    

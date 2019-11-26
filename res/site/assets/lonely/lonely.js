@@ -116,15 +116,15 @@ dark.addEventListener("click", function(){
 
 
 // Testes
-for (let index = 0; index < 45; index++) {
-  if (index == 14)
-  {
-    $("#pagination_per").append('<li class="pageNumber current"><a class="" href="#">' + index  + '</a></li>');
-    continue;
+// for (let index = 0; index < 45; index++) {
+//   if (index == 14)
+//   {
+//     $("#pagination_per").append('<li class="pageNumber current"><a class="" href="#">' + index  + '</a></li>');
+//     continue;
 
-  }
-  $("#pagination_per").append('<li class="pageNumber "><a class="" href="page-link">' + index  + '</a></li>');
-}
+//   }
+//   $("#pagination_per").append('<li class="pageNumber "><a class="" href="page-link">' + index  + '</a></li>');
+// }
 
 // ./Testes
 

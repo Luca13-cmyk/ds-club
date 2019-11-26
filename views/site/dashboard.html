@@ -151,19 +151,20 @@
           
           <div class="card-deck">
             <!-- LOOP php -->
-              <a data-name_topic="name" data-article_lnk href="">
+            {loop="$topics"}
+              <a data-name_topic="{$value.destopic}" data-article_lnk href="{$value.idtopic}">
                   <div  data-article_per class="card" style="max-width: 208px;">
-                      <img src="https://i.postimg.cc/qqm4XMxs/ljs7.gif" width="208" height="340" title="Naomi (2019)">
+                      <img src="{$value.descap}" width="208" height="340" title="{$value.destopic}">
                     
                     <span class=""><i style="font-size: 45px;" class="nc-icon nc-spaceship"></i></span>
                     <div style="overflow: hidden;" class="card-footer">
-                      <small class="text-muted">13/03/2007</small>
-                      <small style="float: right;margin-top: 2px;" class="text-muted">Lex Luthor (2019)</small>
+                      <small class="text-muted">{$value.dtregister}</small>
+                      <small style="float: right;margin-top: 2px;" class="text-muted">{$value.destopic}</small>
                       
                     </div>
                   </div>
               </a>
-              
+              {/loop}
               <!-- END loop php -->
               
               
@@ -177,10 +178,11 @@
             <div class="pagination_content_per">
                 
                     <ul id="pagination_per" class="pagination">
-                      <!-- <li><a href="#" class="prev"> Prev</a></li> -->
-                      <!-- <li class="pageNumber"><a class="" href="#">1</a></li> -->
-                      <!-- <li><a href="#" class="next">Next</a></li> -->
-    
+                      <!-- <li><a href="#" class="prev"> Prev</a></li>  -->
+                        {loop="$pages"}
+                       <li class="pageNumber"><a class="" href="{$value.href}">{$value.text}</a></li> 
+                       {/loop}
+                       <!-- <li><a href="#" class="next">Next</a></li> -->
                     </ul>
                   
             </div>

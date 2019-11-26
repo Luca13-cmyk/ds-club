@@ -238,10 +238,10 @@ html.dark body  .breadcrumb .autocomplete-items-per div
 {
     top: 20px;
 }
-#submit_cap_toggle:hover .card-user .image
+#submit_cap_toggle:hover  .image
 
 {
-    -webkit-filter: grayscale(100%);
+    -webkit-filter: grayscale(30%);
     filter: grayscale(30%);
 }
 
@@ -266,6 +266,40 @@ html.dark body  .breadcrumb .autocomplete-items-per div
     transition: 0.2s ease;
 }
 
+
+
+
+
+
+#submit_avatar_toggle:hover .avatar::before
+{
+    top: 20px;
+}
+#submit_avatar_toggle:hover  .avatar
+
+{
+    -webkit-filter: grayscale(30%);
+    filter: grayscale(30%);
+}
+
+
+.card-user .avatar
+{
+    transition: 0.2s ease;
+}
+.card-user .avatar::before
+{
+    content: "\ea40";
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    z-index: 10000;
+    transition: 0.2s ease;
+    background: transparent;
+    border:transparent;
+    color: rgb(81, 203, 206);
+    font-size: 22px;
+}
 
 
 

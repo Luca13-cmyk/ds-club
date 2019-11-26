@@ -171,7 +171,7 @@ $("li[data-search_pagination_prev]").on("click", function(){
   var l = Lonely;
   var inp = document.getElementById("Filtro");
 
-  nomes = [];
+  var nomes = [];
   $name_topic = $("a[data-name_topic");
 
 

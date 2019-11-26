@@ -32,9 +32,9 @@
     
 
   }
-  .aviso-per b
+  .aviso-per #error
   {
-    color: #ff0000;
+    color: #f76060;
     position: absolute;
     right: 10px;
 
@@ -114,8 +114,8 @@
         
     
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/" rel="tooltip" title="Alguns caminhos estao disponiveis se voce ainda nao se logou." data-placement="bottom">
-            Lonely
+          <a class="navbar-brand" href="/" rel="tooltip" title="Um mundo dos quadrinhos." data-placement="bottom">
+            DS-CLUB
           </a>
           <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-bar top-bar"></span>
@@ -175,7 +175,7 @@
                         <i class="now-ui-icons  tech_mobile"></i>
                       </span>
                     </div>
-                    <input type="text" placeholder="Numero do calular" name="phone"  value="{$registerValues.phone}" class="form-control" />
+                    <input type="text" placeholder="Número do celular" name="phone"  value="{$registerValues.phone}" class="form-control" />
                 </div>
                 <div class="input-group no-border input-lg">
                     <div class="input-group-prepend">
@@ -188,12 +188,12 @@
                 <div id="aviso_content" class="input-group no-border input-lg ">
                   {if="$errorRegister != ''"}
                   <div class="aviso-per">
-                      <i class="now-ui-icons travel_info"></i> <b>{$errorRegister}</b>
+                      <i class="now-ui-icons travel_info"></i> <i id="error">{$errorRegister}</i>
                   </div>
                   {/if}
                   {if="$successRegister != ''"}
                   <div class="aviso-per">
-                      <i class="now-ui-icons travel_info"></i> <b id="success">{$successRegister}</b>
+                      <i class="now-ui-icons travel_info"></i> <i id="success">{$successRegister}</i>
                   </div>
                   {/if}
                 </div>
@@ -205,7 +205,7 @@
                 </button>
                 <div class="pull-left">
                     <h6>
-                      <a href="/login" class="link">Ja tenho uma conta</a>
+                      <a href="/login" class="link">Já tenho uma conta</a>
                     </h6>
                   </div>
                 
@@ -222,7 +222,7 @@
           &copy;
           <script>
             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-          </script>, Lonely |
+          </script>, DS-CLUB |
            Por
           <a href="https://www.creative-tim.com" target="_blank">Luca Negrette</a>.
         </div>

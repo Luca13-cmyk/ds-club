@@ -21,15 +21,16 @@ class Topic extends Model
     {
         $sql = new Sql();
 		
-		$results = $sql->select("CALL sp_topics_save(:idtopic, :destopic, :desheader)", array(
+		$results = $sql->select("CALL sp_topics_save(:idtopic, :destopic, :desheader, :descap)", array(
 			":idtopic"=>$this->getidtopic(),
 			":destopic"=>$this->getdestopic(),
-			":desheader"=>$this->getdesheader()
+			":desheader"=>$this->getdesheader(),
+			":descap"=>$this->getdescap()
 		));
 
 		$this->setData($results[0]);
 
-		Topic::updateFile();
+		// Topic::updateFile();
 
 	}
 	

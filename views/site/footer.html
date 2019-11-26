@@ -50,61 +50,24 @@
 {/if}
 <!-- CarouselTopics -->
 {if="$_SERVER['REQUEST_URI'] === '/topics'"}
-<!-- <script>
 
-
-  var documentJqueryPer = document.getElementById("Jquery");
-  document.querySelector("body").removeChild(documentJqueryPer);
-
-</script> -->
-<script src="/res/site/CarouselTopics/js/jquery.min.js"></script>
+<!-- <script src="/res/site/CarouselTopics/js/jquery.min.js"></script> -->
 <script src="/res/site/CarouselTopics/js/owl.carousel.min.js"></script>
 <script src="/res/site/CarouselTopics/js/js.js"></script>
 
 {/if}
+<!-- Profile js -->
+{if="$_SERVER['REQUEST_URI'] === '/profile'"}
+<script src="/res/site/assets/lonely/profile.js"></script>
+
+{/if}
+<!-- Loader Page -->
 <script>
 
 window.addEventListener("load", function(){
    this.document.getElementById("preloader").style.display = "none";
 
  }, false);
-
-
-
-
- 
-
-$("#cap").on("change", function(){
-
-  $("#sendcap").click();
-
-});
-
-
- $("#submit_cap_toggle").on("click", function(e){
-
-  e.preventDefault();
-
-  $("#cap").click();
-
- });
-
-
-
- $("#avatar").on("change", function(){
-
-$("#sendavatar").click();
-
-});
-
-
-$("#submit_avatar_toggle").on("click", function(e){
-
-e.preventDefault();
-
-$("#avatar").click();
-
-});
 
 </script>
 

@@ -48,8 +48,14 @@ $app->post('/admin/users/:iduser/password', function($iduser) {
 	}
 
 	$user = new User();
+    try {
 
-	$user->get((int)$iduser);
+        $user->get((int)$iduser);
+
+    } catch (\Exception $th) {
+        // code...
+    }
+	
 
 	$user->setPassword(User::getPasswordHash($_POST["despassword"]));
 
@@ -157,7 +163,7 @@ $app->post('/admin/users/create', function() {
 	
 });
 $app->post('/admin/users/:iduser', function($iduser) {
-    
+
 	User::verifyLogin();
 
 	$user = new User();

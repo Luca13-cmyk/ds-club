@@ -271,9 +271,9 @@ html.dark body  .breadcrumb .autocomplete-items-per div
 
 
 
-/* #submit_avatar_toggle:hover .avatar::before
+#submit_avatar_toggle:hover .avatar::before
 {
-    top: 20px;
+    top: 40px;
 }
 #submit_avatar_toggle:hover  .avatar
 
@@ -289,9 +289,9 @@ html.dark body  .breadcrumb .autocomplete-items-per div
 }
 .card-user .avatar::before
 {
-    content: "\ea40";
+    content: '\ea40';
     position: absolute;
-    top: -50px;
+    top: -20px;
     left: 10px;
     z-index: 10000;
     transition: 0.2s ease;
@@ -299,7 +299,7 @@ html.dark body  .breadcrumb .autocomplete-items-per div
     border:transparent;
     color: rgb(81, 203, 206);
     font-size: 22px;
-} */
+}
 
 
 

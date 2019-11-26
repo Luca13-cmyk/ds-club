@@ -65,7 +65,7 @@ $app->post('/admin/users/:iduser/password', function($iduser) {
 
 
 $app->get('/admin/users', function() {
-    
+
 	User::verifyLogin();
 
 
@@ -157,6 +157,7 @@ $app->post('/admin/users/create', function() {
 	
 });
 $app->post('/admin/users/:iduser', function($iduser) {
+    
 	User::verifyLogin();
 
 	$user = new User();

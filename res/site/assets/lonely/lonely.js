@@ -183,34 +183,34 @@ $("li[data-search_pagination_prev]").on("click", function(){
   // **** End filtro Barra Dicas
 
   // var $downloads = $(".card");
-  // var $filter = $("#Filtro");
-  // var cache = [];
+  var $filter = $("#Filtro");
+  var cache = [];
 
-  // $downloads.each(function(){
-  //   cache.push({
-  //     element:this,
-  //     text:this.getAttribute("data-filter").trim().toLowerCase()
-  //   })
-  // })
-  // console.table(cache)
+  $name_topic.each(function(){
+    cache.push({
+      element:this,
+      text:this.getAttribute("data-name_topic").trim().toLowerCase()
+    })
+  })
+  console.table(cache)
 
-  // function filter(){
-  //   var query = this.value.trim().toLowerCase();
-  //   cache.forEach(function(fil){
-  //     var index = 0;
-  //     if (query){
-  //       index = fil.text.indexOf(query);
-  //     }
-  //     fil.element.style.display = index === -1 ? 'none' : '';
+  function filter(){
+    var query = this.value.trim().toLowerCase();
+    cache.forEach(function(fil){
+      var index = 0;
+      if (query){
+        index = fil.text.indexOf(query);
+      }
+      fil.element.style.display = index === -1 ? 'none' : '';
 
-  //   }); //forEach
+    }); //forEach
 
-  // } // Filter
-  // if ('oninput' in $filter[0]){
-  //   $filter.on("input keyup", filter);
-  // } else {
-  //   $filter.on("keyup", filter);
-  // }
+  } // Filter
+  if ('oninput' in $filter[0]){
+    $filter.on("input keyup", filter);
+  } else {
+    $filter.on("keyup", filter);
+  }
 
   // End Filtro
 

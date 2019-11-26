@@ -95,15 +95,24 @@
 #add_fav_slider_topic
 {
  position: absolute;
- bottom: 10px;
+ bottom: -10px;
  right: 15px;
  background: transparent;
  border: none;
  outline: none;
+ cursor: pointer;
+ color: #51cbce;
+
 
 }
-#add_fav_slider_topic:hover *
+#add_fav_slider_topic .nc-icon
+{
+    font-size: 30px;
+}
+
+#add_fav_slider_topic:hover .nc-icon
 {
    color: #ef8157 !important;
+   
 }
 

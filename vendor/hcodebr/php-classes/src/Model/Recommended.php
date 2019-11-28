@@ -184,6 +184,33 @@ class Recommended extends Model
 		];
 
 	}
+	public static function getTopicSearchAZ($search, $page = 1, $itemsPerPage = 10) // LIKE = como ou mais ou menos igual
+																				 //  = exatamente igual ao especificado 
+	{
+		
+		$start = ($page - 1) * $itemsPerPage;
+
+		$sql = new Sql();
+		$results = $sql->select("
+		
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_recommendeds 
+			WHERE desrecommended LIKE :search  
+			ORDER BY desrecommended
+			LIMIT $start, $itemsPerPage;
+		", [
+			":search"=>$search."%"
+		]);
+
+		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+		return [
+			'data'=>$results,
+			'total'=>(int)$resultTotal[0]["nrtotal"],
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+		];
+
+	}
 	
 }
 

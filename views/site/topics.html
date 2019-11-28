@@ -89,34 +89,37 @@
           <div class="container">
               <nav aria-label="breadcrumb" role="navigation">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">5 Mais curtidos</li>
-                    
+                    <li class="breadcrumb-item active" aria-current="page">A - Z</li>
+                    <form id="ajaxAZsubmit">
+                      <input type="text" id="valueAJAXAZ" class="form-control" name="search"  placeholder="Ex: B">
+
+                    </form>
                   </ol>
                 </nav>
              
               </div>
       </div>
-      <div data-content_topics class="row">
+      <div  data-content_topics class="row">
             
           <div class="container">
               <br><br><br>
               <div class="col-sm-12">
                   <div data-slider-aba-topics data-customers-testimonials class="owl-carousel">
-                      {loop="$recommendeds"}
-                      <div class="item" title="{$value.desrecommended}">
-                          <button data-toggle="tooltip" data-placement="bottom" title="Adicionar aos favoritos" id="add_fav_slider_topic"><i class="nc-icon nc-bookmark-2"></i></button>
+                      
+                      <div id="ajaxAZ" class="item" title="">
+                          <!-- <button data-toggle="tooltip" data-placement="bottom" title="Adicionar aos favoritos" id="add_fav_slider_topic"><i class="nc-icon nc-bookmark-2"></i></button>
                             <div class="shadow-effect">
-                                <img src="{$value.descap}"  alt="cap">
+                                <img src=""  alt="cap">
                                 
                             </div>
-                            <a href="{$value.deslink}">
+                            <a href="">
                                 <div class="testimonial-name">
                                   Recomendado
                                 </div>
-                            </a>
+                            </a> -->
     
                         </div>
-                        {/loop}
+                        
                         
                   </div>
               </div>

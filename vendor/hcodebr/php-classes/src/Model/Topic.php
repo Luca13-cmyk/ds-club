@@ -206,6 +206,26 @@ class Topic extends Model
 		];
 
 	}
+	public static function getPageSearchAZ($search) // LIKE = como ou mais ou menos igual
+																				 //  = exatamente igual ao especificado 
+	{
+		
+
+
+		$sql = new Sql();
+		$results = $sql->select("
+		
+			SELECT *
+			FROM tb_topics 
+			WHERE destopic LIKE :search  
+			ORDER BY destopic;
+		", [
+			":search"=>$search."%"
+		]);
+
+		return $results;
+
+	}
 	
 }
 

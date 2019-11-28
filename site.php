@@ -147,14 +147,32 @@ $app->get('/topics', function() {
     
    $recommendeds = Recommended::listAll();
 
+
     $page = new PageSite();
     $page->setTpl("topics", [
-        "recommendeds"=>$recommendeds
+        "recommendeds"=>$recommendeds,
     ]);
    
 
 
 });
+$app->get('/topics/AZ', function() {
+    
+    
+    User::verifyLogin(false, false);
+    
+    $l = (isset($_GET["l"])) ? $_GET["l"] : "";
+
+    $results = Topic::getPageSearchAZ($l);
+
+    echo json_encode($results);
+    exit;
+    
+    
+    
+ 
+ 
+ });
 
 $app->get('/logout', function() {
 

@@ -148,8 +148,6 @@ $app->get('/data/ajax/AZ', function() {
     
     $l = (isset($_GET["l"])) ? $_GET["l"] : "a";
 
-    echo $l;
-    exit;
     $results = Topic::getPageSearchAZ($l);
 
     echo json_encode($results);

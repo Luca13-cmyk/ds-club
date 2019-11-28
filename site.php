@@ -164,7 +164,7 @@ $app->get('/topics', function() {
     
    $recommendeds = Recommended::listAll();
      
-    $AZ = Topic::getPageSearchAZ($l);
+    $AZ = Topic::getPageSearchAZ("s");
 
     $page = new PageSite();
     $page->setTpl("topics", [

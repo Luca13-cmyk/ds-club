@@ -36,7 +36,7 @@ $app->get("/admin/recommendeds/create", function()
 $app->post("/admin/recommendeds/create", function()
 {
 
-	User::verifyLogin();
+	User::verifyLogin(); //sada
 
 	$recommended = new Recommended();
 	

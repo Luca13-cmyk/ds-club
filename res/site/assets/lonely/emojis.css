@@ -1,12 +1,12 @@
 svg {
     position: relative;
     width: 10em;
-    transition: width 200ms ease-in-out 0s;
+    transition: height 200ms ease-in-out 0s;
     height: 50px;
   }
   svg:hover {
-    width: 14em;
-    transition: width 200ms ease-in-out 0s;
+    height: 75px;
+    transition: height 200ms ease-in-out 0s;
   }
   #eye_1,
   #eye_2 {

@@ -29,20 +29,31 @@ body,html
 #media-body
 {
     position: relative !important;
+    background: transparent;
 }
+#media-body .container
+{
+    padding: 20px;
+
+}
+ 
 
 a#intro_svg_home
 {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     line-height: 60px;
     text-align: center;
-    width: 200px;
+    width: 400px;
     height: 60px;
     font-family: sans-serif;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-decoration: none;
     color: #51cbce;
+    font-size: 32px;
 
     
 }

@@ -56,12 +56,12 @@ $app->post("/admin/topics/create", function()
 
 });
 
-$app->get("/admin/topics/:idcategory/delete", function($idcategory){
+$app->get("/admin/topics/:idtopic/delete", function($idtopic){
 	User::verifyLogin();
 
 	$topic = new Topic();
 
-	$topic->get((int)$idcategory);
+	$topic->get((int)$idtopic);
 
 	$topic->delete();
 
@@ -72,32 +72,37 @@ $app->get("/admin/topics/:idcategory/delete", function($idcategory){
 	
 });
 
-$app->get("/admin/topics/:idcategory", function($idcategory){
+$app->get("/admin/topics/:idtopic", function($idtopic){
 
 	User::verifyLogin();
 
 	
 	$topic = new Topic();
 
-	$topic->get((int)$idcategory);
+	$topic->get((int)$idtopic);
+
+	$user = User::getFromSession();
+
 	
 	$page = new PageAdmin();
+	
 	$page->setTpl("topics-update", [
-		"category"=>$topic->getvalues()
+		"topic"=>$topic->getvalues(),
+		"user"=>$user->getValues()
 	]);
 
 
 	
 });
 
-$app->post("/admin/topics/:idcategory", function($idcategory){
+$app->post("/admin/topics/:idtopic", function($idtopic){
 
 	User::verifyLogin();
 
 	
 	$topic = new Topic();
 
-	$topic->get((int)$idcategory);
+	$topic->get((int)$idtopic);
 	$topic->setData($_POST);
 	$topic->save();
 
@@ -107,19 +112,19 @@ $app->post("/admin/topics/:idcategory", function($idcategory){
 	
 });
 
-$app->get("/admin/topics/:idcategory/products", function($idcategory){
+$app->get("/admin/topics/:idtopic/products", function($idtopic){
 
 	User::verifyLogin();
 	
 	
 	$topic = new Topic();
 
-	$topic->get((int)$idcategory);
+	$topic->get((int)$idtopic);
 	
 	$page = new PageAdmin();
 
 	$page->setTpl("topics-products", [
-		"category"=>$topic->getvalues(),
+		"topic"=>$topic->getvalues(),
 		"productsRelated"=>$topic->getProducts(),
 		"productsNotRelated"=>$topic->getProducts(false)
 
@@ -127,14 +132,14 @@ $app->get("/admin/topics/:idcategory/products", function($idcategory){
 
 });
 
-$app->get("/admin/topics/:idcategory/products/:idproduct/add", function($idcategory, $idproduct){
+$app->get("/admin/topics/:idtopic/products/:idproduct/add", function($idtopic, $idproduct){
 
 	User::verifyLogin();
 	
 	
 	$topic = new Topic();
 
-	$topic->get((int)$idcategory);
+	$topic->get((int)$idtopic);
 	
 	$product = new Product();
 
@@ -142,18 +147,18 @@ $app->get("/admin/topics/:idcategory/products/:idproduct/add", function($idcateg
 
 	$topic->addProduct($product);
 
-	header("Location: /admin/topics/" . $idcategory . "/products");
+	header("Location: /admin/topics/" . $idtopic . "/products");
 	exit;
 
 });
-$app->get("/admin/topics/:idcategory/products/:idproduct/remove", function($idcategory, $idproduct){
+$app->get("/admin/topics/:idtopic/products/:idproduct/remove", function($idtopic, $idproduct){
 
 	User::verifyLogin();
 	
 	
 	$topic = new Topic();
 
-	$topic->get((int)$idcategory);
+	$topic->get((int)$idtopic);
 	
 	$product = new Product();
 
@@ -161,7 +166,7 @@ $app->get("/admin/topics/:idcategory/products/:idproduct/remove", function($idca
 
 	$topic->removeProduct($product);
 
-	header("Location: /admin/topics/" . $idcategory . "/products");
+	header("Location: /admin/topics/" . $idtopic . "/products");
 	exit;
 
 });

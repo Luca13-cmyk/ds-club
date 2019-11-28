@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Categorias
+    Lista de Topicos
   </h1>
 </section>
 
@@ -18,12 +18,41 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/admin/categories/{$category.idcategory}" method="post">
+        <form role="form" action="/admin/categories/{$topic.idtopic}" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="descategory">Nome da categoria</label>
-              <input type="text" class="form-control" id="descategory" name="descategory" placeholder="Digite o nome da categoria" value="{$category.descategory}">
+              <label for="destopic">Nome da categoria</label>
+              <input type="text" class="form-control" id="destopic" name="destopic" placeholder="Digite o nome do topico" value="{$topic.destopic}">
             </div>
+            <div class="form-group">
+                <div class="box">
+                    <div class="box-header">
+                      <h3 class="box-title">Cabecalho
+                        <small>Editor</small>
+                      </h3>
+                      <!-- tools box -->
+                      <div class="pull-right box-tools">
+                        <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                          <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                          <i class="fa fa-times"></i></button>
+                      </div>
+                      <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+                        
+                        <textarea  name="desheader" class="textarea" placeholder="Inicie o cabecalho..." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"  required>{$topic.desheader}</textarea>
+                      
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for="destopic">Capa</label>
+                <input type="text" class="form-control" id="descap" name="descap" placeholder="Digite o link da capa ..." value="{$topic.descap}" required>
+            </div>
+            <input type="hidden" class="form-control" id="iduser" name="iduser" value="{$user.iduser}" required>
+
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
@@ -38,3 +67,14 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+
+var textarea = document.querySelector(".textarea");
+var iframe = document.querySelector("iframe");
+iframe.style.display = "none";
+textarea.style.display = "block";
+
+//document.querySelector(".wysihtml5-editor").innerHTML = textarea.firstChild.nodeValue;
+
+
+</script>

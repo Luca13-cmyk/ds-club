@@ -135,6 +135,7 @@ div[data-content_topics]
 #share_per
 {
     cursor: pointer;
+    margin-right: 20px;
 }
 #imagecap_topic
 {
@@ -406,15 +407,17 @@ ul#pagination_per li:last-child
 	font-size: 20px;
 }
 
-/* Carousel */
+/* ################## Carousel  ################ */
 
 #carousel_slider_bootstrap
 {
-    display: none;
+    margin: auto;
+    box-shadow: 0 10px 15px rgba(0,0,0,.2);
+
 }
 
 
-/* ######################## SLIDER ############################## */
+/* ######################## SLIDER PER ############################## */
 
 
 .nav-arrows a
@@ -461,15 +464,6 @@ ul#pagination_per li:last-child
 }
 @media (max-width: 711px)
 {
-    .wrapper_per
-    {
-        display: none;
-    }
-
-    #carousel_slider_bootstrap
-    {
-    display: block;
-    }
     .col-sm-6 {
         -ms-flex: 0 0 80%;
         flex: 0 0 80%;

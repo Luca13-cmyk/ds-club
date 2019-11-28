@@ -181,9 +181,9 @@
                       <!-- <li><a href="#" class="prev"> Prev</a></li>  -->
                       {loop="$pages"}
                        {if="$dir === $value.text"}
-                       <li class="pageNumber current"><a class="" href="{$value.href}">{$value.text}</a></li> 
+                       <li class="pageNumber current"><a class="" href="/topics/{$value.href}">{$value.text}</a></li> 
                        {else}
-                       <li class="pageNumber"><a class="" href="{$value.href}">{$value.text}</a></li> 
+                       <li class="pageNumber"><a class="" href="/topics/{$value.href}">{$value.text}</a></li> 
                        {/if}
                       {/loop}
                        <!-- <li><a href="#" class="next">Next</a></li> -->

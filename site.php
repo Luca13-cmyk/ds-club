@@ -4,6 +4,48 @@ use \Hcode\PageSite;
 use \Hcode\Model\User;
 use \Hcode\Model\Topic;
 
+
+
+$app->get('/topics/:idtopic', function($idtopic) {
+    
+    
+    User::verifyLogin(false, false);
+
+
+
+
+
+    $topic = new Topic();
+
+    $topic->get((int)$idtopic);
+
+    
+    // $values = querySearch($topic, "/home?");
+    
+    // $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
+
+    $page = new PageSite();
+
+    $page->setTpl("topic", [
+
+        "topic"=>$topic->getValues()
+
+    ]);
+
+    // $page->setTpl("topic", [
+    //     "topics"=>$values["pagination"],
+	// 	"search"=>$values["search"],
+    //     "pages"=>$values["pages"],
+    //     "dir"=>$dir
+        
+    // ]);
+   
+
+
+});
+
+
+
 $app->get('/profile', function() {
     
     User::verifyLogin(false, false);

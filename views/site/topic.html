@@ -19,8 +19,12 @@
 
                         </intro>
                        <script>
-                       
-                       document.getElementsByTagName("intro")[0].innerHTML = "{$topic.desheader}";
+
+                        var intro = document.getElementsByTagName("intro")[0];
+
+                        intro.innerHTML = "{$topic.desheader}";
+
+                        intro.innerHTML = intro.innerText;
 
                        </script>
                        

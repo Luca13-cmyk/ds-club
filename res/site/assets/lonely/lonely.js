@@ -284,7 +284,7 @@ function showAZajax(e)
               //   +   r[index].dessystem + "</i><br> <small style='color: #333;'>" + r[index].dtaccess + "</small></li>";
                 
               // }
-              return;
+              
             
             } catch (error) {
               // document.querySelector("p[data-error_per]").innerHTML = 2;
@@ -302,7 +302,7 @@ function showAZajax(e)
         }
 
         
-      xhr.open("GET", "https://lds-club-com.umbler.net/topics/AZ?l=" + value, true);
+      xhr.open("GET", "https://lds-club-com.umbler.net/data/ajax/AZ?l=" + value, true);
       xhr.send(null);
         
   

@@ -148,9 +148,8 @@ $app->get('/data/ajax/AZ', function() {
     
     $l = (isset($_GET["l"])) ? $_GET["l"] : "a";
 
-    $results = Topic::getPageSearchAZ($l);
-
-    echo json_encode($results);
+    
+    echo json_encode(Topic::getPageSearchAZ($l));
     exit;
     
     
@@ -164,11 +163,13 @@ $app->get('/topics', function() {
    User::verifyLogin(false, false);
     
    $recommendeds = Recommended::listAll();
-
+     
+    $AZ = Topic::getPageSearchAZ($l);
 
     $page = new PageSite();
     $page->setTpl("topics", [
         "recommendeds"=>$recommendeds,
+        "AZ"=>$AZ
     ]);
    
 

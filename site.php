@@ -141,21 +141,6 @@ $app->get('/home', function() {
 
 });
 
-$app->get('/topics', function() {
-    
-   User::verifyLogin(false, false);
-    
-   $recommendeds = Recommended::listAll();
-
-
-    $page = new PageSite();
-    $page->setTpl("topics", [
-        "recommendeds"=>$recommendeds,
-    ]);
-   
-
-
-});
 $app->get('/topics/AZ', function() {
     
     
@@ -173,6 +158,23 @@ $app->get('/topics/AZ', function() {
  
  
  });
+
+$app->get('/topics', function() {
+    
+   User::verifyLogin(false, false);
+    
+   $recommendeds = Recommended::listAll();
+
+
+    $page = new PageSite();
+    $page->setTpl("topics", [
+        "recommendeds"=>$recommendeds,
+    ]);
+   
+
+
+});
+
 
 $app->get('/logout', function() {
 

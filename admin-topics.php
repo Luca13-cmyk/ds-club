@@ -57,6 +57,7 @@ $app->post("/admin/topics/create", function()
 });
 
 $app->get("/admin/topics/:idtopic/delete", function($idtopic){
+	
 	User::verifyLogin();
 
 	$topic = new Topic();
@@ -85,7 +86,7 @@ $app->get("/admin/topics/:idtopic", function($idtopic){
 
 	
 	$page = new PageAdmin();
-	
+
 	$page->setTpl("topics-update", [
 		"topic"=>$topic->getvalues(),
 		"user"=>$user->getValues()

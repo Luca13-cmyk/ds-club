@@ -14,14 +14,14 @@
   	<div class="col-md-12">
   		<div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Editar Categoria</h3>
+          <h3 class="box-title">Editar Topico</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/admin/categories/{$topic.idtopic}" method="post">
+        <form role="form" action="/admin/topics/{$topic.idtopic}" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="destopic">Nome da categoria</label>
+              <label for="destopic">Nome do topico</label>
               <input type="text" class="form-control" id="destopic" name="destopic" placeholder="Digite o nome do topico" value="{$topic.destopic}">
             </div>
             <div class="form-group">
@@ -73,8 +73,6 @@ var textarea = document.querySelector(".textarea");
 var iframe = document.querySelector("iframe");
 iframe.style.display = "none";
 textarea.style.display = "block";
-
-//document.querySelector(".wysihtml5-editor").innerHTML = textarea.firstChild.nodeValue;
 
 
 </script>

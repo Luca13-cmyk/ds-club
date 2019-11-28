@@ -3,11 +3,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Categorias
+    Lista de topicos
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active"><a href="/admin/topics">Categorias</a></li>
+    <li class="active"><a href="/admin/topics">Topicos</a></li>
   </ol>
 </section>
 
@@ -19,7 +19,7 @@
   		<div class="box box-primary">
             
             <div class="box-header">
-              <a href="/admin/topics/create" class="btn btn-success">Cadastrar Categoria</a>
+              <a href="/admin/topics/create" class="btn btn-success">Cadastrar Topico</a>
               <div class="box-tools">
                 <form action="/admin/topics">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -37,7 +37,7 @@
                 <thead>
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Nome da Categoria</th>
+                    <th>Nome do Topico</th>
                     <th style="width: 240px">&nbsp;</th>
                   </tr>
                 </thead>
@@ -47,7 +47,7 @@
                     <td>{$value.idtopic}</td>
                     <td>{$value.destopic}</td>
                     <td>
-                      <a href="/admin/topics/{$value.idtopic}/products" class="btn btn-default btn-xs"><i class="fa fa-edit"></i> Produtos</a>
+                      <a href="/admin/topics/{$value.idtopic}/products" class="btn btn-default btn-xs"><i class="fa fa-edit"></i> HQS</a>
                       <a href="/admin/topics/{$value.idtopic}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
                       <a href="/admin/topics/{$value.idtopic}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                     </td>

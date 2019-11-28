@@ -55,7 +55,7 @@ class Topic extends Model
 			":idtopic"=>$this->getidtopic()
 		]);
 
-		Topic::updateFile();
+		// Topic::updateFile();
 	}
 	public static function updateFile()
 	{

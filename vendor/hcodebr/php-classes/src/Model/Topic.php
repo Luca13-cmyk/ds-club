@@ -21,12 +21,13 @@ class Topic extends Model
     {
         $sql = new Sql();
 		
-		$results = $sql->select("CALL sp_topics_save(:idtopic, :destopic, :desheader, :descap, :iduser)", array(
+		$results = $sql->select("CALL sp_topics_save(:idtopic, :destopic, :desheader, :descap, :iduser, :desperson)", array(
 			":idtopic"=>$this->getidtopic(),
 			":destopic"=>$this->getdestopic(),
 			":desheader"=>$this->getdesheader(),
 			":descap"=>$this->getdescap(),
-			":iduser"=>$this->getiduser()
+			":iduser"=>$this->getiduser(),
+			":desperson"=>$this->getdesperson()
 		));
 
 		$this->setData($results[0]);

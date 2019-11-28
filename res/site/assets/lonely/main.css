@@ -123,6 +123,7 @@ div[data-content_topics]
     border: 1px solid #FFFFFF;
     position: relative;
     overflow: hidden;
+    margin-right: 70px;
 }
 
 /* ###################### DARK MODE ################################ */

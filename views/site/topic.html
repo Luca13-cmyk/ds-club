@@ -10,7 +10,7 @@
             <div class="container">
  
                 <div class="media">
-                  <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" style="margin-right: 70px;" alt="...">
+                  <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" alt="profile">
                 
                   <div class="media-body">
                       <h5  class="mt-0">{$topic.destopic}</h5>
@@ -27,7 +27,8 @@
                         intro.innerHTML = intro.innerText;
 
                        </script>
-                       
+                        <hr>
+                       <small>Por {$topic.desperson} - <b>Administrador</b></small>                       
                   </div>
                 </div>
                 <hr>

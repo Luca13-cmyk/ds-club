@@ -131,6 +131,11 @@ div[data-content_topics]
     
     
 }
+
+#share_per
+{
+    cursor: pointer;
+}
 #imagecap_topic
 {
     width: 208px;

@@ -26,12 +26,12 @@ body,html
 
 /* ######## Intro Home ######### */
 
-#media-body
+div[data-media-body-per]
 {
     position: relative !important;
     background: transparent;
 }
-#media-body .container
+div[data-media-body-per] .container
 {
     padding: 20px;
 

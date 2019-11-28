@@ -275,12 +275,13 @@ if (AZ && ajaxAZsubmit)
               for (let index = 0; index < r.length; index++) {
                 
                 AZ.setAttribute("title", r[index].destopic);
+                AZ.innerHTML += "<button data-toggle='tooltip' data-placement='bottom' title='Adicionar aos favoritos' id='add_fav_slider_topic'><i class='nc-icon nc-bookmark-2'></i></button>"
                 AZ.innerHTML += "<div class='shadow-effect'>"
                 AZ.innerHTML += "<img src='" + r[index].descap + "' alt='cap'>" 
                 AZ.innerHTML += "</div>" 
                 AZ.innerHTML += "<a href='" + r[index].idtopic + "'>" 
                 AZ.innerHTML += "<div class='testimonial-name'>Recomendado</div></a>";
-
+                
 
             
               }

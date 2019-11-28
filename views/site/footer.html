@@ -53,22 +53,27 @@
 <script src="/res/site/CarouselTopics/js/js.js"></script>
 <script>
 
-$('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
+$('div[data-slider-aba-topics]').owlCarousel({
+        loop: false,
+        center: true,
+        items: 1,
+        margin: 0,
+        autoplay: false,
+        dots:true,
+        autoplayTimeout: 8500,
+        smartSpeed: 450,
+        responsive: {
+          0: {
+            items: 1
+          },
+          768: {
+            items: 2
+          },
+          1170: {
+            items: 3
+          }
         }
-    }
-})
+    });
 
 </script>
 

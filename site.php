@@ -145,10 +145,12 @@ $app->get('/topics', function() {
     
    User::verifyLogin(false, false);
     
-    
+   $recommendeds = Recommended::listAll();
 
     $page = new PageSite();
-    $page->setTpl("topics");
+    $page->setTpl("topics", [
+        "recommendeds"=>$recommendeds
+    ]);
    
 
 

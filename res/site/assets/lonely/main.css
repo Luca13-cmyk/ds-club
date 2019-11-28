@@ -46,14 +46,14 @@ a#intro_svg_home
     transform: translate(-50%, -50%);
     line-height: 60px;
     text-align: center;
-    width: 400px;
+    width: 200px;
     height: 60px;
     font-family: sans-serif;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 1.4px;
     text-decoration: none;
     color: #51cbce;
-    font-size: 32px;
+    font-size: 22px;
 
     
 }

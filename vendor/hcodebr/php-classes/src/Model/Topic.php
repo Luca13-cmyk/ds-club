@@ -223,7 +223,9 @@ class Topic extends Model
 			":search"=>$search."%"
 		]);
 
-		return $results;
+		// return $results;
+		var_dump($results);
+		exit;
 
 	}
 	

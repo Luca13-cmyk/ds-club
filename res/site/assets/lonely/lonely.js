@@ -224,7 +224,7 @@ $("li[data-search_pagination_prev]").on("click", function(){
 var AZ = document.getElementById("ajaxAZ");
 var ajaxAZsubmit = document.getElementById("ajaxAZsubmit");
 var valueAJAXAZ = document.getElementById("valueAJAXAZ");
-
+var statusAZ = document.getElementById("statusAZ");
 
 if (AZ && ajaxAZsubmit)
   {
@@ -251,12 +251,13 @@ if (AZ && ajaxAZsubmit)
           if (xhr.status === 200)
           {
             try {
-              
+              statusAZ.style.display = "none";
               responseObject = JSON.parse(xhr.responseText);
               
               const r = responseObject;
               console.table(r);
-              return;
+              
+              
               
               // Quantidade de visualizacoes
               // document.querySelector("p[data-nqnt]").innerHTML = "Atual: " + r[1];
@@ -271,15 +272,18 @@ if (AZ && ajaxAZsubmit)
               // Execucao no content
               
 
-              // for (let index = 0; index < r.length; index++) {
+              for (let index = 0; index < r.length; index++) {
                 
-              //   ips.innerHTML += "<li data-access='" 
-              //   + r[index].dtaccess 
-              //   +  "' style='line-height: 55px;'><b style='padding-left: 5px;'>IP:" 
-              //   + r[index].desip + "</b> | <i style='color: #853bfa'>" 
-              //   +   r[index].dessystem + "</i><br> <small style='color: #333;'>" + r[index].dtaccess + "</small></li>";
-                
-              // }
+                AZ.setAttribute("title", r[index].destopic);
+                AZ.innerHTML += "<div class='shadow-effect'>"
+                AZ.innerHTML += "<img src='" + r[index].descap + "' alt='cap'>" 
+                AZ.innerHTML += "</div>" 
+                AZ.innerHTML += "<a href='" + r[index].idtopic + "'>" 
+                AZ.innerHTML += "<div class='testimonial-name'>Recomendado</div></a>";
+
+
+            
+              }
               
             
             } catch (error) {

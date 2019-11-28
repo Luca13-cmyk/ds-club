@@ -1,12 +1,12 @@
-svg {
+svg#like {
     position: relative;
     width: 10em;
-    transition: height 200ms ease-in-out 0s;
-    height: 80px;
+    transition: top 200ms ease-in-out 0s;
+    height: 78px;
   }
-  svg:hover {
-    height: 85px;
-    transition: height 200ms ease-in-out 0s;
+  svg#like:hover {
+    top: -5px;
+    transition: top 200ms ease-in-out 0s;
   }
   #eye_1,
   #eye_2 {

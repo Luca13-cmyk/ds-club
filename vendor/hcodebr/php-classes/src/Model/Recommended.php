@@ -26,8 +26,8 @@ class Recommended extends Model
 		array(
 			":idrecommended"=>$this->getidrecommended(),
 			":desrecommended"=>$this->getdesrecommended(),
-			":deslink"=>$this->getdesheader(),
-			":descap"=>$this->getdescap(),
+			":deslink"=>$this->getdeslink(),
+			":descap"=>$this->getdescap()
 		));
 
 		$this->setData($results[0]);
@@ -123,6 +123,7 @@ class Recommended extends Model
 			":idrecommended"=>$this->getidrecommended(),
 			":idproduct"=>$product->getidproduct()
 		]);
+
 	}
 	public function removeProduct(Product $product)
 	{

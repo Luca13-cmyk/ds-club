@@ -40,6 +40,7 @@ $app->post("/admin/recommendeds/create", function()
 
 	$recommended = new Recommended();
 	
+	
 	$recommended->setData($_POST);
 
 	$recommended->save();

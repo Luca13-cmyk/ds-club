@@ -4,7 +4,7 @@ use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 use \Hcode\Model\Recommended;
 
-$app->get("/admin/recommended", function(){
+$app->get("/admin/recommendeds", function(){
 
     User::verifyLogin();
 
@@ -40,7 +40,7 @@ $app->post("/admin/recommendeds/create", function()
 
 	$recommended = new Recommended();
 	
-	
+
 	$recommended->setData($_POST);
 
 	$recommended->save();

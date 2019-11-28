@@ -3,6 +3,7 @@
 use \Hcode\PageSite;
 use \Hcode\Model\User;
 use \Hcode\Model\Topic;
+use \Hcode\Model\Recommended;
 
 
 
@@ -118,6 +119,9 @@ $app->get('/home', function() {
 
     $topic = new Topic();
 
+    $recommendeds = Recommended::listAll();
+
+
     $values = querySearch($topic, "/home?");
     
     $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
@@ -128,7 +132,8 @@ $app->get('/home', function() {
         "topics"=>$values["pagination"],
 		"search"=>$values["search"],
         "pages"=>$values["pages"],
-        "dir"=>$dir
+        "dir"=>$dir,
+        "recommendeds"=>$recommendeds
         
     ]);
    

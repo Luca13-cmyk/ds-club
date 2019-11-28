@@ -229,13 +229,9 @@ var valueAJAXAZ = document.getElementById("valueAJAXAZ");
 if (AZ && ajaxAZsubmit)
   {
 
-    ajaxAZsubmit.addEventListener("submit", showAZajax, false); // evento ajax para atualizar.
-    
-      
-  }
+    ajaxAZsubmit.addEventListener("submit", function(e){
 
-function showAZajax(e)
-  {
+
       e.preventDefault();
       var value = valueAJAXAZ.value;
 
@@ -304,9 +300,15 @@ function showAZajax(e)
         
       xhr.open("GET", "https://lds-club-com.umbler.net/data/ajax/AZ?l=" + value, true);
       xhr.send(null);
-        
-  
+
+
+
+
+    }, false); // evento ajax para atualizar.
+    
+      
   }
+
 
 
 

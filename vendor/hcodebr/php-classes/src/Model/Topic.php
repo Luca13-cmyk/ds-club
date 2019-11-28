@@ -33,7 +33,6 @@ class Topic extends Model
 			":descompany"=>$this->getdescompany(),
 			":desserie"=>$this->getdesserie(),
 			":desrelease"=>$this->getdesrelease(),
-			":descompany"=>$this->getdescompany(),
 			":vltotalcompany"=>$this->getvltotalcompany()
 		));
 

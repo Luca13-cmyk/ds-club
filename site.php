@@ -44,7 +44,22 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
 });
 
+$app->get('/ig', function() {
+    
+    User::verifyLogin(false, false);
 
+    // $user = User::getFromSession();
+
+
+    // $page = new PageSite();
+
+    // $page->setTpl("profile", [
+    //     "user"=>$user->getValues(),
+    //     "profileMsg"=>User::getSuccess(),
+    //     "profileError"=>User::getError()
+    // ]);
+    
+ });
 
 $app->get('/profile', function() {
     

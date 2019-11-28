@@ -10,10 +10,16 @@
             <div class="container">
  
                 <div class="media">
-                  <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" alt="profile">
+                  
+                    <img id="imagecap_topic" src="{$topic.descap}" alt="cap">
+
                 
                   <div class="media-body">
                       <h5  class="mt-0">{$topic.destopic}</h5>
+                      <b>Editora: <br><br></b>
+                      <b>Ano de Lançamento: <br><br></b>
+                      <b>Total de Edições: <br><br></b>
+                      <b>Sinopse: <br></b>
                        
                         <intro> 
 
@@ -28,7 +34,10 @@
 
                        </script>
                         <hr>
-                       <small>Por {$topic.desperson} - <b>Administrador</b></small>                       
+                        <div class="footer_per_intro">
+                            <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" alt="profile">
+                            <small>Por {$topic.desperson} - <b>Administrador</b></small>                       
+                        </div>
                   </div>
                 </div>
                 <hr>

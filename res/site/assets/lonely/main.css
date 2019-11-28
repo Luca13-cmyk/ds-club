@@ -118,12 +118,27 @@ div[data-content_topics]
 
 #profile_topic
 {
-    width: 124px;
-    height: 124px;
+    width: 64px;
+    height: 64px;
     border: 1px solid #FFFFFF;
     position: relative;
     overflow: hidden;
+    margin-right: 20px;
+}
+.footer_per_intro
+{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#imagecap_topic
+{
+    width: 208px;
+    height: 440px;
+    overflow: hidden;
     margin-right: 70px;
+
+
 }
 
 /* ###################### DARK MODE ################################ */

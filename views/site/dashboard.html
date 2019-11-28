@@ -152,7 +152,7 @@
           <div class="card-deck">
             <!-- LOOP php -->
             {loop="$topics"}
-              <a data-name_topic="{$value.destopic}" data-article_lnk href="{$value.idtopic}">
+              <a data-name_topic="{$value.destopic}" data-article_lnk href="/topics/{$value.idtopic}">
                   <div  data-article_per class="card" style="max-width: 208px;">
                       <img src="{$value.descap}" width="208" height="340" title="{$value.destopic}">
                     
@@ -181,9 +181,9 @@
                       <!-- <li><a href="#" class="prev"> Prev</a></li>  -->
                       {loop="$pages"}
                        {if="$dir === $value.text"}
-                       <li class="pageNumber current"><a class="" href="/topics/{$value.href}">{$value.text}</a></li> 
+                       <li class="pageNumber current"><a class="" href="{$value.href}">{$value.text}</a></li> 
                        {else}
-                       <li class="pageNumber"><a class="" href="/topics/{$value.href}">{$value.text}</a></li> 
+                       <li class="pageNumber"><a class="" href="{$value.href}">{$value.text}</a></li> 
                        {/if}
                       {/loop}
                        <!-- <li><a href="#" class="next">Next</a></li> -->

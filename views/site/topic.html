@@ -10,11 +10,20 @@
             <div class="container">
  
                 <div class="media">
-                  <img  src="/profile_user/avatar/{$topic.iduser}.jpg" style="margin-right: 70px;" alt="...">
+                  <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" style="margin-right: 70px;" alt="...">
                 
                   <div class="media-body">
                       <h5  class="mt-0">{$topic.destopic}</h5>
-                      {$topic.desheader}
+                       
+                        <intro> 
+
+                        </intro>
+                       <script>
+                       
+                       document.getElementsByTagName("intro")[0].innerHTML = "{$topic.desheader}";
+
+                       </script>
+                       
                   </div>
                 </div>
                 <hr>

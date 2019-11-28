@@ -15,19 +15,19 @@
 
                 
                   <div class="media-body">
-                      <h5  class="mt-0">{$topic.destopic}</h5>
-                      <b class="infos_topic_b">Editora:</b> {$topic.descompany}<br><br>    51cbce
+                      <h5  class="mt-0 title_destopic">{$topic.destopic}</h5>
+                      <b class="infos_topic_b">Editora:</b> {$topic.descompany}<br><br>    
                       <b class="infos_topic_b">Ano de Lançamento:</b> {$topic.desserie}<br><br>
                       <b class="infos_topic_b">Ano de Lançamento:</b> {$topic.desrelease}<br><br>
                       <b class="infos_topic_b">Total de Edições:</b> {$topic.vltotalcompany}<br><br>
                       <b class="infos_topic_b">Sinopse:</b> <br>
                        
-                        <intro> 
+                        <intro id="intro"> 
 
                         </intro>
                        <script>
 
-                        var intro = document.getElementsByTagName("intro")[0];
+                        var intro = document.getElementById("intro");
 
                         intro.innerHTML = "{$topic.desheader}";
 
@@ -40,7 +40,7 @@
                                     <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" alt="profile">
                                     <br>
                                     <figcaption>
-                                        <small>Por {$topic.desperson} <br> - <b>Administrador</b></small>                       
+                                        <small>{$topic.desperson} <br>  <b class="infos_topic_b">Administrador</b></small>                       
                                     </figcaption>
 
                             </figure>

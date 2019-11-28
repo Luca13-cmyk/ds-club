@@ -111,7 +111,7 @@ div[data-content_topics]
 }
 
 
-/* Topic */
+/* ############# Topic ################ */
 
 
 
@@ -143,6 +143,17 @@ div[data-content_topics]
 .infos_topic_b
 {
     color: #51cbce;
+}
+.title_destopic
+{
+    text-align: center;
+    color: #ef8157;
+}
+#intro img
+{
+    width: 104px;
+    height: 104px;
+    overflow: hidden;
 }
 
 /* ###################### DARK MODE ################################ */

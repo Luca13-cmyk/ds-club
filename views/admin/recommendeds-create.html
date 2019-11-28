@@ -1,0 +1,57 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Lista de recommendedos
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/admin/recommendeds">recommendedos</a></li>
+            <li class="active"><a href="/admin/recommendeds/create">Cadastrar</a></li>
+          </ol>
+        </section>
+        
+        <!-- Main content -->
+        <section class="content">
+        
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Novo Recomendado</h3>
+                </div>
+                <!-- /.box-header  -->
+                <!-- form start -->
+                <form role="form" action="/admin/recommendeds/create" method="post">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="desrecommended">Nome do Recomendado</label>
+                      <input type="text" class="form-control" id="desrecommended" name="desrecommended" placeholder="Digite o nome do recomendado" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deslink">Link</label>
+                        <input type="text" class="form-control" id="deslink" name="deslink" placeholder="Digite o link" required>
+                    </div>
+                    <div class="form-group">
+                            <label for="descap">cap</label>
+                            <input type="text" class="form-control" id="descap" name="descap" placeholder="Digite o endereco da capa" required>
+                    </div>
+
+                   
+                    
+                      </div>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+          </div>
+        
+        </section>
+        <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->

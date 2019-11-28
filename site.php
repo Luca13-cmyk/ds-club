@@ -141,7 +141,7 @@ $app->get('/home', function() {
 
 });
 
-$app->get('/topics/AZ', function() {
+$app->get('/data/ajax/AZ', function() {
     
     
     User::verifyLogin(false, false);

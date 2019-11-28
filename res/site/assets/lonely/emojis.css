@@ -2,10 +2,10 @@ svg {
     position: relative;
     width: 10em;
     transition: height 200ms ease-in-out 0s;
-    height: 50px;
+    height: 80px;
   }
   svg:hover {
-    height: 75px;
+    height: 85px;
     transition: height 200ms ease-in-out 0s;
   }
   #eye_1,

@@ -118,8 +118,8 @@ div[data-content_topics]
 
 #profile_topic
 {
-    width: 64px;
-    height: 64px;
+    width: 84px;
+    height: 84px;
     border: 1px solid #FFFFFF;
     position: relative;
     overflow: hidden;
@@ -139,6 +139,10 @@ div[data-content_topics]
     margin-right: 70px;
 
 
+}
+.infos_topic_b
+{
+    color: #51cbce;
 }
 
 /* ###################### DARK MODE ################################ */

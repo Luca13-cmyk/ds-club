@@ -27,7 +27,7 @@ $app->get("/admin/recommended", function(){
 $app->get("/admin/recommendeds/create", function()
 {
 
-	User::verifyLogin(); //
+	User::verifyLogin(); //ss
 
 	$page = new PageAdmin();
 	$page->setTpl("recommendeds-create");

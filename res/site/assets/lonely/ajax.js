@@ -66,8 +66,7 @@ if (AZ && ajaxAZsubmit)
                 
                                 '<div data-avatar-card-topic class="avatar mb-md-0 mb-4 mx-4">' +
 
-                                '<a href="' + r[index].destopic + '"<img src="' + r[index].descap + '" class="rounded z-depth-1" alt="'+ r[index].destopic  + '">' +
-
+                                '<a href="' + r[index].idtopic +'"><img src="' + r[index].descap + '" class="rounded z-depth-1" alt="'+ r[index].destopic  + '"></a>' +
                                 '</div>' +
                                 '<div class="mx-4">'   +         
                                 '<h4 class="font-weight-bold mb-3">' + r[index].destopic +  '</h4>' +

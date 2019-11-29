@@ -7,65 +7,71 @@
             
           
           <div class="row">
-            <div class="container">
- 
-                <div class="media">
-                  
-                    <img id="imagecap_topic" src="{$topic.descap}" alt="cap">
-
+            <div class="col-md-12">
+                <div class="card">
+                        <div class="container">
+                                <hr>
+                                <div class="media">
+                                  
+                                    <img id="imagecap_topic" src="{$topic.descap}" alt="cap">
                 
-                  <div class="media-body">
-                      <h5  class="mt-0 title_destopic">{$topic.destopic}</h5>
-                      <b class="infos_topic_b">Editora:</b> {$topic.descompany}<br><br>    
-                      <b class="infos_topic_b">Tipo de Série:</b> {$topic.desserie}<br><br>
-                      <b class="infos_topic_b">Ano de Lançamento:</b> {$topic.desrelease}<br><br>
-                      <b class="infos_topic_b">Total de Edições:</b> {$topic.vltotalcompany}<br><br>
-                      <b class="infos_topic_b">Sinopse:</b> <br>
-                       
-                        <intro id="intro"> 
+                                
+                                  <div class="media-body">
+                                      <h5  class="mt-0 title_destopic">{$topic.destopic}</h5>
+                                      <b class="infos_topic_b">Editora:</b> {$topic.descompany}<br><br>    
+                                      <b class="infos_topic_b">Tipo de Série:</b> {$topic.desserie}<br><br>
+                                      <b class="infos_topic_b">Ano de Lançamento:</b> {$topic.desrelease}<br><br>
+                                      <b class="infos_topic_b">Total de Edições:</b> {$topic.vltotalcompany}<br><br>
+                                      <b class="infos_topic_b">Sinopse:</b> <br>
+                                       <div class="container" style="overflow-x: auto;">
 
-                        </intro>
-                       <script>
-
-                        var intro = document.getElementById("intro");
-
-                        intro.innerHTML = "{$topic.desheader}";
-
-                        intro.innerHTML = intro.innerText;
-
-                       </script>
-                        <hr>
-                        <div class="footer_per_intro">
-                            <figure>
-                                    <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" alt="profile">
-                                    <br>
-                                    <figcaption>
-                                        <small>{$topic.desperson} <br>  <b class="infos_topic_b">Administrador</b></small>                       
-                                    </figcaption>
-
-                            </figure>
-                            <share_per id="share_per" href="#" title="Curtir topico">
-                                <figure>
-                                    {include="emojis"}
-                                    <br>
-                                    <figcaption>
-                                            <small>Curtir topico <br> <b class="infos_topic_b">{$topic.destopic}</b></small>
-                                    </figcaption>
-                                </figure>
-                            </share_per>
-                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ddf981ce14f046a"></script>
-                            <figure>
-                                    <div class="addthis_inline_share_toolbox"></div>
-                                    <br>
-                                    <figcaption>
-                                            <small style="margin-top: 5px;">Compartilhar <br> <b class="infos_topic_b">Facebook</b></small>
-                                    </figcaption>
-                                </figure>
-
-                        </div>
-                  </div>
+                                           <intro id="intro"> 
+                   
+                                           </intro>
+                                       </div>
+                                       <script>
+                
+                                        var intro = document.getElementById("intro");
+                
+                                        intro.innerHTML = "{$topic.desheader}";
+                
+                                        intro.innerHTML = intro.innerText;
+                
+                                       </script>
+                                        <hr>
+                                        <div class="footer_per_intro">
+                                            <figure>
+                                                    <img id="profile_topic" src="/profile_user/avatar/{$topic.iduser}.jpg" alt="profile">
+                                                    <br>
+                                                    <figcaption>
+                                                        <small>{$topic.desperson} <br>  <b class="infos_topic_b">Administrador</b></small>                       
+                                                    </figcaption>
+                
+                                            </figure>
+                                            <share_per id="share_per" href="#" title="Curtir topico">
+                                                <figure>
+                                                    {include="emojis"}
+                                                    <br>
+                                                    <figcaption>
+                                                            <small>Curtir topico <br> <b class="infos_topic_b">{$topic.destopic}</b></small>
+                                                    </figcaption>
+                                                </figure>
+                                            </share_per>
+                                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ddf981ce14f046a"></script>
+                                            <figure>
+                                                    <div class="addthis_inline_share_toolbox"></div>
+                                                    <br>
+                                                    <figcaption>
+                                                            <small style="margin-top: 5px;">Compartilhar <br> <b class="infos_topic_b">Facebook</b></small>
+                                                    </figcaption>
+                                                </figure>
+                
+                                        </div>
+                                  </div>
+                                </div>
+                                <hr>
+                            </div>
                 </div>
-                <hr>
             </div>
               
           </div> 

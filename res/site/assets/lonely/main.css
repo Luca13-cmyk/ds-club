@@ -542,6 +542,10 @@ ul#pagination_per li:last-child
     {
         margin-top: 20px;
     }
+    #imagecap_topic
+    {
+        margin: auto;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1626px)

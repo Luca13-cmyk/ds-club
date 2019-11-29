@@ -558,6 +558,10 @@ ul#pagination_per li:last-child
     transition: all .4s ease-in-out;
 }
 
+.overlay .mask:hover {
+    opacity: 1;
+}
+
 .view .mask {
     position: absolute;
     top: 0;

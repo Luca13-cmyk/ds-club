@@ -1,54 +1,67 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            {loop="$topics"}
-                <div class="container my-5 py-5 z-depth-1">
-                    
- 
-                        <!--Section: Content-->
-                        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
-                    
-                          <!--Grid row-->
-                          <div class="row">
-                    
-                            <!--Grid column-->
-                            <div class="col-md-6 mb-4 mb-md-0">
-                    
-                              <h3 class="font-weight-bold">{$value.destopic}</h3>
-                    
-                              <p style="max-height: 140px; overflow-y: hidden;" class="text-muted">{$value.desheader}</p>
+<div class="content">
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        {loop="$topics"}
+                            <div class="container my-5 py-5 z-depth-1">
                                 
-                              <a class="btn btn-purple btn-md ml-0" href="{$value.idtopic}" role="button">{$value.destopic}<i class="nc-icon nc-spaceship"></i></a>
-                    
-                            </div>
-                            <!--Grid column-->
-                    
-                            <!--Grid column-->
-                            <div class="col-md-6 mb-4 mb-md-0">
-                    
-                              <!--Image-->
-                              <div class="view overlay z-depth-1-half">
-                                <img height="340" width="240" src="{$value.descap}" class="img-fluid"
-                                  alt="HQ">
-                                <a href="{$value.idtopic}">
-                                  <div class="mask rgba-white-light"></div>
-                                </a>
-                              </div>
-                    
-                            </div>
-                            <!--Grid column-->
-                    
-                          </div>
-                          <!--Grid row-->
-                    
-                    
-                        </section>
-                        <!--Section: Content-->
-                    
-                    
-                      </div>
+             
+                                    <!--Section: Content-->
+                                    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+                                
+                                      <!--Grid row-->
+                                      <div class="row">
+                                
+                                        <!--Grid column-->
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                
+                                          <h3 class="font-weight-bold">{$value.destopic}</h3>
+                                
+                                          <p id="intro_get" style="max-height: 140px; overflow-y: hidden;" class="text-muted">{$value.desheader}</p>
+                                          
+                                          <script>
+                
+                                            var intro = document.getElementById("intro_get");
 
-                      {/loop}
-        </div>
-    </div>
+                                            intro.innerHTML = "{$topic.desheader}";
+
+                                            intro.innerHTML = intro.innerText;
+
+                                            </script>
+                                          
+                                            
+                                          <a class="btn btn-purple btn-md ml-0" href="{$value.idtopic}" role="button">{$value.destopic}<i class="nc-icon nc-spaceship"></i></a>
+                                
+                                        </div>
+                                        <!--Grid column-->
+                                
+                                        <!--Grid column-->
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                
+                                          <!--Image-->
+                                          <div class="view overlay z-depth-1-half">
+                                            <img height="340" width="240" src="{$value.descap}" class="img-fluid"
+                                              alt="HQ">
+                                            <a href="{$value.idtopic}">
+                                              <div class="mask rgba-white-light"></div>
+                                            </a>
+                                          </div>
+                                
+                                        </div>
+                                        <!--Grid column-->
+                                
+                                      </div>
+                                      <!--Grid row-->
+                                
+                                
+                                    </section>
+                                    <!--Section: Content-->
+                                
+                                
+                                  </div>
+            
+                                  {/loop}
+                    </div>
+                </div>
+            </div>
 </div>

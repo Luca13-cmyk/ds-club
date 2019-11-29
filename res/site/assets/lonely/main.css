@@ -533,6 +533,7 @@ ul#pagination_per li:last-child
     position: relative;
     overflow: hidden;
     cursor: default;
+    max-width: 240px;
 }
 
 

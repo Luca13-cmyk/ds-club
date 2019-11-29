@@ -7,6 +7,7 @@ var ajaxAZsubmit = document.getElementById("ajaxAZsubmit");
 var valueAJAXAZ = document.getElementById("valueAJAXAZ");
 var statusAZ = document.getElementById("statusAZ");
 var topicsAZAJAXcontent = document.getElementById("topicsAZAJAXcontent");
+var loaderspinner = document.querySelector(".ytp-spinner");
 
 if (AZ && ajaxAZsubmit)
   {
@@ -16,11 +17,13 @@ if (AZ && ajaxAZsubmit)
 
       e.preventDefault();
       var value = valueAJAXAZ.value;
-
+      
       if (value == "") return;
       if (value.length > 1) return;
 
-      AZ.innerHTML = ""; // limpa o historico, para n acumular requisicoes.
+      loaderspinner.style.display = "block";
+
+      
       var xhr = new XMLHttpRequest(); // faz a requisicao.
       statusAZ.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="sr-only">Carregando...</span></div>';
       
@@ -38,7 +41,8 @@ if (AZ && ajaxAZsubmit)
           {
             try {
               statusAZ.innerHTML = "Todos os resultados para <b class='font-weight-bold grey-text'>" +  value + "</b>";
-              topicsAZAJAXcontent.style.display = "block";
+              AZ.innerHTML = ""; // limpa o historico, para n acumular requisicoes.
+            //   topicsAZAJAXcontent.style.display = "block";
               responseObject = JSON.parse(xhr.responseText);
               
               const r = responseObject;

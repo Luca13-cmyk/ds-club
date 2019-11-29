@@ -170,14 +170,23 @@ div[data-content_topics]
 }
 
 
+
+
 /* ############# Topic ################ */
+
+.ytp-spinner
+{
+    
+}
+
+
 
 div[data-avatar-card-topic]
 {
     
     width: auto !important;
     height: auto !important;
-    border-radius: 0;
+    border-radius: 1px !important;
 
 
 }

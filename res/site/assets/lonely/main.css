@@ -174,10 +174,10 @@ div[data-content_topics]
 
 div[data-avatar-card-topic]
 {
-    overflow: none !important;
+    
     width: auto !important;
     height: auto !important;
-    border-radius: none;
+    border-radius: 0;
 
 
 }

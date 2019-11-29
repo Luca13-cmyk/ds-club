@@ -22,6 +22,7 @@ if (AZ && ajaxAZsubmit)
 
       AZ.innerHTML = ""; // limpa o historico, para n acumular requisicoes.
       var xhr = new XMLHttpRequest(); // faz a requisicao.
+      statusAZ.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="sr-only">Carregando...</span></div>';
       
       
         xhr.onload = function()
@@ -36,7 +37,7 @@ if (AZ && ajaxAZsubmit)
           if (xhr.status === 200)
           {
             try {
-              statusAZ.innerHTML = "Todos os resultados para " +  value;
+              statusAZ.innerHTML = "Todos os resultados para <b class='font-weight-bold grey-text'>" +  value + "</b>";
               topicsAZAJAXcontent.style.display = "block";
               responseObject = JSON.parse(xhr.responseText);
               

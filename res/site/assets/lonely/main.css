@@ -174,12 +174,10 @@ div[data-content_topics]
 
 /* ############# Topic ################ */
 
-.ytp-spinner-circle
+.ytp-spinner
 {
-    border-color: #51cbce #51cbce transparent !important;
-
+    top: 70% !important;
 }
-
 
 
 div[data-avatar-card-topic]

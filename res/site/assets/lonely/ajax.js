@@ -69,10 +69,10 @@ if (AZ && ajaxAZsubmit)
                                 '<img src="' + r[index].descap + '" class="rounded z-depth-1" alt="'+ r[index].destopic  + '">' +
 
                                 '</div>' +
-                                '<div class="mx-4">'         +         
-                                '<h4 class="font-weight-bold mb-3">John Doe</h4>' +
+                                '<div class="mx-4">'   +         
+                                '<h4 class="font-weight-bold mb-3">' + r[index].destopic +  '</h4>' +
                                 '<h6 class="font-weight-bold grey-text mb-3"><a href="' + r[index].idtopic + '"></a></h6>' +
-                                '<p class=""' + r[index].desheader  + '</p>' +
+                                '<p class="grey-text">' + r[index].desheader  + '</p>' +
                                 '</div>' +
                                 '</div>';
               }

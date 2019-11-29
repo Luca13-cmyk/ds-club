@@ -36,7 +36,7 @@ if (AZ && ajaxAZsubmit)
           if (xhr.status === 200)
           {
             try {
-              statusAZ.style.display = "none";
+              statusAZ.innerHTML = "Todos os resultados para " +  value;
               topicsAZAJAXcontent.style.display = "block";
               responseObject = JSON.parse(xhr.responseText);
               
@@ -64,15 +64,16 @@ if (AZ && ajaxAZsubmit)
 
                 AZ.innerHTML += '<div class="col-lg-6 col-md-12 mb-5 d-md-flex justify-content-between">' + 
                 
-                                '<div class="avatar mb-md-0 mb-4 mx-4">' +
+                                '<div data-avatar-card-topic class="avatar mb-md-0 mb-4 mx-4">' +
 
-                                '<img src="' + r[index].descap + '" class="rounded z-depth-1" alt="'+ r[index].destopic  + '">' +
+                                '<a href="' + r[index].destopic + '"<img src="' + r[index].descap + '" class="rounded z-depth-1" alt="'+ r[index].destopic  + '">' +
 
                                 '</div>' +
                                 '<div class="mx-4">'   +         
                                 '<h4 class="font-weight-bold mb-3">' + r[index].destopic +  '</h4>' +
-                                '<h6 class="font-weight-bold grey-text mb-3"><a href="' + r[index].idtopic + '"></a></h6>' +
-                                '<p class="grey-text">Acompanheo topico clicando no link abaixo.</p><a class="p-2 fa-lg fb-ic">' +
+                                '<h6 class="font-weight-bold grey-text mb-3">' + r[index].dtregister + '</h6>' +
+                                '<p class="grey-text">Acompanhe o topico clicando no link abaixo.</p>' +
+                                '<a href="' + r[index].idtopic  +  '" class="p-2 fa-lg fb-ic">' +
                                 '<i class="nc-icon nc-spaceship"></i>' +
                                 '</a>' +
                                 '</div>' +

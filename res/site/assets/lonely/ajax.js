@@ -72,13 +72,15 @@ if (AZ && ajaxAZsubmit)
                                 '<div class="mx-4">'   +         
                                 '<h4 class="font-weight-bold mb-3">' + r[index].destopic +  '</h4>' +
                                 '<h6 class="font-weight-bold grey-text mb-3"><a href="' + r[index].idtopic + '"></a></h6>' +
-                                '<p class="grey-text">' + r[index].desheader  + '</p>' +
+                                '<p class="grey-text">Acompanheo topico clicando no link abaixo.</p><a class="p-2 fa-lg fb-ic">' +
+                                '<i class="nc-icon nc-spaceship"></i>' +
+                                '</a>' +
                                 '</div>' +
                                 '</div>';
               }
 
               
-              
+             
               
             
             } catch (error) {

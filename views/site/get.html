@@ -17,13 +17,13 @@
                                 
                                           <h3 class="font-weight-bold">{$value.destopic}</h3>
                                 
-                                          <p id="intro_get" style="max-height: 140px; overflow-y: hidden;" class="text-muted">{$value.desheader}</p>
+                                          <p id="intro_get" style="max-height: 140px; overflow-y: hidden;" class="text-muted"></p>
                                           
                                           <script>
                 
                                             var intro = document.getElementById("intro_get");
 
-                                            intro.innerHTML = "{$topic.desheader}";
+                                            intro.innerHTML = "{$value.desheader}";
 
                                             intro.innerHTML = intro.innerText;
 

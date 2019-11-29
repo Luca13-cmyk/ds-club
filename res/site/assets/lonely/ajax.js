@@ -17,6 +17,7 @@ if (AZ && ajaxAZsubmit)
       var value = valueAJAXAZ.value;
 
       if (value == "") return;
+      if (value.length > 1) return;
 
       AZ.innerHTML = ""; // limpa o historico, para n acumular requisicoes.
       var xhr = new XMLHttpRequest(); // faz a requisicao.

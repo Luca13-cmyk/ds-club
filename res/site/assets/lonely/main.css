@@ -177,12 +177,14 @@ div[data-avatar-card-topic]
     overflow: none !important;
     width: auto !important;
     height: auto !important;
+    border-radius: none;
+
 
 }
-div[data-avatar-card-topic] img
+div[data-avatar-card-topic] .z-depth-1
 {
 
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)!important;
 }
 .grey-text
 

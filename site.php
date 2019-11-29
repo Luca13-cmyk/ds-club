@@ -141,22 +141,7 @@ $app->get('/home', function() {
 
 });
 
-$app->get('/data/ajax/AZ', function() {
-    
-    
-    User::verifyLogin(false, false);
-    
-    $l = (isset($_GET["l"])) ? $_GET["l"] : "a";
 
-    
-    echo json_encode(Topic::getPageSearchAZ($l));
-    exit;
-    
-    
-    
- 
- 
- });
 
 $app->get('/topics', function() {
     
@@ -184,6 +169,23 @@ $app->get('/logout', function() {
 	exit;
 
 });
+
+
+// ############## DATA SITE AJAX #################
+
+$app->get('/data/ajax/AZ', function() {
+    
+    
+    User::verifyLogin(false, false);
+    
+    $l = (isset($_GET["l"])) ? $_GET["l"] : "a";
+
+    
+    echo json_encode(Topic::getPageSearchAZ($l));
+    exit;
+    
+ 
+ });
 
 
 ?>

@@ -66,6 +66,25 @@
                 </div>
             </div>
             {/loop} 
+
+
+            <div class="row">
+                    <div class="pagination_content_per">
+                        
+                            <ul id="pagination_per" class="pagination">
+                              <!-- <li><a href="#" class="prev"> Prev</a></li>  -->
+                              {loop="$pages"}
+                               {if="$dir === $value.text"}
+                               <li class="pageNumber current"><a class="" href="{$value.href}">{$value.text}</a></li> 
+                               {else}
+                               <li class="pageNumber"><a class="" href="{$value.href}">{$value.text}</a></li> 
+                               {/if}
+                              {/loop}
+                               <!-- <li><a href="#" class="next">Next</a></li> -->
+                            </ul>
+                          
+                    </div>
+                </div>
 </div>
 
 <script>

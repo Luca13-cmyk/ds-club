@@ -25,7 +25,7 @@ if (AZ && ajaxAZsubmit)
 
       
       var xhr = new XMLHttpRequest(); // faz a requisicao.
-      statusAZ.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="sr-only">Carregando...</span></div>';
+      
       
       
         xhr.onload = function()
@@ -42,12 +42,10 @@ if (AZ && ajaxAZsubmit)
             try {
               statusAZ.innerHTML = "Todos os resultados para <b class='font-weight-bold grey-text'>" +  value + "</b>";
               AZ.innerHTML = ""; // limpa o historico, para n acumular requisicoes.
-            //   topicsAZAJAXcontent.style.display = "block";
+              loaderspinner.style.display = "none";
               responseObject = JSON.parse(xhr.responseText);
               
               const r = responseObject;
-              console.table(r);
-              
               
               
               // Quantidade de visualizacoes

@@ -174,9 +174,10 @@ div[data-content_topics]
 
 /* ############# Topic ################ */
 
-.ytp-spinner
+.ytp-spinner-circle
 {
-    
+    border-color: #51cbce #51cbce transparent !important;
+
 }
 
 

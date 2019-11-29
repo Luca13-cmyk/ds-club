@@ -141,6 +141,29 @@ $app->get('/home', function() {
 
 });
 
+$app->get('/get', function() {
+    
+    
+    User::verifyLogin(false, false);
+
+
+    $topic = new Topic();
+    
+    $values = querySearch($topic, "/get?");
+    
+    $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
+
+    $page = new PageSite();
+
+    $page->setTpl("get", [
+        "topics"=>$values["pagination"],
+		"search"=>$values["search"],
+        "pages"=>$values["pages"],
+        "dir"=>$dir
+        
+    ]);
+   
+});
 
 
 $app->get('/topics', function() {

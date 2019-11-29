@@ -118,6 +118,7 @@ use \Hcode\DB\Sql;
 
     }
 
+
 	function checkLogin($inadmin = true)
 	{
 	

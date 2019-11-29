@@ -1,8 +1,9 @@
 <div class="content">
+        {loop="$topics"}
         <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        {loop="$topics"}
+                        
                             <div class="container my-5 py-5 z-depth-1">
                                 
              
@@ -60,8 +61,18 @@
                                 
                                   </div>
             
-                                  {/loop}
+                                 
                     </div>
                 </div>
             </div>
+            {/loop} 
 </div>
+
+<script>
+
+
+document.querySelector("input[name='search']").value = "{$search}";
+
+
+
+</script>

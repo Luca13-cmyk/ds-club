@@ -235,6 +235,8 @@ if (AZ && ajaxAZsubmit)
       e.preventDefault();
       var value = valueAJAXAZ.value;
 
+      if (value == "") return;
+
       AZ.innerHTML = ""; // limpa o historico, para n acumular requisicoes.
       var xhr = new XMLHttpRequest(); // faz a requisicao.
       
@@ -274,7 +276,7 @@ if (AZ && ajaxAZsubmit)
 
               for (let index = 0; index < r.length; index++) {
                 
-                AZ.setAttribute("title", r[index].destopic);
+                AZ.innerHTML +=  "<div  class='item' title='" + r[index].destopic + "'>"
                 AZ.innerHTML += "<button data-toggle='tooltip' data-placement='bottom' title='Adicionar aos favoritos' id='add_fav_slider_topic'><i class='nc-icon nc-bookmark-2'></i></button>"
                 AZ.innerHTML += "<div class='shadow-effect'><img src='" + r[index].descap + "' alt='cap'></div>" 
                 AZ.innerHTML += "<a href='" + r[index].idtopic + "'><div class='testimonial-name'>Recomendado</div></a>"; 

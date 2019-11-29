@@ -83,14 +83,14 @@ if (AZ && ajaxAZsubmit)
             
             } catch (error) {
                 statusAZ.style.display = "block";
-                statusAZ.innerHTML = "<small>Nao foi possivel concluir a busca. Tente novamente.</small>";
+                statusAZ.innerHTML = "Nao foi possivel concluir a busca. Tente novamente.";
               
             }
             
           } else 
           {
             statusAZ.style.display = "block";
-            statusAZ.innerHTML = "<small>Nao foi possivel concluir a busca. Tente novamente.</small>";
+            statusAZ.innerHTML = "Nao foi possivel concluir a busca. Tente novamente.";
           }
           
           

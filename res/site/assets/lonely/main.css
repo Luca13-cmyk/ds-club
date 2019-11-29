@@ -221,6 +221,11 @@ div[data-content_topics]
     overflow: hidden;
 }
 
+#ajaxAZ
+{
+    text-align: center;
+}
+
 /* ###################### DARK MODE ################################ */
 
 

@@ -206,12 +206,10 @@ class Topic extends Model
 		];
 
 	}
-	public static function getPageSearchAZ($search) // LIKE = como ou mais ou menos igual
-																				 //  = exatamente igual ao especificado 
+	public static function getPageSearchAZ($search) 
+																				 
 	{
 		
-
-
 		$sql = new Sql();
 		$results = $sql->select("
 		

@@ -6,6 +6,7 @@ var AZ = document.getElementById("ajaxAZ");
 var ajaxAZsubmit = document.getElementById("ajaxAZsubmit");
 var valueAJAXAZ = document.getElementById("valueAJAXAZ");
 var statusAZ = document.getElementById("statusAZ");
+var topicsAZAJAXcontent = document.getElementById("topicsAZAJAXcontent");
 
 if (AZ && ajaxAZsubmit)
   {
@@ -36,6 +37,7 @@ if (AZ && ajaxAZsubmit)
           {
             try {
               statusAZ.style.display = "none";
+              topicsAZAJAXcontent.style.display = "block";
               responseObject = JSON.parse(xhr.responseText);
               
               const r = responseObject;
@@ -58,10 +60,24 @@ if (AZ && ajaxAZsubmit)
 
               for (let index = 0; index < r.length; index++) {
                 
-                AZ.innerHTML +=  "<a href='/topics/" + r[index].idtopic + "'><li class='list-group-item'>" +  r[index].destopic  + "</li></a>"; 
+                // AZ.innerHTML +=  "<a href='/topics/" + r[index].idtopic + "'><li class='list-group-item'>" +  r[index].destopic  + "</li></a>"; 
+
+                AZ.innerHTML += '<div class="col-lg-6 col-md-12 mb-5 d-md-flex justify-content-between">' + 
                 
-            
+                                '<div class="avatar mb-md-0 mb-4 mx-4">' +
+
+                                '<img src="' + r[index].descap + '" class="rounded z-depth-1" alt="'+ r[index].destopic  + '">' +
+
+                                '</div>' +
+                                '<div class="mx-4">'         +         
+                                '<h4 class="font-weight-bold mb-3">John Doe</h4>' +
+                                '<h6 class="font-weight-bold grey-text mb-3"><a href="' + r[index].idtopic + '"></a></h6>' +
+                                '<p class=""' + r[index].desheader  + '</p>' +
+                                '</div>' +
+                                '</div>';
               }
+
+              
               
               
             

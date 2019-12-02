@@ -27,6 +27,7 @@ require_once("site.php");
 require_once("admin.php");
 require_once("admin-users.php");
 require_once("admin-topics.php");
+require_once("admin-hqs.php");
 require_once("admin-recommendeds.php");
 
 $app->run();

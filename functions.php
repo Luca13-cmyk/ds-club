@@ -254,22 +254,6 @@ use \Hcode\DB\Sql;
             $return = $sql->select("SELECT * FROM tb_visitors");
             return $return;
             
-            
-            // foreach ($return as $key => $value) {
-                
-            //     $value["dessystem"] = substr(strstr($value['dessystem'], ";"), 1);
-                
-            //     $system = explode(")", $value['dessystem']);
-            //     array_push($arr, $system[0], $value["desip"]);
-                
-
-            //     // echo "<li style='line-height: 55px;'><b style='padding-left: 5px;'>IP:" . $value["desip"] . "</b> | <i style='color: #853bfa'>" . 
-            //     //  $system[0] . "</i></li>";
-                
-            // }
-            // return $arr;
-            
-            
         }
 
 

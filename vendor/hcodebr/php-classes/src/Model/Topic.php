@@ -77,17 +77,17 @@ class Topic extends Model
 		file_put_contents($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "categories-menu.html", implode('', $html));
 	}
 
-	public function  getProducts($related = true)
+	public function  gethqs($related = true)
 	{
 		$sql = new Sql();
 
 		if ($related)
 		{
 			return $sql->select("
-			SELECT * FROM tb_products WHERE idproduct IN(
-				SELECT a.idproduct
-				FROM tb_products a
-				INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
+			SELECT * FROM tb_hqs WHERE idhq IN(
+				SELECT a.idhq
+				FROM tb_hqs a
+				INNER JOIN tb_hqscategories b ON a.idhq = b.idhq
 				WHERE b.idtopic = :idtopic
 			);
 			", [
@@ -98,10 +98,10 @@ class Topic extends Model
 		{
 			return $sql->select("
 			
-			SELECT * FROM tb_products WHERE idproduct NOT IN(
-				SELECT a.idproduct
-				FROM tb_products a
-				INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
+			SELECT * FROM tb_hqs WHERE idhq NOT IN(
+				SELECT a.idhq
+				FROM tb_hqs a
+				INNER JOIN tb_hqscategories b ON a.idhq = b.idhq
 				WHERE b.idtopic = :idtopic
 			);
 			", [
@@ -110,7 +110,7 @@ class Topic extends Model
 		}
 	}
 
-	public function getProductsPage($page = 1, $itemsPerPage = 3)
+	public function gethqsPage($page = 1, $itemsPerPage = 3)
 	{
 		
 		$start = ($page - 1) * $itemsPerPage;
@@ -119,8 +119,8 @@ class Topic extends Model
 		$results = $sql->select("
 		
 			SELECT SQL_CALC_FOUND_ROWS *
-			FROM tb_products a
-			INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
+			FROM tb_hqs a
+			INNER JOIN tb_hqscategories b ON a.idhq = b.idhq
 			INNER JOIN tb_topics c ON c.idtopic = b.idtopic
 			WHERE c.idtopic = :idtopic
 			LIMIT $start, $itemsPerPage;
@@ -132,27 +132,27 @@ class Topic extends Model
 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
 		return [
-			'data'=>Product::checkList($results),
+			'data'=>hq::checkList($results),
 			'total'=>(int)$resultTotal[0]["nrtotal"],
 			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
 		];
 
 	}
 
-	public function addProduct(Product $product)
+	public function addHq(Hq $hq)
 	{
 		$sql = new Sql();
-		$sql->query("INSERT INTO tb_productscategories (idtopic, idproduct) VALUES(:idtopic, :idproduct)", [	
+		$sql->query("INSERT INTO tb_hqscategories (idtopic, idhq) VALUES(:idtopic, :idhq)", [	
 			":idtopic"=>$this->getidtopic(),
-			":idproduct"=>$product->getidproduct()
+			":idhq"=>$hq->getidhq()
 		]);
 	}
-	public function removeProduct(Product $product)
+	public function removehq(hq $hq)
 	{
 		$sql = new Sql();
-		$sql->query("DELETE FROM  tb_productscategories WHERE idtopic =  :idtopic AND idproduct = :idproduct", [	
+		$sql->query("DELETE FROM  tb_hqscategories WHERE idtopic =  :idtopic AND idhq = :idhq", [	
 			":idtopic"=>$this->getidtopic(),
-			":idproduct"=>$product->getidproduct()
+			":idhq"=>$hq->getidhq()
 		]);
 	}
 

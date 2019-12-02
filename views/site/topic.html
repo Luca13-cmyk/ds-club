@@ -48,7 +48,7 @@
                                                     </figcaption>
                 
                                             </figure>
-                                            <share_per id="share_per" href="#" title="Curtir topico">
+                                            <share_per id="share_per" title="Curtir topico">
                                                 <figure>
                                                     {include="emojis"}
                                                     <br>
@@ -81,3 +81,64 @@
         </div>
         
   
+    <script>
+    
+    var profile_topic = document.getElementById("profile_topic");
+
+    var idtopic = "{$topic.idtopic}";
+
+    profile_topic.addEventListener("click", function(){
+
+    
+        var xhr = new XMLHttpRequest(); // faz a requisicao.
+      
+      
+      
+        xhr.onload = function()
+  
+        {
+          //######## testes
+          // console.log(xhr.response.length);
+          // console.log(xhr.response);
+          // response = xhr.response;
+          // #######
+          
+          if (xhr.status === 200)
+          {
+            try {
+              
+              responseObject = JSON.parse(xhr.responseText);
+              
+              const r = responseObject;
+              
+
+              // Execucao no content
+              
+                
+        
+             
+              
+            
+            } catch (error) {
+                
+              
+            }
+            
+          } else 
+          {
+           
+          }
+          
+          
+  
+        }
+
+        
+      xhr.open("POST", "https://lds-club-com.umbler.net/topics/" + idtopic, true);
+      xhr.send(null);
+
+
+
+    }, false);
+    
+    </script>

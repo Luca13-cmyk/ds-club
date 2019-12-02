@@ -4,6 +4,8 @@ use \Hcode\PageSite;
 use \Hcode\Model\User;
 use \Hcode\Model\Topic;
 use \Hcode\Model\Recommended;
+use \Hcode\Model\Userlikes;
+use \Hcode\Model\Topiclikes;
 
 
 
@@ -27,23 +29,36 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $page = new PageSite();
 
+    $userlikes = Userlikes::getFromSession();
+
+    var_dump($userlikes);
+    exit;
+
     $page->setTpl("topic", [
 
         "topic"=>$topic->getValues()
 
+
     ]);
 
-    // $page->setTpl("topic", [
-    //     "topics"=>$values["pagination"],
-	// 	"search"=>$values["search"],
-    //     "pages"=>$values["pages"],
-    //     "dir"=>$dir
-        
-    // ]);
    
 
 
 });
+
+$app->post('/topics/:idtopic', function($idtopic) {
+    
+    User::verifyLogin(false, false);
+
+    $topiclikes = new Topiclikes();
+    
+    $userlikes = new Userlikes();
+
+    $topiclikes->get((int)$idtopic);
+
+    $userlikes->addLike($idtopic, $topiclikes);
+
+ });
 
 $app->get('/ig', function() {
     
@@ -183,6 +198,8 @@ $app->get('/topics', function() {
 
 
 });
+
+
 
 
 $app->get('/logout', function() {

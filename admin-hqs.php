@@ -34,9 +34,10 @@ $app->get('/admin/hqs/create', function() {
 $app->post('/admin/hqs/create', function() {
    
     User::verifyLogin();
-    $Hq = new Hq();
-    $Hq->setData($_POST);
-    $Hq->save();
+
+    $hq = new Hq();
+    $hq->setData($_POST);
+    $hq->save();
     header("Location: /admin/hqs");
     exit;
 

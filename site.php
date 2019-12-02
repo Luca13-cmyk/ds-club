@@ -48,6 +48,7 @@ $app->post('/topics/:idtopic', function($idtopic) {
     
     User::verifyLogin(false, false);
 
+
     $topiclikes = new Topiclikes();
     
     $userlikes = new Userlikes();
@@ -55,6 +56,9 @@ $app->post('/topics/:idtopic', function($idtopic) {
     $topiclikes->get((int)$idtopic);
 
     $userlikes->addLike($idtopic, $topiclikes);
+
+    echo "success";
+    exit;
 
  });
 

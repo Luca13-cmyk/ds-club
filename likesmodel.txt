@@ -1,0 +1,3 @@
+Entidades -
+	userlikes (iduserlikes, id_user, id_topic)
+	topiclikes (idtopiclikes, numero_likes, id_topic)

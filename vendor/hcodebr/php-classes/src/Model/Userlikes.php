@@ -60,7 +60,7 @@ class Userlikes extends Model
 		$sql = new Sql();
 		$user = User::getFromSession();
 
-        $results = $sql->query("CALL sp_likes_save (:idtopiclikes :iduser, :idtopic, :desnumlikes)", [
+        $results = $sql->select("CALL sp_likes_save(:idtopiclikes :iduser, :idtopic, :desnumlikes)", [
 			":idtopiclikes"=>$topiclikes->getidtopiclikes(),
 			":iduser"=>$user->getiduser(),
 			":idtopic"=>$idtopic,

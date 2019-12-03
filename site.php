@@ -36,21 +36,23 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $like = true;
 
-
-    for ($i=0; $i < count($userlikes); $i++) { 
-        if ($userlikes[$i]['idtopic'] === $idtopic)
-        {
-            $like = false;
+    if (count($userlikes) > 0)
+    {
+        for ($i=0; $i < count($userlikes); $i++) { 
+            if ($userlikes[$i]['idtopic'] === $idtopic)
+            {
+                $like = false;
+                break;
+            }
         }
+
+    }
+    else 
+    {
+        if($userlikes['idtopic'] === $idtopic) $like = false; 
     }
 
-
     $page = new PageSite();
-
-
-
-    
-
 
     $page->setTpl("topic", [
 
@@ -69,16 +71,33 @@ $app->post('/topics/:idtopic', function($idtopic) {
     
     User::verifyLogin(false, false);
 
+    $validation = Userlikes::getFromSession();
+
+    if (count($validation) > 0)
+    {
+        for ($i=0; $i < count($validation); $i++) { 
+            if ($validation[$i]['idtopic'] === $idtopic)
+            {
+                break;
+                exit;
+            }
+        }
+
+    }
+    else 
+    {
+        if($validation['idtopic'] === $idtopic) exit; 
+    }
 
     $topiclikes = new Topiclikes();
     
     $userlikes = new Userlikes();
 
+
     $topiclikes->get((int)$idtopic);
 
     $userlikes->addLike($idtopic, $topiclikes);
 
-    echo "success";
     exit;
 
  });

@@ -35,7 +35,7 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $user = new User();
 
-    $like = Userlikes::getDataFromSessionLogin($user->getiduser(), $idtopic);
+    $like = Userlikes::getDataFromSessionLogin((int)$user->getiduser(), (int)$idtopic);
 
     // if($userlikes && $userlikes != '')
     // {

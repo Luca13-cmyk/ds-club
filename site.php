@@ -30,6 +30,7 @@ $app->get('/topics/:idtopic', function($idtopic) {
     $userlikes = Userlikes::getFromSession(); // pega todos os valores de likes
 
     var_dump($userlikes);
+    echo count($userlikes);
     exit;
     $topiclikes = new Topiclikes();
 

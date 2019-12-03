@@ -37,7 +37,7 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $like = true;
 
-    for ($i=0; $i < count($usertopic); $i++) { 
+    for ($i=0; $i < count($userlikes); $i++) { 
         if ((int)$userlikes[$i]['idtopic'] === $idtopic)
         {
             $like = false;

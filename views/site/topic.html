@@ -18,6 +18,7 @@
                                 
                                   <div class="media-body">
                                       <h5  class="mt-0 title_destopic">{$topic.destopic}</h5>
+                                      <b class="infos_topic_b">Curtidas:</b> {$number_likes}<br><br>    
                                       <b class="infos_topic_b">Editora:</b> {$topic.descompany}<br><br>    
                                       <b class="infos_topic_b">Tipo de Série:</b> {$topic.desserie}<br><br>
                                       <b class="infos_topic_b">Ano de Lançamento:</b> {$topic.desrelease}<br><br>
@@ -48,15 +49,17 @@
                                                     </figcaption>
                 
                                             </figure>
+                                            {if="$like === true"}
                                             <share_per id="share_per" title="Curtir topico">
                                                 <figure>
                                                     {include="emojis"}
                                                     <br>
                                                     <figcaption>
-                                                            <small>Curtir topico <br> <b class="infos_topic_b">{$topic.destopic}</b></small>
+                                                            <small>Curtir topico <br> <b class="infos_topic_b">{$number_likes}</b></small>
                                                     </figcaption>
                                                 </figure>
                                             </share_per>
+                                            {/if}
                                             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ddf981ce14f046a"></script>
                                             <figure>
                                                     <div class="addthis_inline_share_toolbox"></div>
@@ -83,11 +86,11 @@
   
     <script>
     
-    var profile_topic = document.getElementById("profile_topic");
+    var share_per = document.getElementById("share_per");
 
     var idtopic = "{$topic.idtopic}";
 
-    profile_topic.addEventListener("click", function(){
+    share_per.addEventListener("click", function(){
 
     
         var xhr = new XMLHttpRequest(); // faz a requisicao.

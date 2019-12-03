@@ -27,8 +27,22 @@ $app->get('/topics/:idtopic', function($idtopic) {
     
     // $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
     
-    var_dump($_SESSION["Userlikes"]);
-    exit;
+    $userlikes = Userlikes::getFromSession();
+
+    $userlikes->get((int)$idtopic);
+
+    $topiclikes = new Topiclikes();
+
+    $like = true;
+
+    for ($i=0; $i < count($userlikes); $i++) { 
+        if ((int)$userlikes[$i]['idtopic'] === $idtopic)
+        {
+            $like = false;
+        }
+    }
+
+
     $page = new PageSite();
 
 
@@ -38,8 +52,9 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $page->setTpl("topic", [
 
-        "topic"=>$topic->getValues()
-
+        "topic"=>$topic->getValues(),
+        "number_likes"=>$topiclikes->getdesnumlikes(),
+        "like"=>$like
 
     ]);
 

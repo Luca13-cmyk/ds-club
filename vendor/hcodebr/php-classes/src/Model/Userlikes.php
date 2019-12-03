@@ -13,22 +13,20 @@ class Userlikes extends Model
 	const SESSION = "Userlikes";
     const SESSION_ERROR = "UserlikesError";
 
-	public static function getFromSession($pos)
+	public static function getFromSession()
 	{
 
 
 		$userlikes = new Userlikes();
-        // var_dump( $_SESSION[Userlikes::SESSION] );
-        // var_dump( (int)$_SESSION[Userlikes::SESSION]['iduserlikes'] );
-        // exit;
-        if (isset($_SESSION[Userlikes::SESSION]) && (int)$_SESSION[Userlikes::SESSION][$pos]['iduser'] > 0) 
+
+        if (isset($_SESSION[Userlikes::SESSION])) 
         {
 
-			$userlikes->get((int)$_SESSION[Userlikes::SESSION][$pos]['iduser']);
+			return $_SESSION[Userlikes::SESSION];
 
         } 
 
-		return $userlikes;
+		
 
 	}
 

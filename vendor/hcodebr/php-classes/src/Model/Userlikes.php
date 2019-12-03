@@ -78,7 +78,7 @@ class Userlikes extends Model
 			':iduser'=>$iduser,
 			':idtopic'=>$idtopic
 		]);
-		if (count($results) > 0)
+		if ($results != '')
 		{
 			return false;
 			

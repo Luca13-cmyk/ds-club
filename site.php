@@ -71,7 +71,7 @@ $app->get('/topics/:idtopic', function($idtopic) {
             }
             else 
             {
-                if($userlikes['idtopic'] === $idtopic) $like = false; 
+                if($userlikes[0]['idtopic'] === $idtopic) $like = false; 
             }
     }
     

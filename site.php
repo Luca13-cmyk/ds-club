@@ -29,30 +29,37 @@ $app->get('/topics/:idtopic', function($idtopic) {
     
     $userlikes = Userlikes::getFromSession(); // pega todos os valores de likes
 
-
+    var_dump($userlikes);
+    exit;
     $topiclikes = new Topiclikes();
 
     $topiclikes->get((int)$idtopic);
 
     $like = true;
-    try {
-        if (count($userlikes) > 0)
-        {
-            for ($i=0; $i < count($userlikes); $i++) 
-            { 
-                if ($userlikes[$i]['idtopic'] === $idtopic)
-                {
-                    $like = false;
-                    break;
+
+    if($userlikes && $userlikes != '')
+    {
+
+        try {
+            if (count($userlikes) > 1)
+            {
+                for ($i=0; $i < count($userlikes); $i++) 
+                { 
+                    if ($userlikes[$i]['idtopic'] === $idtopic)
+                    {
+                        $like = false;
+                        break;
+                    }
                 }
             }
+            else 
+            {
+                if($userlikes['idtopic'] === $idtopic) $like = false; 
+            }
+        } catch (\Exception $th) {
+            $_SESSION["error_topic"] = "...";
+            echo "erro no sistema";
         }
-        else 
-        {
-            if($userlikes['idtopic'] === $idtopic) $like = false; 
-        }
-    } catch (\Exception $th) {
-        echo "Erro no sistema.";
     }
     
 
@@ -77,21 +84,33 @@ $app->post('/topics/:idtopic', function($idtopic) {
 
     $validation = Userlikes::getFromSession();
 
-    if (count($validation) > 0)
+    if($validation && $validation != '')
     {
-        for ($i=0; $i < count($validation); $i++) { 
-            if ($validation[$i]['idtopic'] === $idtopic)
+        try
+        {
+            if (count($validation) > 1)
             {
-                break;
-                exit;
+                for ($i=0; $i < count($validation); $i++) { 
+                    if ($validation[$i]['idtopic'] === $idtopic)
+                    {
+                        break;
+                        exit;
+                    }
+                }
+        
+            }
+            else 
+            {
+                if($validation['idtopic'] === $idtopic) exit; 
             }
         }
+        catch (\Exception $th)
+        {
+            exit;
+        }
+       
+    }
 
-    }
-    else 
-    {
-        if($validation['idtopic'] === $idtopic) exit; 
-    }
 
     $topiclikes = new Topiclikes();
     

@@ -29,7 +29,7 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $page = new PageSite();
 
-    $userlikes = Userlikes::getFromSession();
+    $userlikes = Userlikes::getFromSession((int)$idtopic);
     var_dump($userlikes);
     exit;
 

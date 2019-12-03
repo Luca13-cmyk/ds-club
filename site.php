@@ -29,13 +29,15 @@ $app->get('/topics/:idtopic', function($idtopic) {
     
     $userlikes = Userlikes::getFromSession();
 
-    $userlikes->get((int)$idtopic);
+    $usertopic = new Userlikes();
+
+    $usertopic->get((int)$idtopic);
 
     $topiclikes = new Topiclikes();
 
     $like = true;
 
-    for ($i=0; $i < count($userlikes); $i++) { 
+    for ($i=0; $i < count($usertopic); $i++) { 
         if ((int)$userlikes[$i]['idtopic'] === $idtopic)
         {
             $like = false;

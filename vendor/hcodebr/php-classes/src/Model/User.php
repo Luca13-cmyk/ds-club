@@ -144,14 +144,13 @@ class User extends Model {
 
 			$user->setData($data);
 
-			$userlike = new Userlikes();
+			$userlikes = new Userlikes();
 
-			$userlike->get((int)$user->getiduser());
-			var_dump($userlike->getValues());
-			exit;
-
+			$userlikes->get((int)$user->getiduser());
+			
 			$_SESSION[User::SESSION] = $user->getValues();
-			$_SESSION[Userlikes::SESSION] = $userlike->getValues();
+			
+			$userlikes->setToSession($userlikes->getValues());
 
 
             return $user;

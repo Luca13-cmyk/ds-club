@@ -147,6 +147,8 @@ class User extends Model {
 			$userlike = new Userlikes();
 
 			$userlike->get((int)$user->getiduser());
+			var_dump($userlike->getValues());
+			exit;
 
 			$_SESSION[User::SESSION] = $user->getValues();
 			$_SESSION[Userlikes::SESSION] = $userlike->getValues();

@@ -53,7 +53,24 @@ class Userlikes extends Model
 		}
 
 	}
-	
+	public function setDataSessionLogin(int $iduser)
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM tb_userlikes WHERE iduser = :iduser", [
+			':iduser'=>$iduser
+		]);
+		if (count($results) > 0)
+		{
+
+			$this->setToSession($results);
+		} else 
+		{
+			$this->setToSession([]);
+		}
+
+	}
+
 	public function addLike($idtopic, Topiclikes $topiclikes)
     {
 		$sql = new Sql();

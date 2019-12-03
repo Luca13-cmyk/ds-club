@@ -33,7 +33,8 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $topiclikes->get((int)$idtopic);
 
-    $user = new User();
+
+    $user = User::getFromSession();
 
     $like = Userlikes::getDataFromSessionLogin((int)$user->getiduser(), (int)$idtopic);
 

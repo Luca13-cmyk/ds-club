@@ -26,12 +26,11 @@ $app->get('/topics/:idtopic', function($idtopic) {
     // $values = querySearch($topic, "/home?");
     
     // $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
-
+    
+    var_dump($_SESSION["Userlikes"]);
+    exit;
     $page = new PageSite();
 
-    $userlikes = Userlikes::getFromSession((int)$idtopic);
-    var_dump($userlikes);
-    exit;
 
 
     

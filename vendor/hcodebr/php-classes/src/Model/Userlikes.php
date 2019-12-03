@@ -45,7 +45,7 @@ class Userlikes extends Model
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_userlikes WHERE iduser = :iduser", [
-			':iduser'=>$user
+			':iduser'=>$iduser
 		]);
 
 		if (count($results) > 0) {

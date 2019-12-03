@@ -78,6 +78,8 @@ class Userlikes extends Model
 			':iduser'=>$iduser,
 			':idtopic'=>$idtopic
 		]);
+		var_dump($results);
+		exit;
 		if ($results != '')
 		{
 			return false;

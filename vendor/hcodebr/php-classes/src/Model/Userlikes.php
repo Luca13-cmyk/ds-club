@@ -53,6 +53,7 @@ class Userlikes extends Model
 		}
 
 	}
+	
 	public function addLike($idtopic, Topiclikes $topiclikes)
     {
 		$sql = new Sql();

@@ -38,27 +38,8 @@ $app->get('/topics/:idtopic', function($idtopic) {
     if($userlikes && $userlikes != '')
     {
 
-        // try {
-        //     if (count($userlikes) > 4)
-        //     {
-        //         for ($i=0; $i < count($userlikes); $i++) 
-        //         { 
-        //             if ($userlikes[$i]['idtopic'] === $idtopic)
-        //             {
-        //                 $like = false;
-        //                 break;
-        //             }
-        //         }
-        //     }
-        //     else 
-        //     {
-        //         if($userlikes['idtopic'] === $idtopic) $like = false; 
-        //     }
-        // } catch (\Exception $th) {
-        //     $_SESSION["error_topic"] = "...";
-        //     echo "erro no sistema";
-        // }
-        if (count($userlikes) > 4)
+        try {
+            if (count($userlikes) > 4)
             {
                 for ($i=0; $i < count($userlikes); $i++) 
                 { 
@@ -73,6 +54,10 @@ $app->get('/topics/:idtopic', function($idtopic) {
             {
                 if($userlikes[0]['idtopic'] === $idtopic) $like = false; 
             }
+        } catch (\Exception $th) {
+            $_SESSION["error_topic"] = "...";
+            echo "erro no sistema";
+        }
     }
     
 
@@ -114,7 +99,7 @@ $app->post('/topics/:idtopic', function($idtopic) {
             }
             else 
             {
-                if($validation['idtopic'] === $idtopic) exit; 
+                if($validation[0]['idtopic'] === $idtopic) exit; 
             }
         }
         catch (\Exception $th)

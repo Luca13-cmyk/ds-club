@@ -5,6 +5,7 @@ namespace Hcode\Model;
 use \Hcode\DB\Sql;
 use \Hcode\Model;
 use \Hcode\Mailer;
+use \Hcode\Model\Userlikes;
 
 class User extends Model {
 
@@ -143,7 +144,12 @@ class User extends Model {
 
 			$user->setData($data);
 
+			$userlike = new Userlikes();
+
+			$userlike->get((int)$user->getiduser());
+
 			$_SESSION[User::SESSION] = $user->getValues();
+			$_SESSION[Userlikes::SESSION] = $userlike->getValues();
 
 
             return $user;

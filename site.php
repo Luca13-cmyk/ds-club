@@ -27,13 +27,12 @@ $app->get('/topics/:idtopic', function($idtopic) {
     
     // $dir = ($_SERVER['QUERY_STRING']) ? (int)substr(strstr($_SERVER['QUERY_STRING'], "="), 1) : 1;
     
-    $userlikes = Userlikes::getFromSession();
+    $userlikes = Userlikes::getFromSession(); // pega todos os valores de likes
 
-    $usertopic = new Userlikes();
-
-    $usertopic->get((int)$idtopic);
 
     $topiclikes = new Topiclikes();
+
+    $topiclikes->get((int)$idtopic);
 
     $like = true;
 

@@ -70,6 +70,24 @@ class Userlikes extends Model
 		}
 
 	}
+	public static function getDataFromSessionLogin(int $iduser, int $idtopic)
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM tb_userlikes WHERE iduser = :iduser AND idtopic = :idtopic", [
+			':iduser'=>$iduser,
+			':idtopic'=>$idtopic
+		]);
+		if (count($results) > 0)
+		{
+			return false;
+			
+		} else 
+		{
+			return true;
+		}
+
+	}
 
 	public function addLike($idtopic, Topiclikes $topiclikes)
     {

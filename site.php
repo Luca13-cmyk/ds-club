@@ -33,32 +33,34 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $topiclikes->get((int)$idtopic);
 
-    $like = true;
+    $user = new User();
 
-    if($userlikes && $userlikes != '')
-    {
+    $like = Userlikes::getDataFromSessionLogin($user->getiduser(), $idtopic);
 
-        try {
-            if (count($userlikes) > 4)
-            {
-                for ($i=0; $i < count($userlikes); $i++) 
-                { 
-                    if ($userlikes[$i]['idtopic'] === $idtopic)
-                    {
-                        $like = false;
-                        break;
-                    }
-                }
-            }
-            else 
-            {
-                if($userlikes[0]['idtopic'] === $idtopic) $like = false; 
-            }
-        } catch (\Exception $th) {
-            $_SESSION["error_topic"] = "...";
-            echo "erro no sistema";
-        }
-    }
+    // if($userlikes && $userlikes != '')
+    // {
+
+    //     try {
+    //         if (count($userlikes) > 4)
+    //         {
+    //             for ($i=0; $i < count($userlikes); $i++) 
+    //             { 
+    //                 if ($userlikes[$i]['idtopic'] === $idtopic)
+    //                 {
+    //                     $like = false;
+    //                     break;
+    //                 }
+    //             }
+    //         }
+    //         else 
+    //         {
+    //             if($userlikes[0]['idtopic'] === $idtopic) $like = false; 
+    //         }
+    //     } catch (\Exception $th) {
+    //         $_SESSION["error_topic"] = "...";
+    //         echo "erro no sistema";
+    //     }
+    // }
     
 
     $page = new PageSite();

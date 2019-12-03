@@ -13,7 +13,7 @@ class Userlikes extends Model
 	const SESSION = "Userlikes";
     const SESSION_ERROR = "UserlikesError";
 
-	public static function getFromSession()
+	public static function getFromSession($pos)
 	{
 
 
@@ -21,10 +21,10 @@ class Userlikes extends Model
         // var_dump( $_SESSION[Userlikes::SESSION] );
         // var_dump( (int)$_SESSION[Userlikes::SESSION]['iduserlikes'] );
         // exit;
-        if (isset($_SESSION[Userlikes::SESSION]) && (int)$_SESSION[Userlikes::SESSION]['iduser'] > 0) 
+        if (isset($_SESSION[Userlikes::SESSION]) && (int)$_SESSION[Userlikes::SESSION][$pos]['iduser'] > 0) 
         {
 
-			$userlikes->get((int)$_SESSION[Userlikes::SESSION]['iduser']);
+			$userlikes->get((int)$_SESSION[Userlikes::SESSION][$pos]['iduser']);
 
         } 
 
@@ -67,7 +67,7 @@ class Userlikes extends Model
 			":desnumlikes"=>$topiclikes->getdesnumlikes()+1
 		]);
 		
-		$this->setToSession($results[0]);
+		$this->setToSession($results);
 
 	}
 	

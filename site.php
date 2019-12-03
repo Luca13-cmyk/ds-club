@@ -29,10 +29,12 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $page = new PageSite();
 
-    $userlikes = Userlikes::getFromSession();
-
     var_dump($userlikes);
     exit;
+
+    $userlikes = Userlikes::getFromSession();
+
+    
 
 
     $page->setTpl("topic", [

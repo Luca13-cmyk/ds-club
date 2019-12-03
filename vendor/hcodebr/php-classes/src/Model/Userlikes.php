@@ -75,8 +75,8 @@ class Userlikes extends Model
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_userlikes WHERE iduser = :iduser AND idtopic = :idtopic", [
-			':iduser'=>$iduser,
-			':idtopic'=>$idtopic
+			':iduser'=>9,
+			':idtopic'=>1
 		]);
 		var_dump($results);
 		exit;

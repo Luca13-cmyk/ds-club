@@ -36,18 +36,14 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $like = true;
 
-    var_dump($userlikes);
 
     for ($i=0; $i < count($userlikes); $i++) { 
-        // if ((int)$userlikes[$i]['idtopic'] === $idtopic)
-        // {
-        //     $like = false;
-        // }
-
-        echo $userlikes[$i]['idtopic'];
+        if ($userlikes[$i]['idtopic'] === $idtopic)
+        {
+            $like = false;
+        }
     }
 
-    exit;
 
     $page = new PageSite();
 

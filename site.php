@@ -35,22 +35,26 @@ $app->get('/topics/:idtopic', function($idtopic) {
     $topiclikes->get((int)$idtopic);
 
     $like = true;
-
-    if (count($userlikes) > 0)
-    {
-        for ($i=0; $i < count($userlikes); $i++) { 
-            if ($userlikes[$i]['idtopic'] === $idtopic)
-            {
-                $like = false;
-                break;
+    try {
+        if (count($userlikes) > 0)
+        {
+            for ($i=0; $i < count($userlikes); $i++) 
+            { 
+                if ($userlikes[$i]['idtopic'] === $idtopic)
+                {
+                    $like = false;
+                    break;
+                }
             }
         }
-
+        else 
+        {
+            if($userlikes['idtopic'] === $idtopic) $like = false; 
+        }
+    } catch (\Exception $th) {
+        echo "Erro no sistema.";
     }
-    else 
-    {
-        if($userlikes['idtopic'] === $idtopic) $like = false; 
-    }
+    
 
     $page = new PageSite();
 

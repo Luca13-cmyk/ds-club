@@ -42,7 +42,7 @@ $app->get('/topics/:idtopic', function($idtopic) {
     {
 
         try {
-            if (count($userlikes) > 1)
+            if (count($userlikes) > 4)
             {
                 for ($i=0; $i < count($userlikes); $i++) 
                 { 
@@ -89,7 +89,7 @@ $app->post('/topics/:idtopic', function($idtopic) {
     {
         try
         {
-            if (count($validation) > 1)
+            if (count($validation) > 4)
             {
                 for ($i=0; $i < count($validation); $i++) { 
                     if ($validation[$i]['idtopic'] === $idtopic)

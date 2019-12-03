@@ -31,6 +31,9 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $userlikes = Userlikes::getFromSession();
 
+    var_dump($userlikes);
+    exit;
+
 
     $page->setTpl("topic", [
 

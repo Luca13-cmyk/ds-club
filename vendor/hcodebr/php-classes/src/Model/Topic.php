@@ -38,8 +38,6 @@ class Topic extends Model
 
 		$this->setData($results[0]);
 
-		// Topic::updateFile();
-
 	}
 	
 	public function get($idtopic)
@@ -62,22 +60,9 @@ class Topic extends Model
 			":idtopic"=>$this->getidtopic()
 		]);
 
-		// Topic::updateFile();
-	}
-	public static function updateFile()
-	{
-		$topics = Topic::listAll();
-
-		$html = [];
-		foreach ($topics as $row) {
-			array_push($html, '<li><a href="/topics/'. $row["idtopic"] . '">'. $row["destopic"] .'</a></li>');
-
-		}
-
-		file_put_contents($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "topics-menu.html", implode('', $html));
 	}
 
-	public function  gethqs($related = true)
+	public function  getHqs($related = true)
 	{
 		$sql = new Sql();
 

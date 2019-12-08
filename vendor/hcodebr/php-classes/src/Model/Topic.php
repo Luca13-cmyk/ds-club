@@ -127,7 +127,7 @@ class Topic extends Model
 	public function addHq(Hq $hq)
 	{
 		$sql = new Sql();
-		$sql->query("INSERT INTO tb_hqstopics (idtopic, idhq) VALUES(:idtopic, :idhq)", [	
+		$sql->query("INSERT INTO tb_hqtopics (idtopic, idhq) VALUES(:idtopic, :idhq)", [	
 			":idtopic"=>$this->getidtopic(),
 			":idhq"=>$hq->getidhq()
 		]);
@@ -135,7 +135,7 @@ class Topic extends Model
 	public function removeHq(hq $hq)
 	{
 		$sql = new Sql();
-		$sql->query("DELETE FROM  tb_hqstopics WHERE idtopic =  :idtopic AND idhq = :idhq", [	
+		$sql->query("DELETE FROM  tb_hqtopics WHERE idtopic =  :idtopic AND idhq = :idhq", [	
 			":idtopic"=>$this->getidtopic(),
 			":idhq"=>$hq->getidhq()
 		]);

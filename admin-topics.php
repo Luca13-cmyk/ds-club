@@ -5,25 +5,6 @@ use \Hcode\Model\User;
 use \Hcode\Model\Topic;
 use \Hcode\Model\Hq;
 
-
-$app->get("/admin/topics/:idtopic/hqs", function($idtopic)
-{
-	User::verifyLogin();
-
-	$topic = new Topic();
-
-	$topic->get((int)$idtopic);
-
-	$page = new PageAdmin();
-
-	$page->setTpl("topics-hqs", [
-		"topic"=>$topic->getValues(),
-		"hqsRelated"=>$topic->getHqs(),
-		"hqsNotRelated"=>$topic->getHqs(false)
-	]);
-
-});
-
 $app->get("/admin/topics/:idtopic/hqs/:idhq/add", function($idtopic, $idhq){
 
 	User::verifyLogin();
@@ -61,6 +42,27 @@ $app->get("/admin/topics/:idtopic/hqs/:idhq/remove", function($idtopic, $idhq){
 	exit;
 
 });
+
+$app->get("/admin/topics/:idtopic/hqs", function($idtopic)
+{
+	User::verifyLogin();
+
+	$topic = new Topic();
+
+	$topic->get((int)$idtopic);
+
+	$page = new PageAdmin();
+
+	$page->setTpl("topics-hqs", [
+		"topic"=>$topic->getValues(),
+		"hqsRelated"=>$topic->getHqs(),
+		"hqsNotRelated"=>$topic->getHqs(false)
+	]);
+
+});
+
+
+
 
 
 $app->get("/admin/topics", function()

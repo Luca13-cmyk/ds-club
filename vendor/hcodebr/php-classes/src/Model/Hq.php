@@ -69,7 +69,7 @@ class Hq extends Model
 
 	public function getValues()
 	{
-		// $this->checkPhoto();
+
 		$values = parent::getValues();
 
 

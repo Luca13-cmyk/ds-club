@@ -66,15 +66,15 @@ class Topic extends Model
 	}
 	public static function updateFile()
 	{
-		$categories = Topic::listAll();
+		$topics = Topic::listAll();
 
 		$html = [];
-		foreach ($categories as $row) {
-			array_push($html, '<li><a href="/categories/'. $row["idtopic"] . '">'. $row["destopic"] .'</a></li>');
+		foreach ($topics as $row) {
+			array_push($html, '<li><a href="/topics/'. $row["idtopic"] . '">'. $row["destopic"] .'</a></li>');
 
 		}
 
-		file_put_contents($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "categories-menu.html", implode('', $html));
+		file_put_contents($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "topics-menu.html", implode('', $html));
 	}
 
 	public function  gethqs($related = true)
@@ -87,7 +87,7 @@ class Topic extends Model
 			SELECT * FROM tb_hqs WHERE idhq IN(
 				SELECT a.idhq
 				FROM tb_hqs a
-				INNER JOIN tb_hqscategories b ON a.idhq = b.idhq
+				INNER JOIN tb_hqstopics b ON a.idhq = b.idhq
 				WHERE b.idtopic = :idtopic
 			);
 			", [
@@ -101,7 +101,7 @@ class Topic extends Model
 			SELECT * FROM tb_hqs WHERE idhq NOT IN(
 				SELECT a.idhq
 				FROM tb_hqs a
-				INNER JOIN tb_hqscategories b ON a.idhq = b.idhq
+				INNER JOIN tb_hqstopics b ON a.idhq = b.idhq
 				WHERE b.idtopic = :idtopic
 			);
 			", [
@@ -120,7 +120,7 @@ class Topic extends Model
 		
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_hqs a
-			INNER JOIN tb_hqscategories b ON a.idhq = b.idhq
+			INNER JOIN tb_hqstopics b ON a.idhq = b.idhq
 			INNER JOIN tb_topics c ON c.idtopic = b.idtopic
 			WHERE c.idtopic = :idtopic
 			LIMIT $start, $itemsPerPage;
@@ -142,7 +142,7 @@ class Topic extends Model
 	public function addHq(Hq $hq)
 	{
 		$sql = new Sql();
-		$sql->query("INSERT INTO tb_hqscategories (idtopic, idhq) VALUES(:idtopic, :idhq)", [	
+		$sql->query("INSERT INTO tb_hqstopics (idtopic, idhq) VALUES(:idtopic, :idhq)", [	
 			":idtopic"=>$this->getidtopic(),
 			":idhq"=>$hq->getidhq()
 		]);
@@ -150,7 +150,7 @@ class Topic extends Model
 	public function removehq(hq $hq)
 	{
 		$sql = new Sql();
-		$sql->query("DELETE FROM  tb_hqscategories WHERE idtopic =  :idtopic AND idhq = :idhq", [	
+		$sql->query("DELETE FROM  tb_hqstopics WHERE idtopic =  :idtopic AND idhq = :idhq", [	
 			":idtopic"=>$this->getidtopic(),
 			":idhq"=>$hq->getidhq()
 		]);

@@ -38,34 +38,6 @@ $app->get('/topics/:idtopic', function($idtopic) {
 
     $like = Userlikes::getDataFromSessionLogin((int)$user->getiduser(), (int)$idtopic);
 
-    var_dump($like);
-    exit;
-
-    // if($userlikes && $userlikes != '')
-    // {
-
-    //     try {
-    //         if (count($userlikes) > 4)
-    //         {
-    //             for ($i=0; $i < count($userlikes); $i++) 
-    //             { 
-    //                 if ($userlikes[$i]['idtopic'] === $idtopic)
-    //                 {
-    //                     $like = false;
-    //                     break;
-    //                 }
-    //             }
-    //         }
-    //         else 
-    //         {
-    //             if($userlikes[0]['idtopic'] === $idtopic) $like = false; 
-    //         }
-    //     } catch (\Exception $th) {
-    //         $_SESSION["error_topic"] = "...";
-    //         echo "erro no sistema";
-    //     }
-    // }
-    
 
     $page = new PageSite();
 
@@ -88,32 +60,9 @@ $app->post('/topics/:idtopic', function($idtopic) {
 
     $validation = Userlikes::getFromSession();
 
-    if($validation && $validation != '')
-    {
-        try
-        {
-            if (count($validation) > 4)
-            {
-                for ($i=0; $i < count($validation); $i++) { 
-                    if ($validation[$i]['idtopic'] === $idtopic)
-                    {
-                        break;
-                        exit;
-                    }
-                }
-        
-            }
-            else 
-            {
-                if($validation[0]['idtopic'] === $idtopic) exit; 
-            }
-        }
-        catch (\Exception $th)
-        {
-            exit;
-        }
-       
-    }
+    $user = User::getFromSession();
+
+    $like = Userlikes::getDataFromSessionLogin((int)$user->getiduser(), (int)$idtopic);
 
 
     $topiclikes = new Topiclikes();

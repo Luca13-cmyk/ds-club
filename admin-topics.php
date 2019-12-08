@@ -3,7 +3,64 @@
 use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 use \Hcode\Model\Topic;
-use \Hcode\Model\Product;
+use \Hcode\Model\Hq;
+
+
+$app->get("/admin/topics/:idtopic/hqs", function($idtopic)
+{
+	User::verifyLogin();
+
+	$topic = new Topic();
+
+	$topic->get((int)$idtopic);
+
+	$page = new PageAdmin();
+
+	$page->setTpl("topics-hqs", [
+		"topic"=>$topic->getValues(),
+		"hqsRelated"=>$topic->getHqs(),
+		"hqsNotRelated"=>$topic->getHqs(false)
+	]);
+
+});
+
+$app->get("/admin/topics/:idtopic/hqs/:idhq/add", function($idtopic, $idhq){
+
+	User::verifyLogin();
+	
+	
+	$topic = new Topic();
+
+	$topic->get((int)$idtopic);
+	
+	$hq = new Hq();
+
+	$hq->get((int)$idhq);
+
+	$topic->addHq($hq);
+
+	header("Location: /admin/topics/" . $idtopic . "/hqs");
+	exit;
+
+});
+$app->get("/admin/topics/:idtopic/hqs/:idhq/remove", function($idtopic, $idhq){
+
+	User::verifyLogin();
+	
+	$topic = new Topic();
+
+	$topic->get((int)$idtopic);
+	
+	$hq = new Hq();
+
+	$hq->get((int)$idhq);
+
+	$topic->removeHq($hq);
+
+	header("Location: /admin/topics/" . $idtopic . "/hqs");
+	exit;
+
+});
 
 
 $app->get("/admin/topics", function()
@@ -113,7 +170,7 @@ $app->post("/admin/topics/:idtopic", function($idtopic){
 	
 });
 
-$app->get("/admin/topics/:idtopic/products", function($idtopic){
+$app->get("/admin/topics/:idtopic/hqs", function($idtopic){
 
 	User::verifyLogin();
 	
@@ -124,16 +181,16 @@ $app->get("/admin/topics/:idtopic/products", function($idtopic){
 	
 	$page = new PageAdmin();
 
-	$page->setTpl("topics-products", [
+	$page->setTpl("topics-hqs", [
 		"topic"=>$topic->getvalues(),
-		"productsRelated"=>$topic->getProducts(),
-		"productsNotRelated"=>$topic->getProducts(false)
+		"hqsRelated"=>$topic->gethqs(),
+		"hqsNotRelated"=>$topic->gethqs(false)
 
 	]);
 
 });
 
-$app->get("/admin/topics/:idtopic/products/:idproduct/add", function($idtopic, $idproduct){
+$app->get("/admin/topics/:idtopic/hqs/:idhq/add", function($idtopic, $idhq){
 
 	User::verifyLogin();
 	
@@ -142,17 +199,17 @@ $app->get("/admin/topics/:idtopic/products/:idproduct/add", function($idtopic, $
 
 	$topic->get((int)$idtopic);
 	
-	$product = new Product();
+	$hq = new hq();
 
-	$product->get((int)$idproduct);
+	$hq->get((int)$idhq);
 
-	$topic->addProduct($product);
+	$topic->addhq($hq);
 
-	header("Location: /admin/topics/" . $idtopic . "/products");
+	header("Location: /admin/topics/" . $idtopic . "/hqs");
 	exit;
 
 });
-$app->get("/admin/topics/:idtopic/products/:idproduct/remove", function($idtopic, $idproduct){
+$app->get("/admin/topics/:idtopic/hqs/:idhq/remove", function($idtopic, $idhq){
 
 	User::verifyLogin();
 	
@@ -161,13 +218,13 @@ $app->get("/admin/topics/:idtopic/products/:idproduct/remove", function($idtopic
 
 	$topic->get((int)$idtopic);
 	
-	$product = new Product();
+	$hq = new hq();
 
-	$product->get((int)$idproduct);
+	$hq->get((int)$idhq);
 
-	$topic->removeProduct($product);
+	$topic->removehq($hq);
 
-	header("Location: /admin/topics/" . $idtopic . "/products");
+	header("Location: /admin/topics/" . $idtopic . "/hqs");
 	exit;
 
 });

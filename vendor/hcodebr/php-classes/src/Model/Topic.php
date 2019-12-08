@@ -72,7 +72,7 @@ class Topic extends Model
 			SELECT * FROM tb_hqs WHERE idhq IN(
 				SELECT a.idhq
 				FROM tb_hqs a
-				INNER JOIN tb_hqstopics b ON a.idhq = b.idhq
+				INNER JOIN tb_hqtopics b ON a.idhq = b.idhq
 				WHERE b.idtopic = :idtopic
 			);
 			", [
@@ -86,7 +86,7 @@ class Topic extends Model
 			SELECT * FROM tb_hqs WHERE idhq NOT IN(
 				SELECT a.idhq
 				FROM tb_hqs a
-				INNER JOIN tb_hqstopics b ON a.idhq = b.idhq
+				INNER JOIN tb_hqtopics b ON a.idhq = b.idhq
 				WHERE b.idtopic = :idtopic
 			);
 			", [
@@ -132,7 +132,7 @@ class Topic extends Model
 			":idhq"=>$hq->getidhq()
 		]);
 	}
-	public function removehq(hq $hq)
+	public function removeHq(hq $hq)
 	{
 		$sql = new Sql();
 		$sql->query("DELETE FROM  tb_hqstopics WHERE idtopic =  :idtopic AND idhq = :idhq", [	

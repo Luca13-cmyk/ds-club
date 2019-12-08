@@ -210,6 +210,26 @@ class Topic extends Model
 		
 
 	}
+
+	public static function getidtopic($destopic)
+	{
+		$sql = new Sql();
+		$results = $sql->select("
+		
+			SELECT *
+			FROM tb_topics 
+			WHERE destopic = :destopic  
+			ORDER BY destopic;
+		", [
+			":destopic"=>$destopic
+		]);
+
+		if (count($results) > 0)
+		{
+
+			return $results[0];
+		}
+	}
 	
 }
 

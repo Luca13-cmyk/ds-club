@@ -78,7 +78,7 @@ class Userlikes extends Model
 			':iduser'=>$iduser,
 			':idtopic'=>$idtopic
 		]);
-		
+
 		if ($results != '')
 		{
 			return false;
@@ -99,7 +99,7 @@ class Userlikes extends Model
 			":idtopiclikes"=>$topiclikes->getidtopiclikes(),
 			":iduser"=>$user->getiduser(),
 			":idtopic"=>$idtopic,
-			":desnumlikes"=>$topiclikes->getdesnumlikes()+1
+			":desnumlikes"=>(int)$topiclikes->getdesnumlikes()+1
 		]);
 		
 		$this->setToSession($results);

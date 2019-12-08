@@ -35,9 +35,28 @@ $app->post('/admin/hqs/create', function() {
    
     User::verifyLogin();
 
-    $hq = new Hq();
-    $hq->setData($_POST);
+    $topic = new Topic();
+
+    $destopic = $_GET["destopic"];
+
+    $idtopic = Topic::getidtopic($destopic);
+
+	$topic->get((int)$idtopic["idtopic"]);
+	
+	$hq = new Hq();
+
+	$hq->get((int)$idhq);
+
+	$topic->addHq($hq);
+
+    $hq->setData([
+        "deshq"=>$_GET["deshq"],
+        "deslink"=>$_GET["deslink"],
+        "descap"=>$_GET["descap"]
+    ]);
+    
     $hq->save();
+
     header("Location: /admin/hqs");
     exit;
 

@@ -5,25 +5,25 @@ use \Hcode\Model\User;
 use \Hcode\Model\Topic;
 use \Hcode\Model\Hq;
 
-$app->get("/admin/topics/:idtopic/hqs/:idhq/add", function($idtopic, $idhq){
+// $app->get("/admin/topics/:idtopic/hqs/:idhq/add", function($idtopic, $idhq){
 
-	User::verifyLogin();
+// 	User::verifyLogin();
 	
 	
-	$topic = new Topic();
+// 	$topic = new Topic();
 
-	$topic->get((int)$idtopic);
+// 	$topic->get((int)$idtopic);
 	
-	$hq = new Hq();
+// 	$hq = new Hq();
 
-	$hq->get((int)$idhq);
+// 	$hq->get((int)$idhq);
 
-	$topic->addHq($hq);
+// 	$topic->addHq($hq);
 
-	header("Location: /admin/topics/" . $idtopic . "/hqs");
-	exit;
+// 	header("Location: /admin/topics/" . $idtopic . "/hqs");
+// 	exit;
 
-});
+// });
 $app->get("/admin/topics/:idtopic/hqs/:idhq/remove", function($idtopic, $idhq){
 
 	User::verifyLogin();
@@ -55,8 +55,8 @@ $app->get("/admin/topics/:idtopic/hqs", function($idtopic)
 
 	$page->setTpl("topics-hqs", [
 		"topic"=>$topic->getValues(),
-		"hqsRelated"=>$topic->getHqs(),
-		"hqsNotRelated"=>$topic->getHqs(false)
+		"hqsRelated"=>$topic->getHqs()
+		// "hqsNotRelated"=>$topic->getHqs(false)
 	]);
 
 });
